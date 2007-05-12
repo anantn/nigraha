@@ -1,0 +1,51 @@
+<?php
+
+    require('protected/envi.php');
+    $what = $_REQUEST['l'];
+    $getInfo = mysql_query("SELECT * FROM info_schema WHERE secname = '".$what."'");
+    $gotInfo = mysql_fetch_assoc($getInfo);
+    switch($what) {
+        
+        case 'main':$mnit->assign('main_page', 1);
+                    $mnit->assign('heading', 'Malaviya National Institute of Technology');
+                    $mnit->assign('subheading','jawaharlal nehru marg, malaviya nagar, jaipur');
+                	$mnit->assign('tenders','Tenders may be posted here for public viewing');
+                    $mnit->assign('newshead','NEWS AND EVENTS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small><a href="intranet/mnitpost/archived.php">Go to News Page</a></small>');
+                    $mnit->assign('noticehead','NOTICES&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small><a href="intranet/mnitpost/archived.php">Go to Notices Page</a></small>');
+                    $mnit->assign('tenderhead','TENDERS');
+                    $mnit->assign('root_logo',$basedir.'images/logo.jpg');
+                    $mnit->assign('mhome', 'active');
+                    break;
+    
+        default:    $mnit->assign('main_page', 0);
+                    $mnit->assign('heading', $gotInfo['heading']);
+                    $mnit->assign('subheading', $gotInfo['subheading']);
+                    $mnit->assign('table', $what);
+                    $mnit->assign('m'.$what, 'active');
+    }
+        
+    $content = array();
+    $getheads = mysql_query("SELECT DISTINCT sectionname FROM info_".$what);
+    $headings = mysql_fetch_row($getheads);
+    $secno = mysql_num_rows($getheads);
+    foreach($headings as $heading) {
+        $content[$heading] = array();
+    }
+    $i = 0;
+    while ($i <= $secno)
+    {   $query = mysql_query("SELECT sectionid, sectionname, paraid, paratype, data 
+                              FROM info_".$what." WHERE sectionid=".$i);
+        while ($res = mysql_fetch_assoc($query)) {
+            if(substr($res['paraid'],-1,1)=='d') break;            
+            $content[$res['sectionname']][] = array("paraid"=>$res['paraid'],
+                                                    "secid"=>$res['sectionid'],
+                                                    "type"=>$prefix.$res['paratype'],
+                                                    "data"=>$res['data']);
+        }
+        $i = $i + 1;
+    }
+   
+    $mnit->assign('content', $content);
+    $mnit->display('index.tpl');
+    
+?>

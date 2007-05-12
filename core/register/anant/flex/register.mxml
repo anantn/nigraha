@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" 
+    width="100%" height="100%" pageTitle="MNIT Registration 2007" horizontalAlign="center" verticalAlign="middle">
+    <mx:Script>
+    <![CDATA[
+    	import mx.controls.Alert;
+        public function processForm():void
+        {
+            validateForm.cancel();
+            validateForm.send(validateInfo);
+        }
+        public function getValidateResult(r:Number, e:Event):void
+        {
+        	Alert.show(String(this.validateForm.lastResult.response[0].@code));
+        	//Alert.show(String(r));
+        }
+    ]]>
+    </mx:Script>
+    <mx:HTTPService id="validateForm" url="http://172.16.1.20/register/anant/web/"
+    				method="GET" showBusyCursor="true" result="getValidateResult(1, event)"
+    				fault="getValidateResult(0, event)" resultFormat="e4x">
+    </mx:HTTPService>
+    <mx:Model id="validateInfo">
+        	<mnit-request type="validate" for="student" api="adobeflex2">
+    			<userdata>
+        		<userid>{userid.text}</userid>
+        		<passtemp>{passwd.text}</passtemp>
+    			</userdata>
+			</mnit-request>
+    </mx:Model>
+    <mx:Resize id="expand" target="{main}" widthTo="800" heightTo="600"/>
+    <mx:Panel id="main" width="25%" title="Registration for Odd Semester - 2007" horizontalAlign="center">
+        <mx:Text>
+            <mx:text>
+                Welcome to the online registration form!
+            </mx:text>
+        </mx:Text>
+        <mx:Text>
+            <mx:text>
+                To begin, type the userid and temporary password that was given to you.
+            </mx:text>
+        </mx:Text>
+        <mx:Form>
+            <mx:FormItem label="UserID:">
+                <mx:TextInput 
+                    id="userid"
+                />
+            </mx:FormItem>
+            <mx:FormItem label="Password: ">
+                <mx:TextInput 
+                    id="passwd"
+                    displayAsPassword="true"
+                />
+            </mx:FormItem>
+            <mx:FormItem>
+                <mx:Button label="Submit!" click="processForm();"/>
+            </mx:FormItem>
+        </mx:Form>
+    </mx:Panel>
+</mx:Application>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mnit-response type="validate">
+    <response code="101">Invalid Request Type</response>
+</mnit-response>

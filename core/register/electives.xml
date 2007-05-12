@@ -1,0 +1,595 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<courseList>
+<!-- Dept:AR -->
+  <dept id="AR" semester="4" number="1" type='IE' />
+  <dept id="AR" semester="5" number="1" type='IE' />
+  <dept id="AR" semester="6" number="1" type='IE' />
+
+  <dept id="AR" semester="4" type='IC'>
+    <course>ECA-1</course>
+  </dept>
+
+  <dept id="AR" semester="4" type='IC'>
+    <course>ECA-2</course>
+  </dept>
+
+  <dept id="AR" semester="6" type='IC'>
+    <course>ECA-2</course>
+  </dept>
+
+  <dept id="AR" semester="8" type='IC'>
+    <course>ECA-3</course>
+  </dept>
+
+  <dept id="AR" semester="10" type='IC'>
+    <course>ECA-2</course>
+  </dept>
+
+  <dept id="AR" semester="6" type='IC'>
+    <course>IC-301</course>
+  </dept>
+
+   <dept id="AR" semester="5" number="1" type='DE'>
+    <course>AR-321</course>
+    <course>AR-323</course>
+    <course>AR-325</course>
+    <course>AR-327</course>
+  </dept>
+  
+   <dept id="AR" semester="6" number="1" type='DE'>
+    <course>AR-322</course>
+    <course>AR-324</course>
+    <course>AR-326</course>
+  </dept>
+  <dept id="AR" semester="7" number="1" type='DE'>
+    <course>AR-421</course>
+    <course>AR-423</course>
+    <course>AR-425</course>
+  </dept>
+  <dept id="AR" semester="9" number="1" type='DE'>
+    <course>AR-521</course>
+    <course>AR-523</course>
+    <course>AR-525</course>
+  </dept>
+  <dept id="AR" semester="10" number="1" type='DE'>
+    <course>AR-522</course>
+    <course>AR-524</course>
+    <course>AR-526</course>
+    <course>AR-528</course>
+  </dept>
+
+<!-- Dept:CE -->
+  <dept id="CE" semester="3" number="1" type='IE' />
+  <dept id="CE" semester="4" number="1" type='IE' />
+  <dept id="CE" semester="5" number="1" type='IE' />
+
+  <dept id="CE" semester="4" type='IC'>
+    <course>ECA-1</course>
+  </dept>
+
+  <dept id="CE" semester="4" type='IC'>
+    <course>ECA-2</course>
+  </dept>
+
+  <dept id="CE" semester="6" type='IC'>
+    <course>ECA-2</course>
+  </dept>
+
+  <dept id="CE" semester="8" type='IC'>
+    <course>ECA-2</course>
+  </dept>
+
+  <dept id="CE" semester="3" type='IC'>
+    <course>IC-201</course>
+  </dept>
+
+   <dept id="CE" semester="3" type='IC'>
+    <course>IC-202</course>
+  </dept>
+
+  <dept id="CE" semester="5" type='IC'>
+    <course>IC-301</course>
+  </dept>
+
+  <dept id="CE" semester="7" type='IC'>
+    <course>IC-401</course>
+  </dept>
+
+   <dept id="CE" semester="7" number="1" type='DE'>
+    <course>ST-431</course>
+    <course>CE-441</course>
+    <course>ST-441</course>
+    <course>CE-451</course>
+    <course>CE-461</course>  
+  </dept>
+  <dept id="CE" semester="8" number="3" type='DE'>
+    <course>ST-412</course>
+    <course>ST-422</course>
+    <course>CE-432</course>
+    <course>ST-432</course>
+    <course>CE-442</course>
+    <course>ST-442</course>
+    <course>CE-452</course>
+    <course>ST-452</course>
+    <course>CE-462</course>
+    <course>ST-462</course>
+    <course>CE-472</course>
+    <course>CE-482</course>
+    <course>CE-492</course>
+  </dept>
+  
+  
+  <!-- Dept:CH -->
+  <dept id="CH" semester="3" number="1" type='IE' />
+  <dept id="CH" semester="4" number="2" type='IE' />
+
+  <dept id="CH" semester="4" type='IC'>
+    <course>ECA-1</course>
+  </dept>
+
+  <dept id="CH" semester="4" type='IC'>
+    <course>ECA-2</course>
+  </dept>
+
+  <dept id="CH" semester="6" type='IC'>
+    <course>ECA-2</course>
+  </dept>
+
+  <dept id="CH" semester="8" type='IC'>
+    <course>ECA-2</course>
+  </dept>
+
+  <dept id="CH" semester="3" type='IC'>
+    <course>IC-201</course>
+  </dept>
+
+   <dept id="CH" semester="3" type='IC'>
+    <course>IC-202</course>
+  </dept>
+
+  <dept id="CH" semester="5" type='IC'>
+    <course>IC-301</course>
+  </dept>
+
+  <dept id="CH" semester="7" type='IC'>
+    <course>IC-401</course>
+  </dept>
+
+   <dept id="CH" semester="6" number="1" type='DE'>
+    <course>CH-312</course>
+    <course>CH-314</course>
+    <course>CH-316</course>
+    <course>CH-318</course>
+    <course>CH-320</course>  
+  </dept>
+  <dept id="CH" semester="7" number="1" type='DE'>
+    <course>CH-409</course>
+    <course>CH-411</course>
+    <course>CH-413</course>
+    <course>CH-415</course>
+    <course>CH-417</course>
+  </dept>
+  <dept id="CH" semester="7" number="1" type='DE'>
+    <course>CH-419</course>
+    <course>CH-421</course>
+    <course>CH-423</course>
+    <course>CH-425</course>
+  </dept>
+  <dept id="CH" semester="8" number="1" type='DE'>
+    <course>CH-404</course>
+    <course>CH-406</course>
+    <course>CH-408</course>
+    <course>CH-410</course>
+  </dept>
+  <dept id="CH" semester="8" number="1" type='DE'>
+    <course>CH-412</course>
+    <course>CH-414</course>
+    <course>CH-416</course>
+    <course>CH-418</course>
+    <course>CH-420</course>
+  </dept>
+  
+  
+  <!-- Dept:CP -->
+  <dept id="CP" semester="3" number="1" type='IE' />
+  <dept id="CP" semester="4" number="1" type='IE' />
+  <dept id="CP" semester="5" number="1" type='IE' />
+
+  <dept id="CP" semester="4" type='IC'>
+    <course>ECA-1</course>
+  </dept>
+
+  <dept id="CP" semester="4" type='IC'>
+    <course>ECA-2</course>
+  </dept>
+
+  <dept id="CP" semester="6" type='IC'>
+    <course>ECA-2</course>
+  </dept>
+
+  <dept id="CP" semester="8" type='IC'>
+    <course>ECA-2</course>
+  </dept>
+
+  <dept id="CP" semester="3" type='IC'>
+    <course>IC-201</course>
+  </dept>
+
+   <dept id="CP" semester="4" type='IC'>
+    <course>IC-202</course>
+  </dept>
+
+  <dept id="CP" semester="6" type='IC'>
+    <course>IC-301</course>
+  </dept>
+
+  <dept id="CP" semester="8" type='IC'>
+    <course>IC-401</course>
+  </dept>
+
+   <dept id="CP" semester="6" number="1" type='DE'>
+<!--    <course>CP-322</course>
+    <course>CP-324</course>
+    <course>CP-326</course>
+    <course>CP-328</course>
+    <course>CP-330</course>  -->
+    <course>CP-332</course>
+  </dept>
+  <dept id="CP" semester="7" number="1" type='DE'>
+    <course>CP-421</course>
+    <course>CP-423</course>
+    <course>CP-425</course>
+    <course>CP-427</course>
+    <course>CP-429</course>
+  </dept>
+  <dept id="CP" semester="7" number="1" type='DE'>
+    <course>CP-441</course>
+    <course>CP-443</course>
+    <course>CP-445</course>
+    <course>CP-447</course>
+    <course>CP-449</course>
+  </dept>
+  <dept id="CP" semester="8" number="1" type='DE'>
+    <course>CP-420</course>
+<!--    <course>CP-422</course>
+    <course>CP-424</course>
+    <course>CP-426</course>
+    <course>CP-428</course>-->
+  </dept>
+  <dept id="CP" semester="8" number="1" type='DE'>
+    <course>CP-444</course>
+  </dept>
+  
+
+<!-- Dept:IT -->
+  <dept id="IT" semester="3" number="1" type='IE' />
+  <dept id="IT" semester="4" number="1" type='IE' />
+  <dept id="IT" semester="5" number="1" type='IE' />
+
+  <dept id="IT" semester="4" type='IC'>
+    <course>ECA-1</course>
+  </dept>
+
+  <dept id="IT" semester="4" type='IC'>
+    <course>ECA-2</course>
+  </dept>
+
+  <dept id="IT" semester="6" type='IC'>
+    <course>ECA-2</course>
+  </dept>
+
+  <dept id="IT" semester="8" type='IC'>
+    <course>ECA-2</course>
+  </dept>
+
+  <dept id="IT" semester="3" type='IC'>
+    <course>IC-201</course>
+  </dept>
+
+   <dept id="IT" semester="4" type='IC'>
+    <course>IC-202</course>
+  </dept>
+
+  <dept id="IT" semester="6" type='IC'>
+    <course>IC-301</course>
+  </dept>
+
+  <dept id="IT" semester="8" type='IC'>
+    <course>IC-401</course>
+  </dept>
+
+   <dept id="IT" semester="6" number="1" type='DE'>
+    <course>IT-332</course>
+  </dept>
+  <dept id="IT" semester="7" number="1" type='DE'>
+    <course>IT-421</course>
+    <course>IT-423</course>
+    <course>IT-425</course>
+    <course>IT-427</course>
+    <course>IT-429</course>
+  </dept>
+  <dept id="IT" semester="7" number="1" type='DE'>
+    <course>IT-441</course>
+    <course>IT-443</course>
+    <course>IT-445</course>
+    <course>IT-447</course>
+    <course>IT-449</course>
+  </dept>
+  <dept id="IT" semester="8" number="1" type='DE'>
+    <course>IT-428</course>
+  </dept>
+  <dept id="IT" semester="8" number="1" type='DE'>
+    <course>IT-444</course>
+  </dept>
+  
+  
+  <!-- Dept:EE -->
+  <dept id="EE" semester="3" number="1" type='IE' />
+  <dept id="EE" semester="4" number="2" type='IE' />
+
+  <dept id="EE" semester="4" type='IC'>
+    <course>ECA-1</course>
+  </dept>
+
+  <dept id="EE" semester="4" type='IC'>
+    <course>ECA-2</course>
+  </dept>
+
+  <dept id="EE" semester="6" type='IC'>
+    <course>ECA-2</course>
+  </dept>
+
+  <dept id="EE" semester="8" type='IC'>
+    <course>ECA-2</course>
+  </dept>
+
+  <dept id="EE" semester="3" type='IC'>
+    <course>IC-201</course>
+  </dept>
+
+   <dept id="EE" semester="4" type='IC'>
+    <course>IC-202</course>
+  </dept>
+
+  <dept id="EE" semester="6" type='IC'>
+    <course>IC-301</course>
+  </dept>
+
+  <dept id="EE" semester="7" type='IC'>
+    <course>IC-401</course>
+  </dept>
+
+   <dept id="EE" semester="6" number="1" type='DE'>
+    <course>EE-310</course>
+    <course>EE-312</course>
+    <course>EE-314</course>
+  </dept>
+  
+  <dept id="EE" semester="7" number="1" type='DE'>
+    <course>EE-407</course>
+    <course>EE-409</course>
+    <course>EE-411</course>
+  </dept>
+  <dept id="EE" semester="7" number="1" type='DE'>
+    <course>EE-413</course>
+    <course>EE-415</course>
+    <course>EE-417</course>
+  </dept>
+  <dept id="EE" semester="8" number="1" type='DE'>
+    <course>EE-404</course>
+    <course>EE-406</course>
+    <course>EE-408</course>
+  </dept>
+  <dept id="EE" semester="8" number="1" type='DE'>
+    <course>EE-410</course>
+    <course>EE-412</course>
+    <course>EE-414</course>
+  </dept>
+  
+  <!-- Dept:EC -->
+  <dept id="EC" semester="3" number="1" type='IE' />
+  <dept id="EC" semester="4" number="2" type='IE' />
+
+  <dept id="EC" semester="4" type='IC'>
+    <course>ECA-1</course>
+  </dept>
+
+  <dept id="EC" semester="4" type='IC'>
+    <course>ECA-2</course>
+  </dept>
+
+  <dept id="EC" semester="6" type='IC'>
+    <course>ECA-2</course>
+  </dept>
+
+  <dept id="EC" semester="8" type='IC'>
+    <course>ECA-2</course>
+  </dept>
+
+  <dept id="EC" semester="3" type='IC'>
+    <course>IC-201</course>
+  </dept>
+
+   <dept id="EC" semester="3" type='IC'>
+    <course>IC-202</course>
+  </dept>
+
+  <dept id="EC" semester="5" type='IC'>
+    <course>IC-301</course>
+  </dept>
+
+  <dept id="EC" semester="8" type='IC'>
+    <course>IC-401</course>
+  </dept>
+
+   <dept id="EC" semester="6" number="2" type='DE'>
+    <course>EC-308</course>
+    <course>EC-318</course>
+    <course>EC-328</course>
+    <course>EC-338</course>
+    <course>EC-348</course>  
+    <course>EC-358</course>
+  </dept>
+  <dept id="EC" semester="7" number="2" type='DE'>
+    <course>EC-407</course>
+    <course>EC-417</course>
+    <course>EC-427</course>
+    <course>EC-437</course>
+    <course>EC-447</course>
+    <course>EC-457</course>
+    <course>EC-467</course>
+  </dept>
+  <dept id="EC" semester="8" number="2" type='DE'>
+    <course>EC-408</course>
+    <course>EC-418</course>
+    <course>EC-428</course>
+    <course>EC-438</course>
+    <course>EC-448</course>
+    <course>EC-458</course>
+    <course>EC-468</course>
+    <course>EC-478</course>
+    <course>EC-488</course>
+    <course>EC-498</course>
+    <course>EC-496</course>
+  </dept>
+  
+<!-- Dept:ME -->
+  <dept id="ME" semester="3" number="1" type='IE' />
+  <dept id="ME" semester="4" number="1" type='IE' />
+  <dept id="ME" semester="6" number="1" type='IE' />
+
+  <dept id="ME" semester="4" type='IC'>
+    <course>ECA-1</course>
+  </dept>
+
+  <dept id="ME" semester="4" type='IC'>
+    <course>ECA-2</course>
+  </dept>
+
+  <dept id="ME" semester="6" type='IC'>
+    <course>ECA-2</course>
+  </dept>
+
+  <dept id="ME" semester="8" type='IC'>
+    <course>ECA-2</course>
+  </dept>
+
+  <dept id="ME" semester="3" type='IC'>
+    <course>IC-201</course>
+  </dept>
+
+   <dept id="ME" semester="4" type='IC'>
+    <course>IC-202</course>
+  </dept>
+
+  <dept id="ME" semester="6" type='IC'>
+    <course>IC-301</course>
+  </dept>
+
+  <dept id="ME" semester="5" type='IC'>
+    <course>IC-401</course>
+  </dept>
+
+ <dept id="ME" semester="7" number="2" type='DE'>
+    <course>ME-411</course>
+    <course>ME-412</course>
+    <course>ME-413</course>
+    <course>ME-414</course>
+    <course>ME-415</course>
+    <course>ME-416</course>
+    <course>ME-417</course>
+    <course>ME-418</course>
+    <course>ME-419</course>
+    <course>ME-420</course>
+    <course>ME-421</course>
+    <course>ME-422</course>
+    <course>ME-423</course>
+    <course>ME-424</course>
+    <course>ME-425</course>
+    <course>ME-426</course>
+    <course>ME-427</course>
+    <course>ME-428</course>
+    <course>ME-429</course>
+    <course>ME-430</course>
+    <course>ME-431</course>
+    <course>ME-432</course>
+  </dept>
+   
+ <dept id="ME" semester="8" number="2" type='DE'>
+    <course>ME-411</course>
+    <course>ME-412</course>
+    <course>ME-413</course>
+    <course>ME-414</course>
+    <course>ME-415</course>
+    <course>ME-416</course>
+    <course>ME-417</course>
+    <course>ME-418</course>
+    <course>ME-419</course>
+    <course>ME-420</course>
+    <course>ME-421</course>
+    <course>ME-422</course>
+    <course>ME-423</course>
+    <course>ME-424</course>
+    <course>ME-425</course>
+    <course>ME-426</course>
+    <course>ME-427</course>
+    <course>ME-428</course>
+    <course>ME-429</course>
+    <course>ME-430</course>
+    <course>ME-431</course>
+    <course>ME-432</course>
+  </dept>
+  
+   <!-- Dept:MT -->
+  <dept id="MT" semester="3" number="1" type='IE' />
+  <dept id="MT" semester="4" number="1" type='IE' />
+  <dept id="MT" semester="5" number="1" type='IE' />
+
+  <dept id="MT" semester="4" type='IC'>
+    <course>ECA-1</course>
+  </dept>
+
+  <dept id="MT" semester="4" type='IC'>
+    <course>ECA-2</course>
+  </dept>
+
+  <dept id="MT" semester="6" type='IC'>
+    <course>ECA-2</course>
+  </dept>
+
+  <dept id="MT" semester="8" type='IC'>
+    <course>ECA-2</course>
+  </dept>
+
+  <dept id="MT" semester="3" type='IC'>
+    <course>IC-201</course>
+  </dept>
+
+   <dept id="MT" semester="3" type='IC'>
+    <course>IC-202</course>
+  </dept>
+
+  <dept id="MT" semester="5" type='IC'>
+    <course>IC-301</course>
+  </dept>
+
+  <dept id="MT" semester="6" number="2" type='DE'>
+    <course>MT-320</course>
+    <course>MT-322</course>
+    <course>MT-324</course>
+    <course>MT-326</course>
+    <course>MT-328</course>
+  </dept>
+  <dept id="MT" semester="7" number="3" type='DE'>
+    <course>MT-409</course>
+    <course>MT-411</course>
+    <course>MT-413</course>
+    <course>MT-415</course>
+    <course>MT-417</course>
+    <course>MT-419</course>
+    <course>MT-421</course>
+    <course>MT-423</course>
+    <course>MT-425</course>
+  </dept>
+    
+</courseList>

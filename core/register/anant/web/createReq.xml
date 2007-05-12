@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mnit-request type="create" for="student" api="adobeflex2">
+	<userdata>
+		<userid>040853</userid>
+		<alias>rahul</alias>
+		<name>Rahul Murmuria</name>
+		<email><![CDATA[rahul.murmuria@gmail.com]]></email>
+        <password>testpass</password>
+		<gender>male</gender>
+		<nationality>Indian</nationality>
+		<bloodgp>A1+</bloodgp>
+		<marital>single</marital>
+        <residence type="hosteller"><![CDATA[8/70, MNIT Hostel]]></residence>
+		<dept id="CP" semester="6" batch="3"/>
+		<concession type="railway"><![CDATA[Chennai Central]]></concession>
+		<father>
+			<name><![CDATA[Murari Lal Murmuria]]></name>
+			<occupation><![CDATA[Project Consultant]]></occupation>
+		</father>
+		<mother name="Rekha Murmuria"/>
+        <phone>919281007133</phone>
+        <paddress><![CDATA[117, Nelson Manickam Road, Chennai, TN]]></paddress>
+	</userdata>
+</mnit-request>

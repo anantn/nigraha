@@ -1,0 +1,84 @@
+<?php
+	if(isset($_COOKIE['auth']) AND $_COOKIE['auth']==1)
+		echo "<meta HTTP-EQUIV=\"refresh\" content=0;url=\"intrahome.php\">";
+	else
+	{
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>MNIT IntraNET</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="Keywords" content="Layout2, 404 creative studios" />
+<meta name="Description" content="simple css driven layout" />
+<link href="intrastyle.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+<div id="container"> <b class="rtop"><b class="r1"></b><b class="r2"></b> <b class="r3"></b> <b class="r4"></b></b>
+<div id="pageHeader"><img src="intranet.jpg" /></div>
+  <div id="divPageContent">
+    <table width="100%" border="0" cellpadding="5" cellspacing="0">
+      <tr>
+        <td valign="top" class="leftColumn"><div id="sideBarNews"> <br />
+            <div id="newsHeader">News</div>
+            <div id="sideBarNewsContent">
+              <div class="newsItem">Documentation released for the Intranet! In-Depth Tutorials, How-To's and inside developer's views Included!</div>
+              <div class="readNewsLink"><a href="index.html">Go to the IntraDocs</a></div>
+              <div class="newsItem">Need Help on some particular feature or service of the Intranet? Contact the Webmaster or any SysAdmin NOW!</div>
+              <div class="readNewsLink"><a href="index.html">Contact Support</a></div>
+            </div>
+          </div></td>
+        <td valign="top" class="rightColumn">
+          <p class="subHeader">Logon NOW!          </p>
+          <form id="form1" name="form1" method="post" action="login.php">
+            <table width="100%" border="0">
+              <tr>
+                <td width="42%"><table width="200" border="0">
+                    <tr>
+                      <td>Alias</td>
+                      <td><input type="text" name="alias" /></td>
+                    </tr>
+                    <tr>
+                      <td>Password</td>
+                      <td><input type="password" name="password" /></td>
+                    </tr>
+                    <tr>
+                      <td colspan="2"><div align="center">
+                          <input type="submit" name="Submit" value="Logon" />
+                        </div></td>
+                    </tr>
+                  </table></td>
+                <td width="58%"><strong>For Webmail <a href="http://172.16.1.14/intranet/mail.php">Click Here</a><br />
+                  Don't have a UserID/Password?<br />
+                  Contact your HOD or any of the SysAdmins to get yours today!</strong> </td>
+              </tr>
+            </table>
+          </form>
+          </p>
+          <p class="subHeader">Services Offered by the MNIT Intranet:</p>
+          <ul>
+            <li><strong>WebMail --</strong> Your own email address @mnit.ac.in...</li>
+            <li><strong>Mailing Lists --</strong> Subscribe to topics of your interest...</li>
+            <li><strong>Bulletin Board --</strong> Discuss with other students on topics of your choice...</li>
+            <li><strong>Academic Info --</strong> Check your CGPA and other information RealTime...</li>
+            <li><strong>Hostels --</strong> Check your Mess Dues and Hostel Information Instantly...</li>
+            <li><strong>Personal Page --</strong> Your own space on the Internet...</li>
+          </ul>
+          And for the Staff:
+          <ul>
+            <li><strong>Research --</strong> Manage All your research Online!</li>
+            <li><strong>CMS --</strong> Manage the MNIT Network. You choose what information goes where!</li>
+            <li><strong>Management --</strong> Complete Management of Student Academics, Hostels etc...</li>
+          </ul>
+          <p></p></td>
+      </tr>
+    </table>
+  </div>
+  <div id="divBaseLinks"><a href="index.html">Home</a> | <a href="index.html">Sitemap</a></div>
+  
+  <b class="rbottom"><b class="r4"></b> <b class="r3"></b> <b class="r2"></b> <b class="r1"></b></b> </div>
+<div class="spacer">&nbsp;</div>
+</body>
+</html>
+<? } ?>

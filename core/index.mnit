@@ -1,0 +1,15 @@
+<?php
+
+    require('protected/envi.php');
+    $mnit->assign('main_page', 1);
+    $mnit->assign('heading', 'Malaviya National Institute of Technology');
+    $mnit->assign('subheading','jawaharlal nehru marg, malaviya nagar, jaipur');
+	$mnit->assign('tenders','Tenders may be posted here for public viewing');
+	$mnit->assign('newshead','NEWS AND EVENTS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small><a href="intranet/mnitpost/archived.php">Go to News Page</a></small>');
+	$mnit->assign('noticehead','NOTICES&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small><a href="intranet/mnitpost/archived.php">Go to Notices Page</a></small>');
+	$mnit->assign('tenderhead','TENDERS');
+	$mnit->assign('root_logo',$basedir.'images/logo.jpg');
+	$mnit->assign('mhome', 'active');
+	$mnit->display('index.tpl');
+    
+?>

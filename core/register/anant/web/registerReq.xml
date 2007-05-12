@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mnit-request type="validate" for="student" api="adobeflex2">
+	<userdata>
+		<userid>040805</userid>
+        <passtemp>346127cf62d9b940</passtemp>
+	</userdata>
+</mnit-request>

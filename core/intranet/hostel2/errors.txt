@@ -1,0 +1,114 @@
+[18-Oct-2005 09:53:02] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in c:\phpdev\www\public\hostel\final\search1.php on line 171
+[18-Oct-2005 09:53:02] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in c:\phpdev\www\public\hostel\final\search1.php on line 175
+[18-Oct-2005 23:26:19] PHP Fatal error:  Call to undefined function:  () in c:\phpdev\www\public\hostel\final\process.php on line 77
+[19-Oct-2005 00:25:33] PHP Fatal error:  Call to undefined function:  () in c:\phpdev\www\public\hostel\final\process.php on line 77
+[20-Oct-2005 02:56:14] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in c:\phpdev\www\public\hostel\final\search1.php on line 171
+[20-Oct-2005 02:56:14] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in c:\phpdev\www\public\hostel\final\search1.php on line 175
+[20-Oct-2005 02:56:14] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in c:\phpdev\www\public\hostel\final\search1.php on line 171
+[20-Oct-2005 02:56:14] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in c:\phpdev\www\public\hostel\final\search1.php on line 175
+[20-Oct-2005 02:56:14] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in c:\phpdev\www\public\hostel\final\search1.php on line 171
+[20-Oct-2005 02:56:14] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in c:\phpdev\www\public\hostel\final\search1.php on line 175
+[21-Oct-2005 00:43:34] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in c:\phpdev\www\public\hostel\final\search1.php on line 171
+[21-Oct-2005 00:43:34] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in c:\phpdev\www\public\hostel\final\search1.php on line 175
+[21-Oct-2005 00:43:34] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in c:\phpdev\www\public\hostel\final\search1.php on line 171
+[21-Oct-2005 00:43:34] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in c:\phpdev\www\public\hostel\final\search1.php on line 175
+[21-Oct-2005 00:43:34] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in c:\phpdev\www\public\hostel\final\search1.php on line 171
+[21-Oct-2005 00:43:34] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in c:\phpdev\www\public\hostel\final\search1.php on line 175
+[21-Oct-2005 01:58:15] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in c:\phpdev\www\public\hostel\final\search1.php on line 171
+[21-Oct-2005 01:58:15] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in c:\phpdev\www\public\hostel\final\search1.php on line 175
+[21-Oct-2005 02:01:19] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in c:\phpdev\www\public\hostel\final\search1.php on line 172
+[21-Oct-2005 02:01:19] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in c:\phpdev\www\public\hostel\final\search1.php on line 176
+[21-Oct-2005 02:01:36] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in c:\phpdev\www\public\hostel\final\search1.php on line 172
+[21-Oct-2005 02:01:36] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in c:\phpdev\www\public\hostel\final\search1.php on line 176
+[21-Oct-2005 02:01:50] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in c:\phpdev\www\public\hostel\final\search1.php on line 153
+[21-Oct-2005 02:01:50] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in c:\phpdev\www\public\hostel\final\search1.php on line 157
+[21-Oct-2005 02:05:38] PHP Parse error:  parse error in c:\phpdev\www\public\hostel\final\search1.php on line 148
+[21-Oct-2005 02:07:37] PHP Parse error:  parse error, expecting `T_STRING' or `T_VARIABLE' or `T_NUM_STRING' in c:\phpdev\www\public\hostel\final\search1.php on line 149
+[21-Oct-2005 02:08:15] PHP Parse error:  parse error, expecting `T_STRING' or `T_VARIABLE' or `T_NUM_STRING' in c:\phpdev\www\public\hostel\final\search1.php on line 149
+[21-Oct-2005 02:09:29] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in c:\phpdev\www\public\hostel\final\search1.php on line 156
+[21-Oct-2005 02:09:29] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in c:\phpdev\www\public\hostel\final\search1.php on line 160
+[21-Oct-2005 02:14:18] PHP Parse error:  parse error, expecting `','' or `';'' in c:\phpdev\www\public\hostel\final\search1.php on line 166
+[21-Oct-2005 02:15:03] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in c:\phpdev\www\public\hostel\final\search1.php on line 146
+[21-Oct-2005 02:18:28] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in c:\phpdev\www\public\hostel\final\search1.php on line 159
+[21-Oct-2005 02:18:28] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in c:\phpdev\www\public\hostel\final\search1.php on line 164
+[21-Oct-2005 02:18:28] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in c:\phpdev\www\public\hostel\final\search1.php on line 159
+[21-Oct-2005 02:18:28] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in c:\phpdev\www\public\hostel\final\search1.php on line 164
+[21-Oct-2005 02:20:35] PHP Parse error:  parse error in c:\phpdev\www\public\hostel\final\search1.php on line 156
+[21-Oct-2005 03:04:54] PHP Parse error:  parse error in c:\phpdev\www\public\hostel\final\hostellist.php on line 163
+[21-Oct-2005 03:05:46] PHP Parse error:  parse error in c:\phpdev\www\public\hostel\final\hostellist.php on line 163
+[21-Oct-2005 03:08:12] PHP Parse error:  parse error in c:\phpdev\www\public\hostel\final\hostellist1.php on line 167
+[21-Oct-2005 03:08:37] PHP Parse error:  parse error, expecting `T_STRING' or `T_VARIABLE' or `T_NUM_STRING' in c:\phpdev\www\public\hostel\final\hostellist1.php on line 169
+[21-Oct-2005 03:09:12] PHP Parse error:  parse error, expecting `T_STRING' or `T_VARIABLE' or `T_NUM_STRING' in c:\phpdev\www\public\hostel\final\hostellist1.php on line 170
+[21-Oct-2005 03:10:14] PHP Parse error:  parse error, expecting `','' or `';'' in c:\phpdev\www\public\hostel\final\hostellist1.php on line 175
+[21-Oct-2005 14:21:28] PHP Parse error:  parse error in c:\phpdev\www\public\hostel\final\hostellist.php on line 163
+[21-Oct-2005 14:26:14] PHP Parse error:  parse error in c:\phpdev\www\public\hostel\final\hostellist.php on line 163
+[21-Oct-2005 14:28:05] PHP Parse error:  parse error in c:\phpdev\www\public\hostel\final\hostellist.php on line 163
+[21-Oct-2005 14:29:51] PHP Parse error:  parse error in c:\phpdev\www\public\hostel\final\hostellist.php on line 163
+[21-Oct-2005 14:48:48] PHP Parse error:  parse error in c:\phpdev\www\public\hostel\final\process.php on line 147
+[21-Oct-2005 14:49:49] PHP Parse error:  parse error in c:\phpdev\www\public\hostel\final\process.php on line 147
+[21-Oct-2005 14:50:03] PHP Parse error:  parse error in c:\phpdev\www\public\hostel\final\process.php on line 153
+[21-Oct-2005 14:52:34] PHP Parse error:  parse error in c:\phpdev\www\public\hostel\final\hostellist.php on line 163
+[23-Oct-2005 02:09:36] PHP Warning:  Wrong parameter count for mysql_num_rows() in c:\phpdev\www\public\hostel\final\process.php on line 24
+[23-Oct-2005 02:09:36] PHP Warning:  Wrong parameter count for mysql_num_rows() in c:\phpdev\www\public\hostel\final\process.php on line 24
+[23-Oct-2005 02:09:36] PHP Fatal error:  Call to undefined function:  () in c:\phpdev\www\public\hostel\final\process.php on line 102
+[23-Oct-2005 02:11:45] PHP Fatal error:  Call to undefined function:  () in c:\phpdev\www\public\hostel\final\process.php on line 102
+[23-Oct-2005 02:13:11] PHP Fatal error:  Call to undefined function:  () in c:\phpdev\www\public\hostel\final\process.php on line 107
+[24-Oct-2005 01:26:38] PHP Warning:  Access denied for user 'root'@'localhost' (using password: NO) in c:\phpdev\www\public\hostel\final\search1.php on line 135
+[24-Oct-2005 01:26:38] PHP Warning:  MySQL Connection Failed: Access denied for user 'root'@'localhost' (using password: NO)
+ in c:\phpdev\www\public\hostel\final\search1.php on line 135
+[26-Oct-2005 23:40:03] PHP Parse error:  parse error in c:\phpdev\www\public\hostel\hostelalloc\updtmess.php on line 156
+[26-Oct-2005 23:40:23] PHP Parse error:  parse error in c:\phpdev\www\public\hostel\hostelalloc\updtmess.php on line 156
+[26-Oct-2005 23:40:30] PHP Warning:  Unknown MySQL Server Host 'mysql.shareware-hut.com' (0) in c:\phpdev\www\public\hostel\hostelalloc\updtmess.php on line 153
+[26-Oct-2005 23:40:30] PHP Warning:  MySQL Connection Failed: Unknown MySQL Server Host 'mysql.shareware-hut.com' (0)
+ in c:\phpdev\www\public\hostel\hostelalloc\updtmess.php on line 153
+[27-Oct-2005 00:16:27] PHP Warning:  Wrong parameter count for date() in c:\phpdev\www\public\hostel\hostelalloc\updtmess.php on line 169
+[27-Oct-2005 11:32:14] PHP Parse error:  parse error in c:\phpdev\www\public\hostel\hostelalloc\report.php on line 84
+[27-Oct-2005 11:33:35] PHP Parse error:  parse error in c:\phpdev\www\public\hostel\hostelalloc\report.php on line 84
+[27-Oct-2005 11:33:56] PHP Parse error:  parse error in c:\phpdev\www\public\hostel\hostelalloc\report.php on line 135
+[27-Oct-2005 12:37:26] PHP Parse error:  parse error, expecting `','' or `';'' in c:\phpdev\www\public\hostel\hostelalloc\report.php on line 139
+[27-Oct-2005 12:41:52] PHP Parse error:  parse error, expecting `T_STRING' or `T_VARIABLE' or `T_NUM_STRING' in c:\phpdev\www\public\hostel\hostelalloc\report.php on line 139
+[27-Oct-2005 12:42:26] PHP Parse error:  parse error in c:\phpdev\www\public\hostel\hostelalloc\report.php on line 141
+[27-Oct-2005 12:45:00] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in c:\phpdev\www\public\hostel\hostelalloc\report.php on line 137
+[27-Oct-2005 12:45:00] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in c:\phpdev\www\public\hostel\hostelalloc\report.php on line 137
+[27-Oct-2005 12:45:00] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in c:\phpdev\www\public\hostel\hostelalloc\report.php on line 137
+[27-Oct-2005 12:45:00] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in c:\phpdev\www\public\hostel\hostelalloc\report.php on line 137
+[27-Oct-2005 12:45:00] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in c:\phpdev\www\public\hostel\hostelalloc\report.php on line 137
+[27-Oct-2005 12:45:00] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in c:\phpdev\www\public\hostel\hostelalloc\report.php on line 137
+[27-Oct-2005 12:45:00] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in c:\phpdev\www\public\hostel\hostelalloc\report.php on line 137
+[27-Oct-2005 17:45:39] PHP Parse error:  parse error in c:\phpdev\www\public\hostel\hostelalloc\process.php on line 128
+[27-Oct-2005 17:45:57] PHP Parse error:  parse error in c:\phpdev\www\public\hostel\hostelalloc\process.php on line 160
+[27-Oct-2005 21:12:42] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in c:\phpdev\www\public\hostel\hostelalloc\report.php on line 139
+[27-Oct-2005 21:12:42] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in c:\phpdev\www\public\hostel\hostelalloc\report.php on line 139
+[27-Oct-2005 21:12:42] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in c:\phpdev\www\public\hostel\hostelalloc\report.php on line 139
+[27-Oct-2005 21:12:42] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in c:\phpdev\www\public\hostel\hostelalloc\report.php on line 139
+[27-Oct-2005 21:12:42] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in c:\phpdev\www\public\hostel\hostelalloc\report.php on line 139
+[27-Oct-2005 21:12:42] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in c:\phpdev\www\public\hostel\hostelalloc\report.php on line 139
+[27-Oct-2005 21:12:42] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in c:\phpdev\www\public\hostel\hostelalloc\report.php on line 139
+[27-Oct-2005 21:15:21] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in c:\phpdev\www\public\hostel\hostelalloc\report.php on line 139
+[27-Oct-2005 21:15:21] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in c:\phpdev\www\public\hostel\hostelalloc\report.php on line 139
+[27-Oct-2005 21:15:21] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in c:\phpdev\www\public\hostel\hostelalloc\report.php on line 139
+[27-Oct-2005 21:15:21] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in c:\phpdev\www\public\hostel\hostelalloc\report.php on line 139
+[27-Oct-2005 21:15:21] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in c:\phpdev\www\public\hostel\hostelalloc\report.php on line 139
+[27-Oct-2005 21:15:21] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in c:\phpdev\www\public\hostel\hostelalloc\report.php on line 139
+[27-Oct-2005 21:15:21] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in c:\phpdev\www\public\hostel\hostelalloc\report.php on line 139
+[27-Oct-2005 21:15:45] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in c:\phpdev\www\public\hostel\hostelalloc\report.php on line 139
+[27-Oct-2005 21:15:45] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in c:\phpdev\www\public\hostel\hostelalloc\report.php on line 139
+[27-Oct-2005 21:15:45] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in c:\phpdev\www\public\hostel\hostelalloc\report.php on line 139
+[27-Oct-2005 21:15:45] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in c:\phpdev\www\public\hostel\hostelalloc\report.php on line 139
+[27-Oct-2005 21:15:45] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in c:\phpdev\www\public\hostel\hostelalloc\report.php on line 139
+[27-Oct-2005 21:15:45] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in c:\phpdev\www\public\hostel\hostelalloc\report.php on line 139
+[27-Oct-2005 21:15:45] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in c:\phpdev\www\public\hostel\hostelalloc\report.php on line 139
+[27-Oct-2005 21:16:26] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in c:\phpdev\www\public\hostel\hostelalloc\report.php on line 139
+[27-Oct-2005 21:16:26] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in c:\phpdev\www\public\hostel\hostelalloc\report.php on line 139
+[27-Oct-2005 21:16:26] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in c:\phpdev\www\public\hostel\hostelalloc\report.php on line 139
+[27-Oct-2005 21:16:26] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in c:\phpdev\www\public\hostel\hostelalloc\report.php on line 139
+[27-Oct-2005 21:16:26] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in c:\phpdev\www\public\hostel\hostelalloc\report.php on line 139
+[27-Oct-2005 21:16:26] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in c:\phpdev\www\public\hostel\hostelalloc\report.php on line 139
+[27-Oct-2005 21:16:26] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in c:\phpdev\www\public\hostel\hostelalloc\report.php on line 139
+[27-Oct-2005 22:45:02] PHP Parse error:  parse error in c:\phpdev\www\public\hostel\hostelalloc\report.php on line 183
+[27-Oct-2005 22:49:18] PHP Parse error:  parse error, expecting `','' or `';'' in c:\phpdev\www\public\hostel\hostelalloc\report.php on line 172
+[30-Oct-2005 17:46:36] PHP Parse error:  parse error, expecting `T_VARIABLE' or `'$'' in c:\phpdev\www\public\hostel\hostelalloc\buildhostel.php on line 176
+[30-Oct-2005 23:08:03] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in c:\phpdev\www\public\hostel\hostelalloc\search1.php on line 161
+[30-Oct-2005 23:09:07] PHP Parse error:  parse error in c:\phpdev\www\public\hostel\hostelalloc\search1.php on line 161
+[30-Oct-2005 23:19:49] PHP Parse error:  parse error in c:\phpdev\www\public\hostel\hostelalloc\search1.php on line 233
+[30-Oct-2005 23:35:21] PHP Parse error:  parse error in c:\phpdev\www\public\hostel\hostelalloc\hostellist1.php on line 142

@@ -1,0 +1,2 @@
+#RewriteEngine on
+#RewriteRule ^([a-zA-Z]+)/$ index.mnit?s=$1

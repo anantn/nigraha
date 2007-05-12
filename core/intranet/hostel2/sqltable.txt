@@ -1,0 +1,32 @@
+ $sql = 'CREATE TABLE `studentroom` ('
+        . ' `ID` BIGINT NOT NULL AUTO_INCREMENT, '
+        . ' `StudentID` VARCHAR(10) NOT NULL, '
+        . ' `RoomKeyID` INT NOT NULL,'
+        . ' PRIMARY KEY (`ID`)'
+        . ' )';
+
+ $sql = 'CREATE TABLE `tblhostel` ('
+        . ' `HostelID` INT NOT NULL AUTO_INCREMENT, '
+        . ' `HostelName` VARCHAR(30) NOT NULL, '
+        . ' `NoOfRooms` INT NOT NULL,'
+        . ' PRIMARY KEY (`HostelID`)'
+        . ' )';
+
+ $sql = 'CREATE TABLE `tblroomkey` ('
+        . ' `Type` INT NOT NULL, '
+        . ' `HostelID` INT NOT NULL, '
+        . ' `Occupied` TINYINT NOT NULL, '
+        . ' `RoomKeyID` BIGINT NOT NULL AUTO_INCREMENT, '
+        . ' `RoomNo` INT NOT NULL,'
+        . ' PRIMARY KEY (`RoomKeyID`)'
+        . ' )';
+
+ $sql = 'CREATE TABLE `tblstudents` ('
+        . ' `ID` BIGINT NOT NULL AUTO_INCREMENT, '
+        . ' `StudentID` VARCHAR(10) NOT NULL, '
+        . ' `StudentName` VARCHAR(30) NOT NULL, '
+        . ' `Branch` VARCHAR(10) NOT NULL, '
+        . ' `Semester` VARCHAR(5) NOT NULL, '
+        . ' `ToAddLater` VARCHAR(10) NOT NULL,'
+        . ' PRIMARY KEY (`ID`)'
+        . ' )';

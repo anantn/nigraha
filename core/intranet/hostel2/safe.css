@@ -1,0 +1,380 @@
+/*
+
+Safe style sheet for MNIT Jaipur for top level pages
+This style sheet is readable by CSS-P and non CSS-P compliant browsers
+
+*/
+
+body
+	{color: #000000;
+	background-color: #ffffff;
+	padding: 0;
+	margin: 0;	
+}
+
+h1
+	{
+	font-size: 18pt;
+	/*/*/ 
+	font-size: 200%;
+	/* End */
+	font-family: arial, helvetica, sans-serif;
+	color: #000066;}
+
+h2
+	{font-size: 16pt;
+	/*/*/
+	font-size: 160%;
+	/* End */
+	font-family: arial, helvetica, sans-serif;
+	color: #000066;}
+
+h3
+	{font-size: 14pt;
+	/*/*/
+	font-size: 140%;
+	/* End */
+	font-family: arial, helvetica, sans-serif;
+	color: #000066;}
+
+h4
+	{font-size: 12pt;
+	/*/*/
+	font-size: 130%;
+	/* End */
+	font-family: arial, helvetica, sans-serif;
+	font-weight: bold;
+	color: #000066;}
+	
+h5
+	{font-size: 10pt;
+	/*/*/
+	font-size: 120%;
+	/* End */
+	font-family: arial, helvetica, sans-serif;
+	font-weight: bold;
+	color: #990000;}
+	
+h6
+	{font-size: 9pt;
+	font-family: arial, helvetica, sans-serif;
+	font-weight: bold;
+	color: #ffcc00;}
+
+p, ul, ol, dl, li, dt, dd, blockquote, caption, th, td, div #localnav, #footernav, #footer, #rhinfo, .abullet, .bbullet, .downbullet, .shadedbox, .shadedboxbullet, .wordbullet, .sitename
+	{font-family: verdana, helvetica, arial, sans-serif;
+	font-size: 10pt;}
+
+img {border: 0px;
+padding-top: 2px;
+padding-bottom: 2px;
+color: #ffffff}
+	
+ol li
+	{margin-bottom: 3pt}
+	
+caption {
+   text-align: left;
+   color: #000066;
+   font-weight: bold;
+   margin-top: 2pt;
+   margin-bottom: 0.5pt;
+   }
+   
+th {text-align: left;}	
+ 
+   
+.rule {border-bottom-color: #000066;
+	border-bottom-width: 3px;
+	border-bottom-style: solid;
+	padding-bottom: 1px;}
+
+
+.textcenter {
+	text-align: center;
+		}
+	
+.textright {
+	text-align: right;
+		}	
+		
+.textcenter table {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: left;
+	}
+
+ol	
+	{list-style-type: decimal;}
+
+ol ol	
+	{list-style-type: lower-alpha;}
+
+ol ol ol
+	{list-style-type: lower-roman;}
+
+
+	
+	
+table.datatable {
+background-color: #ffcccc;
+	border-width: 1px;}
+
+.darkcell td
+	{background-color: #cc9999;
+}
+
+.datatable td
+	{border-color: #663333;
+	border-style: solid;
+	border-top: 0pt;
+	border-right: 1pt;
+	}
+
+.datatable th 
+	{background-color: #cc9999;
+	/*/*/background-color: #660000;
+	color: #ffffff;/* End */
+	border-color: #660000;
+	border-width: 1px;}
+
+
+	
+.sitename
+	{font-weight: bold;
+	color: #000066;
+	background-color: #ffffff;
+	font-family: verdana, helvetica, arial, sans-serif;
+	font-size: 10pt;
+	padding-bottom: 1px;
+	padding-bottom: 7px;}
+
+.sitename a:link, .sitename a:visited
+	{color: #000066;
+	background-color: #ffffff;
+	font-weight: bold;
+	text-decoration: underline;}
+	
+.hidden {
+	color: #ffffff;}
+	
+.menuhidden {
+	color: #000066;}
+	
+.abullet  {
+   margin-top : 1px;
+   padding-left : 12px;
+   background : #FFFFFF url("../images/abullet.gif") no-repeat;}
+   
+ .abulletspace  {
+   margin-top : 1px;
+   /*/*/ 
+   margin-bottom : 10px;
+   /* End */
+   padding-left : 12px;
+   background : #FFFFFF url("../images/abullet.gif") no-repeat;}
+   
+.downbullet  {
+   margin-top : 1px;
+   padding-left : 12px;
+   background : #FFFFFF url("../images/downbullet.gif") no-repeat;}
+   
+.downbulletspace  {
+   margin-top : 1px;
+   /*/*/ 
+   margin-bottom : 10px;
+   /* End */
+   padding-left : 12px;
+   background : #FFFFFF url("../images/downbullet.gif") no-repeat;}
+   
+.bbullet  {
+   padding-left : 8px;
+   color: #000066;
+   background : #Ffffff url("../images/bbullet.gif") no-repeat;}
+   
+   
+.wordbullet  {
+   margin-top : 1px;
+   padding-left : 18px;
+   background : #FFFFFF url("../images/wordbullet.gif") no-repeat;}
+   
+ /*/*/ .floatright {float: right;}
+/* End */
+
+/*/*/.floatleft {float: left;}
+/* End */
+
+   
+.footnote {
+	color: #333333;
+	font-size: 9pt;
+	font-family: verdana, helvetica, arial, sans-serif;
+		}
+
+.news {
+	font-size: 8.5pt;
+	font-family: verdana, helvetica, arial, sans-serif;
+		}
+.news table {
+	border: 1px;
+	border-color: #000033;
+	}
+		
+.news th {
+	font-size: 9pt;
+	color: #ffffff;
+	background-color: #000033
+		}
+.news td {
+	font-size: 8.5pt;
+	color: #000033;
+		}
+		
+.width10
+	{width: 10%;}
+.width20
+	{width: 20%;}
+.width30
+	{width: 30%;}
+.width40
+	{width: 40%;}
+.width50
+	{width: 50%;}
+.width60
+	{width: 60%;}
+.width70
+	{width: 70%;}
+.width80
+	{width: 80%;}
+.width90
+	{width: 90%;}
+.width100
+	{width: 100%;}
+	
+		
+.shadedbox
+	{
+	background-color: #Ffffcc;
+	}
+
+.shadedboxbullet  {
+   padding-left : 8px;
+   color: #000066;
+   background : #Ffffcc url("../images/cbullet.gif") no-repeat;}
+   
+.bbulletshade  {
+   padding-left : 8px;
+   color: #000000;
+   background : #ffcccc url("../images/bbullet.gif") no-repeat;}
+   
+#rhinfo
+	{background-color: #Ffffff;
+	font-family: verdana, helvetica, arial, sans-serif;
+	font-size: 10pt;
+	/*/*font-size: 90%;
+/* End */
+	}
+
+#rhinfo a:link, .rhinfo a:visited
+	{color: #000066;
+	text-decoration: underline;
+	}
+	
+#rhinfo a:hover 
+	{color: #660000;
+	text-decoration: underline;
+	}
+	
+#rhinfo p
+	{color: #000000;
+	font-family: verdana, helvetica, arial, sans-serif;
+	}
+	
+#rhinfo h2
+	{font-size: 10pt;
+	/*/*/font-size: 90%;
+/* End */
+	font-family: verdana, helvetica, arial, sans-serif;
+	color: #990000;}
+	
+#rhinfo h2 a:link
+	{font-size: 10pt;
+	font-family: verdana, helvetica, arial, sans-serif;
+	color: #990000;
+	text-decoration: underline;}
+	
+	
+#leftcol
+	{color: #ffffff;
+	background-color: #000066;
+}
+
+#leftcol ul
+	{margin-left: -20px;}
+	
+#leftcol img
+	{border: none;
+	color: #000066;
+	}
+	
+#leftcol a img
+	{color: #000066;
+	}
+	
+#leftcol hr
+	{color: #ffcc00;
+	height: 1px;}
+
+#leftcol a:link
+	{text-decoration: none;
+	color: #ffffff;
+	background-color: #000066;
+	font-weight: bold;}
+	
+#leftcol a:visited
+	{text-decoration: none;
+	color: #ccccff;
+	background-color: #000066;
+	font-weight: bold;}
+
+#leftcol a:active
+	{text-decoration: none;
+	color: #ffcc00;}
+	
+#leftcol a:hover
+	{text-decoration: underline;
+	color: #ffcc00;}
+	
+#rightcol
+	{width: 90%}
+	
+#rightcol a:link
+	{color: #0000ff;}
+	
+#rightcol a:visited
+	{color: #663366;}
+
+#rightcol a:active
+	{color: #990000;}
+	
+#rightcol a:hover
+	{color: #990000;}
+
+#localnav
+	{font-weight: bold;}
+
+#footernav
+	{font-weight: bold;}
+
+#blueprint1
+	{font-size: 9pt;
+	color: #808080;
+	background-color: #ffffff;}
+
+#footer
+	{font-size: 9pt;
+	color: #808080;
+	background-color: #ffffff;}
+
+
+

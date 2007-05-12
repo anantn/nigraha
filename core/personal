@@ -1,0 +1,210 @@
+<?php
+    $expl = explode("/",$HTTP_SERVER_VARS["REQUEST_URI"]);
+    $id = $expl[count($expl)-1];
+	require_once 'protected/conn.php';
+	$i = 0;
+	if(isset($id) AND $id!='')
+	{	$i = 1;
+		$squery = mysql_query("SELECT * FROM profile_student WHERE alias = '".strtolower($id)."'");
+		$fquery = mysql_query("SELECT * FROM profile_faculty WHERE alias = '".strtolower($id)."'");
+		if(mysql_num_rows($squery)==0 AND mysql_num_rows($fquery)!=0)
+		{	$t = 'f';
+			$arr = mysql_fetch_assoc($fquery);
+		}
+		else if(mysql_num_rows($fquery)==0 AND mysql_num_rows($squery)!=0)
+		{	$t = 's';
+			$arr = mysql_fetch_assoc($squery);
+		}
+		else $i=0;
+		if($i)
+		{switch($arr['dept'])
+		{	case 'AR': $d = "Department of Architecture";
+					   break;
+			case 'CH': $d = "Department of Chemical Engineering";
+					   break;
+			case 'CE': $d = "Department of Civil Engineering";
+					   break;
+			case 'CP': $d = "Department of Computer Engineering";
+					   break;					   
+			case 'EE': $d = "Department of Electrical Engineering";
+					   break;
+			case 'EE': $d = "Department of Electrical Engineering";
+					   break;
+			case 'EC': $d = "Department of Electronics & Communication";
+					   break;
+			case 'ME': $d = "Department of Mechanical Engineering";
+					   break;
+			case 'MT': $d = "Department of Metallurgical Engineering";
+					   break;
+			case 'IT': $d = "Department of Information Technology";
+					   break;						   
+		}
+		}			
+	}
+	else $i = 0;
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-AU">
+<link rel="stylesheet" type="text/css" href="/css/screen.css" media="all" />
+<head>
+<title>
+<?php if(!$i) echo"MNIT People"; else echo $arr['fullname']."'s Personal Page"; ?>
+</title>
+</head>
+<body>
+<div id="siteBox">
+  <div id="header">
+    <h1 class="title">
+      <?php if(!$i) echo "MNIT Personal Pages"; else echo $arr['fullname']; ?>
+    </h1>
+    <h2 class="subTitle">&nbsp;</h2>
+    <h2 class="subTitle">&nbsp;</h2>
+    <h2 class="subTitle">
+      <?php
+		if($i)
+		{	if($t=='f')
+				echo "Faculty Member<br>";
+			else if($t=='s')
+				echo "Undergraduate Student<br>";
+		}
+		else
+		{	echo "Search for People<br>";
+		}		
+	?>
+      &nbsp; </h2>
+      </div>
+  <div id="content">
+    <div id="news">
+      <div class="block"> <br />
+        <br />
+        <?php if($i) { ?>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/images/photo.jpg" alt="firefox"/><br />
+        <? } else { ?>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/images/giraffe.gif" height="100" width="100" alt="firefox"/><br />
+        <? } ?>
+        <div class="bottom">&nbsp;</div>
+      </div>
+      <div class="block">
+        <h1>Other Places:</h1>
+        <div class="links"> <a href="/personal/" title="Search for More People">Find more People</a> <a href="/index.php" title="MNIT Home Page">The MNIT Home Page</a> <a href="/intranet/index.php" title="MNIT IntraNET Home Page">MNIT IntraNET</a> </div>
+        <div class="bottom">&nbsp;</div>
+      </div>
+    </div>
+    <div id="text">
+      <h1>
+        <? if(!$i) echo "Use the search form to find people:"; ?>
+      </h1>
+      <? if(!$i) { ?>
+      <form action="/personal" method="post" class="style1" id="form1">
+        <p>Enter atleast one of the following parameters:</p>
+        <table width="100%" border="0">
+          <tr>
+            <td width="35%">UserID</td>
+            <td width="65%"><input type="text" name="userid" id="userid" /></td>
+          </tr>
+          <tr>
+            <td>Name</td>
+            <td><input type="text" name="nam" id="nam" /></td>
+          </tr>
+          <tr>
+            <td>Account Type</td>
+            <td><select name="type">
+                <option value="student">Student</option>
+                <option value="faculty">Faculty</option>
+              </select>
+			  <input type="submit" name="Submit" value="Search" />
+            </td>
+          </tr>
+        </table>
+      </form>
+      <? } else {
+	  		echo "<b>".$arr['alias']."[at]mnit.ac.in</b><br>";
+			echo "<b>".$d."</b><br>";
+			$toshow = unserialize($arr['showfields']);
+			if($toshow!=' ')
+			{
+			foreach ($toshow as $field)
+			{	switch($field)
+				{	case 'accesslvl' : switch($arr['accesslvl'])
+										{	case 'sadmin': echo "<b>Super Administrator</b><br>";
+															break;
+											case 'admin': echo "<b>Global Administrator</b><br>";
+															break;
+											case 'dadmin': echo "<b>Department Administrator</b><br>";
+															break;
+											case 'post': echo "<b>Global Poster</b><br>";
+															break;				
+											case 'dpost': echo "<b>Department Poster</b><br>";
+															break;					
+											case 'user': echo "<b>Ordinary User</b><br>";
+															break;				
+											case 'ban': echo "<b>Banned!</b><br>";
+															break;			
+										}
+									   break;									   
+					case 'gender' : switch($arr['gender'])
+										{	case 'M': echo "<b>Male</b><br>";
+														break;
+											case 'F': echo "<b>Female</b><br>";
+														break;		
+										}
+									break;					
+					case 'paddress' : echo "<b>Address: </b>".$arr['paddress']."<br>";
+										break;
+					case 'phone' : echo "<b>Phone Number: </b>".$arr['phone']."<br>";
+										break;			
+					case 'fathersname' : if($t=='s') 
+											{	echo "<b>Father's Name: </b>".$arr['fathersname']."<br>";
+												break;				
+											}
+										  else
+										  		break;																																																	
+					case 'mothersname' : if($t=='s') 
+											{	echo "<b>Mother's Name: </b>".$arr['mothersname']."<br>";
+												break;				
+											}
+										  else
+										  		break;	
+					case 'altmail' : echo "<b>Alternate Email: </b>".$arr['altmail']."<br>";
+										break;										
+					case 'about' : echo "<b>About me: </b>".$arr['about']."<br>";
+										break;																																																																										
+				}											
+			}
+			}
+			echo "<br><b>HomePage: <a href=\"http://intra.mnit.ac.in/~".$arr['alias']."\">mnit.ac.in/~".$arr['alias']."<br>";
+		}
+	 ?> 
+	  <?	if (isset($_POST['userid']) || isset($_POST['nam']) || isset($_POST['type']))
+			{	if($_POST['type']=="student")
+				{	$squery = mysql_query("SELECT * FROM profile_student WHERE userid LIKE CONVERT( _utf8 '%".$_POST['userid']."%' USING latin1 ) COLLATE latin1_general_ci AND fullname LIKE CONVERT( _utf8 '%".$_POST['nam']."%' USING latin1 ) COLLATE latin1_general_ci");
+					$max = mysql_num_rows($squery);
+					echo"<ul>";
+					$i = 0;
+					for($i=0;$i<$max;$i++)
+					{	echo "<li><a href=\"/personal/".mysql_result($squery,$i,'alias')."\">".mysql_result($squery, $i, 'fullname').", Student(".mysql_result($squery,$i,'userid').")</a></li>";
+					}
+					echo"</ul>";
+				}			
+				else
+				{	$squery = mysql_query("SELECT * FROM profile_faculty WHERE userid LIKE CONVERT( _utf8 '%".$_POST['userid']."%' USING latin1 ) COLLATE latin1_general_ci AND fullname LIKE CONVERT( _utf8 '%".$_POST['nam']."%' USING latin1 ) COLLATE latin1_general_ci");
+					$max = mysql_num_rows($squery);
+					echo"<ul>";
+					$i = 0;
+					for($i=0;$i<$max;$i++)
+					{	echo "<li><a href=\"/personal/".mysql_result($squery,$i,'alias')."\">".mysql_result($squery, $i, 'fullname').", Faculty(".mysql_result($squery,$i,'userid').")</a></li>";
+					}
+					echo"</ul>";
+				}
+				if(mysql_num_rows($squery)==0)
+				{	echo "Sorry! No Search results found! Be more specific...";
+				}
+			}
+			?>
+	
+    </div>
+  </div>
+</div>
+</body>
+</html>
