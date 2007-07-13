@@ -6,3 +6,7 @@
 2007-07-13 20:56:51 Notice: Notice (8): Undefined variable: test in [CORE/app/views/students/check.ctp, line 3]
 2007-07-13 20:57:17 Notice: Notice (8): Undefined variable: test in [CORE/app/views/students/check.ctp, line 3]
 2007-07-14 00:12:08 Notice: Notice (8): Undefined index:  label in [CORE/app/views/students/check.ctp, line 19]
+2007-07-14 01:48:19 Notice: Notice (8): Undefined variable: titleMessage in [CORE/app/views/students/index.ctp, line 3]
+2007-07-14 01:49:06 Notice: Notice (8): Undefined variable: fields in [CORE/app/views/students/check.ctp, line 9]
+2007-07-14 02:12:47 Notice: Notice (8): Undefined variable: fields in [CORE/app/views/students/update.ctp, line 9]
+2007-07-14 02:37:35 Notice: Notice (8): Undefined index:  error in [CORE/app/views/students/update.ctp, line 13]

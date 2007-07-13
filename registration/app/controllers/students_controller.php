@@ -7,61 +7,58 @@ class StudentsController extends AppController
 
 	function index($check = 1)
 	{
-		$this->set('titleMessage', 'Welcome!');
 		if ($check)
 			$this->set('instructions', 'Please enter your college ID to begin!');
 		else
 			$this->set('instructions', 'Your college ID was invalid! Please try again:');
 	}
 
-	function check()
+	function update()
 	{
-		$sid = $this->data['Student']['sid'];
-		// Do validation here!
-
-		$valid = true;
-
-		if ($valid) {
-			$fields = array(
-					array('type' => 'input', 'name' => 'sid', 'label' => 'Student ID'),
-					array('type' => 'input', 'name' => 'fName', 'label' => 'First Name'),
-					array('type' => 'input', 'name' => 'lName', 'label' => 'Last Name'),
-					array('type' => 'input', 'name' => 'dob', 'label' => 'Date Of Birth'),
-					array('type' => 'radio', 'name' => 'gender', 'label' => 'Gender', 
-											'values' => array(
-														array('name' => 'm', 'label' => 'male'),
-														array('name' => 'f', 'label' => 'female')
-														)
-					),
-					array('type' => 'dropdown', 'name' => 'marital', 'label' => 'Marital Status', 
-											'values' => array(
-														array('name' => 'u', 'label' => 'unmarried'),
-														array('name' => 'm', 'label' => 'married'),
-														array('name' => 'd', 'label' => 'devorced')
-														)
-					),
-					array('type' => 'input', 'name' => 'bloodGroup', 'label' => 'Blood Group'),
-					array('type' => 'dropdown', 'name' => 'category', 'label' => 'Category', 
-											'values' => array(
-														array('name' => 'gen', 'label' => 'general'),
-														array('name' => 'scst', 'label' => 'SC/ST'),
-														array('name' => 'obc', 'label' => 'OBC')
-														)
-					),
-					array('type' => 'input', 'name' => 'nationality', 'label' => 'Nationality'),
-					array('type' => 'textarea', 'name' => 'pAddress', 'label' => 'Permanent Address'),
-					array('type' => 'input', 'name' => 'email', 'label' => 'Email Address')
-					array('type' => 'input', 'name' => 'dept', 'label' => 'Department')
-					array('type' => 'input', 'name' => 'sem', 'label' => 'Semester')
-					array('type' => 'input', 'name' => 'batch', 'label' => 'Batch No')
+		$fields = array(
+						array('type' => 'input', 'name' => 'sid', 'label' => 'Student ID', 'error' => 'Must begin with 0, and should be 5 or 6 digits long'),
+						array('type' => 'input', 'name' => 'fName', 'label' => 'First Name', 'error' => 'Cannot be empty, Cannot contain numbers'),
+						array('type' => 'input', 'name' => 'lName', 'label' => 'Last Name', 'error' => 'Cannot be empty, Cannot contain numbers'),
+						array('type' => 'input', 'name' => 'dob', 'label' => 'Date Of Birth', 'error' => 'Must be of the form DDMMYYYY'),
+						array('type' => 'dropdown', 'name' => 'gender', 'label' => 'Gender',
+								'values' => array('m' => 'Male', 'f' => 'Female'), 'error' => 'Cannot be empty'),
+						array('type' => 'dropdown', 'name' => 'marital', 'label' => 'Marital Status',
+								'values' => array('u' => 'Unmarried', 'm' => 'Married', 'd' => 'Divorced'), 'error' => 'Cannot be empty'),
+						array('type' => 'input', 'name' => 'bloodGroup', 'label' => 'Blood Group', 'error' => NULL),
+						array('type' => 'dropdown', 'name' => 'category', 'label' => 'Category', 
+								'values' => array('gen' => 'General', 'scst' => 'SC/ST', 'obc' => 'OBC'), 'error' => 'Cannot be empty'),
+						array('type' => 'input', 'name' => 'nationality', 'label' => 'Nationality', 'error' => 'Cannot be empty'),
+						array('type' => 'textarea', 'name' => 'pAddress', 'label' => 'Permanent Address', 'error' => 'Cannot be empty'),
+						array('type' => 'input', 'name' => 'email', 'label' => 'Email Address', 'error' => 'Valid Email address required'),
+						array('type' => 'input', 'name' => 'dept', 'label' => 'Department', 'error' => 'Cannot be empty'),
+						array('type' => 'input', 'name' => 'sem', 'label' => 'Semester', 'error' => 'Cannot be empty'),
+						array('type' => 'input', 'name' => 'batch', 'label' => 'Batch No', 'error' => NULL)
 					);
-	
-			if ($this->Student->exists($this->data['Student']['sid']))
-				$this->set('new', 0);
-			else
-				$this->set('new', 1);
+
+		if (isset($this->data['Student']['fName'])) {
+
+			if ($this->Student->save($this->data)) {
+				$this->redirect('/students/done');
+			}
+
+			$this->set('fields', $fields);	
+
 		} else {
-			$this->redirect('/students/index/0');
+
+			$sid = $this->data['Student']['sid'];
+			// Do validation here!
+	
+			$valid = true;
+
+			if ($valid) {
+				$this->set('fields', $fields);	
+				if ($this->Student->exists($this->data['Student']['sid']))
+					$this->set('new', 0);
+				else
+					$this->set('new', 1);
+			} else {
+				$this->redirect('/students/index/0');
+			}
 		}
 	}
 }
