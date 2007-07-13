@@ -2,12 +2,12 @@
 class Parent extends AppModel {
 	var $name='Parent';
 	
-	var $first_name;
-	var $last_name;
+	var $fName;
+	var $lName;
 	var $relationship;
-	var $p_address;
-	var $email_id;
-	var $work_phone;
+	var $pAddress;
+	var $email;
+	var $phone;
 		
 	var $validate=array();
 
@@ -15,7 +15,7 @@ class Parent extends AppModel {
 							array('className' => 'Student',
 								'conditions' => '',
 								'order' => '',
-								'foreignKey' => 'student_id'
+								'foreignKey' => 'studentid'
 								)
 							);
 }

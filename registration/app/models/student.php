@@ -4,8 +4,8 @@ class Student extends AppModel {
 	
 	var $fName;
 	var $lName;
-	var $sid;
-	var $userid
+	var $studentid;
+	var $userid;
 	var $pAddress;
 	var $email;
 	var $primaryKey='sid';
@@ -24,7 +24,7 @@ class Student extends AppModel {
 							'conditions' => '',
 							'order' => '',
 							'dependant' = true,
-							'foreignKey' = 'student_id'
+							'foreignKey' = 'studentid'
 							)
 						);
 								
@@ -33,7 +33,7 @@ class Student extends AppModel {
 							'conditions' => '',
 							'order' => '',
 							'dependant' = true,
-							'foreignKey' = 'student_id'
+							'foreignKey' = 'studentid'
 							)
 						);
 							
@@ -41,7 +41,7 @@ class Student extends AppModel {
 							array('className' => 'Department',
 								'conditions' => '',
 								'order' => '',
-								'foreignKey' => 'department_name'
+								'foreignKey' => 'deptName'
 								)
 							);
 	var $hasAndBelongsToMany = array('Course' =>
@@ -49,8 +49,8 @@ class Student extends AppModel {
 								'joinTable' = > 'courses_students',
 								'conditions' => 'Course.available = 1',
 								'order' => '',
-								'foreignKey' => 'student_id',
-								'associationForeignKey' => 'course_id',
+								'foreignKey' => 'studentid',
+								'associationForeignKey' => 'courseid',
 								'unique' => true,
 								'finderQuery' => '',
 								'deleteQuery' => '',

@@ -2,14 +2,14 @@
 class Course extends AppModel {
 	var $name='Course';
 	
-	var $course_id;
-	var $course_name;
+	var $courseid;
+	var $courseName;
 	var $semester;
 	var $credits;
-	var $requires_lab;
-	var $requires_tutorial;
-	var $requires_presentation;
-	var $primaryKey='course_id';
+	var $requiresLab;
+	var $requiresTutorial;
+	var $requiresPresentation;
+	var $primaryKey='courseid';
 		
 	var $validate=array();
 
@@ -17,7 +17,7 @@ class Course extends AppModel {
 							array('className' => 'Department',
 								'conditions' => '',
 								'order' => '',
-								'foreignKey' => 'course_id'
+								'foreignKey' => 'courseid'
 								)
 							);
 	
@@ -26,7 +26,7 @@ class Course extends AppModel {
 							'conditions'    => '',
                             'order'         => '',
                             'limit'         => '',
-                            'foreignKey'    => 'course_id',
+                            'foreignKey'    => 'courseid',
                             'dependent'     => false,
                             'exclusive'     => false,
                             'finderQuery'   => ''

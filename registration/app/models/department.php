@@ -2,7 +2,7 @@
 class Department extends AppModel {
 	var $name='Department';
 	
-	var $department_name;
+	var $deptName;
 		
 	var $validate=array();
 
@@ -11,7 +11,7 @@ class Department extends AppModel {
 							'conditions'    => '',
                             'order'         => '',
                             'limit'         => '',
-                            'foreignKey'    => 'demartment_name',
+                            'foreignKey'    => 'deptName',
                             'dependent'     => false,
                             'exclusive'     => false,
                             'finderQuery'   => ''
@@ -23,7 +23,7 @@ class Department extends AppModel {
 							'conditions'    => '',
                             'order'         => '',
                             'limit'         => '',
-                            'foreignKey'    => 'demartment_name',
+                            'foreignKey'    => 'deptName',
                             'dependent'     => false,
                             'exclusive'     => false,
                             'finderQuery'   => ''
@@ -35,7 +35,7 @@ class Department extends AppModel {
 							'conditions'    => '',
                             'order'         => '',
                             'limit'         => '',
-                            'foreignKey'    => 'demartment_name',
+                            'foreignKey'    => 'deptName',
                             'dependent'     => false,
                             'exclusive'     => false,
                             'finderQuery'   => ''
@@ -47,7 +47,7 @@ class Department extends AppModel {
 							'conditions'    => '',
                             'order'         => '',
                             'limit'         => '',
-                            'foreignKey'    => 'demartment_name',
+                            'foreignKey'    => 'deptName',
                             'dependent'     => true,
                             'exclusive'     => false,
                             'finderQuery'   => ''

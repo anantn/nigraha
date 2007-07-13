@@ -3,8 +3,8 @@ class Account extends AppModel {
 	var $name='Account';
 	
 	var $username;
-	var $student_id;
-	var $user_privilege;
+	var $studentid;
+	var $privilege;
 	var $primaryKey='username';
 		
 	var $validate=array();
@@ -13,7 +13,7 @@ class Account extends AppModel {
 							array('className' => 'Student',
 								'conditions' => '',
 								'order' => '',
-								'foreignKey' => 'student_id'
+								'foreignKey' => 'studentid'
 								)
 							);
 }
