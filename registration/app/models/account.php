@@ -3,7 +3,7 @@ class Account extends AppModel {
 	var $name='Account';
 	
 	var $username;
-	var $studentid;
+	var $collegeid;
 	var $privilege;
 	var $primaryKey='username';
 		
@@ -13,7 +13,7 @@ class Account extends AppModel {
 							array('className' => 'Student',
 								'conditions' => '',
 								'order' => '',
-								'foreignKey' => 'studentid'
+								'foreignKey' => 'collegeid'
 								)
 							);
 }

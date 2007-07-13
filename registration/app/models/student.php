@@ -2,7 +2,7 @@
 class Student extends AppModel {
 	var $name='Student';
 
-	var $sid;
+	var $collegeid;
 	var $fName;
 	var $lName;
 	var $dob;
@@ -13,13 +13,12 @@ class Student extends AppModel {
 	var $nationality;
 	var $pAddress;
 	var $email;
-	var $dept;
+	var $deptid;
 	var $sem;
 	var $batch;
-	var $primaryKey='sid';
 		
 	var $validate=array(     
-		'sid' => '/^0\d{5,6}$/'
+		'sid' => '/^0\d{5,6}$/',
 		'fName' => '/^[a-zA-Z\ ]{,10}$/',
 		'lName' => '/^[a-zA-Z\ ]{,10}$/',
 		'dob' => '/^(0[1-9]|[1-2][0-9]|3[0-1])(0[1-9]|1[0-2])(198[0-9]|199[0-5])$/',
@@ -29,25 +28,24 @@ class Student extends AppModel {
 		'nationality' => VALID_NOT_EMPTY,
 		'pAddress' => VALID_NOT_EMPTY,
 		'email' => VALID_EMAIL,
-		'dept' => VALID_NOT_EMPTY,
 		'sem' => VALID_NOT_EMPTY,
 						);
 
-/*	var $hasOne = array('Account' =>
+	var $hasOne = array('Account' =>
 						array('className' => 'Account',
 							'conditions' => '',
 							'order' => '',
 							'dependant' = true,
-							'foreignKey' = 'studentid'
+							'foreignKey' = 'collegeid'
 							)
 						);
 								
-	var $hasOne = array('Parent' =>
-						array('className' => 'Parent',
+	var $hasMany = array('Guardian' =>
+						array('className' => 'Guardian',
 							'conditions' => '',
 							'order' => '',
 							'dependant' = true,
-							'foreignKey' = 'studentid'
+							'foreignKey' = 'collegeid'
 							)
 						);
 							
@@ -55,7 +53,7 @@ class Student extends AppModel {
 							array('className' => 'Department',
 								'conditions' => '',
 								'order' => '',
-								'foreignKey' => 'deptName'
+								'foreignKey' => 'deptid'
 								)
 							);
 	var $hasAndBelongsToMany = array('Course' =>
@@ -63,12 +61,12 @@ class Student extends AppModel {
 								'joinTable' = > 'courses_students',
 								'conditions' => 'Course.available = 1',
 								'order' => '',
-								'foreignKey' => 'studentid',
-								'associationForeignKey' => 'courseid',
+								'foreignKey' => 'sid',
+								'associationForeignKey' => 'cid',
 								'unique' => true,
 								'finderQuery' => '',
 								'deleteQuery' => '',
 								)
-							); */
+							);
 }
 ?>
