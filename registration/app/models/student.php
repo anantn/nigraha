@@ -24,7 +24,6 @@ class Student extends AppModel {
 		'lName' => VALID_NOT_EMPTY,
 		'pAddress' => VALID_NOT_EMPTY,
 		'email' => VALID_EMAIL,
-		'collegeid' => '/^0\d{5,6}$/'
 						);
 
 /*	var $hasOne = array('Account' =>
