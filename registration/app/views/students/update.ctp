@@ -8,7 +8,7 @@ echo '<fieldset>';
 
 foreach ($fields as $field) {
 	if (isset($field['values']))
-		echo $form->input('Student.'.$field['name'], array('label' => $field['label'], 'type' => $field['type'], 'options' => $field['values']));
+		echo $form->input('Student.'.$field['name'], array('label' => $field['label'], 'type' => $field['type'], 'options' => $field['values'], 'error' => $field['error']));
 	else
 		echo $form->input('Student.'.$field['name'], array('label' => $field['label'], 'type' => $field['type'], 'error' => $field['error']));
 }
