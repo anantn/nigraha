@@ -23,9 +23,9 @@ class StudentsController extends AppController
 
 		if ($valid) {	
 			if ($this->Student->exists($this->data['Student']['sid']))
-				$this->set('test', 'Exists');
+				$this->set('new', 0);
 			else
-				$this->set('test', 'New');
+				$this->set('new', 1);
 		} else {
 			$this->redirect('/students/index/0');
 		}
