@@ -1,0 +1,4 @@
+2007-07-13 20:00:20 Warning: Warning (512): Method HtmlHelper::formTag does not exist in [CORE/cake/libs/view/helper.php, line 148]
+2007-07-13 20:00:20 Warning: Warning (512): Method HtmlHelper::submit does not exist in [CORE/cake/libs/view/helper.php, line 148]
+2007-07-13 20:43:05 Warning: Warning (512): <span style = "color:Red;text-align:left"><b>SQL Error:</b> 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '== 040952' at line 1</span> in [CORE/cake/libs/model/datasources/dbo_source.php, line 463]
+2007-07-13 21:12:18 Warning: Warning (512): <span style = "color:Red;text-align:left"><b>SQL Error:</b> 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '== dsad' at line 1</span> in [CORE/cake/libs/model/datasources/dbo_source.php, line 463]
