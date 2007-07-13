@@ -11,12 +11,13 @@ class Student extends AppModel {
 	var $primaryKey='sid';
 		
 	var $validate=array(     
-		'userid' => '/[a-z0-9\_\-\.]{3,}$/i',
+		'userid' => '/[a-z0-9\_\-\.]{3,}$/',
 		'fName' => VALID_NOT_EMPTY,
 		'lName' => VALID_NOT_EMPTY,
 		'pAddress' => VALID_NOT_EMPTY,
 		'email' => VALID_EMAIL,
-		'sid' => VALID_NUMBER
+		//'sid' => VALID_NUMBER
+		'sid' => '/[0][0-9]{5,6}$/'
 						);
 
 /*	var $hasOne = array('Account' =>
