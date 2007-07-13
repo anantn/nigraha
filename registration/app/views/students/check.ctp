@@ -1,11 +1,6 @@
 <?php
 
-$fields = array(
-	array('type' => 'input', 'name' => 'sid', 'label' => 'Student ID'),
-	array('type' => 'input', 'name' => 'fName', 'label' => 'First Name'),
-	array('type' => 'input', 'name' => 'lName', 'label' => 'Last Name'),
-	array('type' => 'textarea', 'name' => 'pAddress', 'label' => 'Permanent Address'),
-	array('type' => 'input', 'name' => 'email', 'label' => 'Email Address'));
+
 
 echo '<h1>Registration Form</h1>';
 echo '<h3>All fields are mandatory!</h3>';

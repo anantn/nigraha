@@ -5,18 +5,26 @@ class Student extends AppModel {
 	var $sid;
 	var $fName;
 	var $lName;
-	var $userid;
+	var $dob;
+	var $gender;
+	var $marital;
+	var $bloodGroup;
+	var $category;
+	var $nationality;
 	var $pAddress;
 	var $email;
+	var $dept;
+	var $sem;
+	var $batch;
 	var $primaryKey='sid';
 		
 	var $validate=array(     
-		'userid' => '/[a-z0-9\_\-\.]{3,}$/i',
+		'userid' => '/[a-z0-9\_\-\.]{3,}$/',
 		'fName' => VALID_NOT_EMPTY,
 		'lName' => VALID_NOT_EMPTY,
 		'pAddress' => VALID_NOT_EMPTY,
 		'email' => VALID_EMAIL,
-		'sid' => VALID_NUMBER
+		'sid' => '/0[0-9]{5,6}$/';
 						);
 
 /*	var $hasOne = array('Account' =>
