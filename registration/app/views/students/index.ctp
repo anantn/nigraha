@@ -1,11 +1,11 @@
 <?php
 
-echo "<h1>Welcome!</h1>";
-
 echo $form->create('Student', array('action' => 'update'));
-echo $form->input('Student.sid', array('label' => $instructions));
+echo "<fieldset>";
+echo $form->input('Student.collegeid', array('label' => $instructions));
 echo $form->submit();
+echo '</fieldset><div class="submit">';
 echo $form->end();
-echo "</form>";
+echo "</div></form>";
 
 ?>

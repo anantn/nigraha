@@ -59,12 +59,11 @@ ul, li {
 
 #header{
 	background-color: #2C6877;
-	padding: 10px 20px 0 20px;
+	padding: 10px 0px 0px 0px;
 	height: 5em;
 }
 #header h1 { 
 	color: #ffffff;
-	background: url('../img/mnit.logo.png') no-repeat;
 	padding: 5px 50px;
 	height: 5em;
 }

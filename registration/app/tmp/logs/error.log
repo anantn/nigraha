@@ -6,3 +6,4 @@
 2007-07-14 01:53:52 Warning: Warning (512): Method FormHelper::generateSelectDiv does not exist in [CORE/cake/libs/view/helper.php, line 148]
 2007-07-14 01:57:18 Warning: Warning (512): Method FormHelper::generateSelectDiv does not exist in [CORE/cake/libs/view/helper.php, line 148]
 2007-07-14 02:12:47 Warning: Warning (2): Invalid argument supplied for foreach() in [CORE/app/views/students/update.ctp, line 9]
+2007-07-14 02:43:44 Warning: Warning (512): <span style = "color:Red;text-align:left"><b>SQL Error:</b> 1054: Unknown column 'Student.sid' in 'where clause'</span> in [CORE/cake/libs/model/datasources/dbo_source.php, line 463]
