@@ -7,7 +7,7 @@ class Account extends AppModel {
 	var $privilege;
 	var $primaryKey='username';
 		
-	var $validate=array();
+	var $validate=array('username' => '/^[a-z0-9\_\-\.]{3,}$/');
 
 	var $belongsTo = array('Student' =>
 							array('className' => 'Student',
