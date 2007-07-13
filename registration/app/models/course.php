@@ -19,7 +19,7 @@ class Course extends AppModel {
 	
 	var $hasMany=array('Student' =>
 						array('className' => 'Student',
-                            'dependent'     => false
+                            'dependent' => false
                          )
                   );
 }
