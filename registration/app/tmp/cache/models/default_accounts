@@ -1,0 +1,1 @@
+a:3:{i:0;a:5:{s:4:"name";s:8:"username";s:4:"type";s:6:"string";s:4:"null";b:0;s:7:"default";s:0:"";s:6:"length";i:20;}i:1;a:5:{s:4:"name";s:9:"collegeid";s:4:"type";s:7:"integer";s:4:"null";b:0;s:7:"default";s:0:"";s:6:"length";i:8;}i:2;a:5:{s:4:"name";s:9:"privilege";s:4:"type";s:6:"string";s:4:"null";b:0;s:7:"default";s:0:"";s:6:"length";i:20;}}

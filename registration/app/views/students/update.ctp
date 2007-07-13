@@ -13,6 +13,8 @@ foreach ($fields as $field) {
 		echo $form->input('Student.'.$field['name'], array('label' => $field['label'], 'type' => $field['type'], 'error' => $field['error']));
 }
 
+echo $form->input('Guardian.lName', array('label' => "Father Name", 'type' => 'text', 'error' => 'wtf'));
+
 echo '</fieldset>';
 echo '<div class="submit">'.$form->end('Submit').'</div>';
 

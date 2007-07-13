@@ -17,7 +17,7 @@ class Department extends AppModel {
                             'exclusive'     => false,
                             'finderQuery'   => ''
                          ),
-					'Faculty' =>
+					/*'Faculty' =>
 						array('className' => 'Faculty',
 							'conditions'    => '',
                             'order'         => '',
@@ -36,7 +36,7 @@ class Department extends AppModel {
                             'dependent'     => false,
                             'exclusive'     => false,
                             'finderQuery'   => ''
-                         ),
+						),*/
 					'Course' =>
 						array('className' => 'Course',
 							'conditions'    => '',

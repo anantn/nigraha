@@ -42,6 +42,7 @@ class StudentsController extends AppController
 				$this->redirect('/students/done');
 			}
 
+			var_dump($this->data);
 			$this->set('fields', $fields);	
 
 		} else {

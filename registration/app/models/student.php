@@ -35,8 +35,8 @@ class Student extends AppModel {
 						array('className' => 'Account',
 							'conditions' => '',
 							'order' => '',
-							'dependant' = true,
-							'foreignKey' = 'collegeid'
+							'dependant' => true,
+							'foreignKey' => 'collegeid'
 							)
 						);
 								
@@ -44,14 +44,14 @@ class Student extends AppModel {
 						array('className' => 'Guardian',
 							'conditions' => '',
 							'order' => '',
-							'dependant' = true,
-							'foreignKey' = 'collegeid'
+							'dependant' => true,
+							'foreignKey' => 'collegeid'
 							),
 						'Course' =>
 						array('className' => 'Course',
 							'conditions' => '',
 							'order' => '',
-							'dependant' = false,
+							'dependant' => false,
 							)
 						);
 							
