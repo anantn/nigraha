@@ -3,6 +3,7 @@ class Department extends AppModel {
 	var $name='Department';
 	
 	var $deptName;
+	VAR $deptid;
 		
 	var $validate=array();
 
@@ -11,43 +12,37 @@ class Department extends AppModel {
 							'conditions'    => '',
                             'order'         => '',
                             'limit'         => '',
-                            'foreignKey'    => 'deptName',
+                            'foreignKey'    => 'deptid',
                             'dependent'     => false,
                             'exclusive'     => false,
                             'finderQuery'   => ''
-                         )
-                  );
-				  
-	var $hasMany=array('Faculty' =>
+                         ),
+					'Faculty' =>
 						array('className' => 'Faculty',
 							'conditions'    => '',
                             'order'         => '',
                             'limit'         => '',
-                            'foreignKey'    => 'deptName',
+                            'foreignKey'    => 'deptid',
                             'dependent'     => false,
                             'exclusive'     => false,
                             'finderQuery'   => ''
-                         )
-                  );
-	
-	var $hasMany=array('Staff' =>
+                         ),
+					'Staff' =>
 						array('className' => 'Staff',
 							'conditions'    => '',
                             'order'         => '',
                             'limit'         => '',
-                            'foreignKey'    => 'deptName',
+                            'foreignKey'    => 'deptid',
                             'dependent'     => false,
                             'exclusive'     => false,
                             'finderQuery'   => ''
-                         )
-                  );
-				  
-	var $hasMany=array('Course' =>
+                         ),
+					'Course' =>
 						array('className' => 'Course',
 							'conditions'    => '',
                             'order'         => '',
                             'limit'         => '',
-                            'foreignKey'    => 'deptName',
+                            'foreignKey'    => 'deptid',
                             'dependent'     => true,
                             'exclusive'     => false,
                             'finderQuery'   => ''

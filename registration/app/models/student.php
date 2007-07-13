@@ -13,34 +13,45 @@ class Student extends AppModel {
 	var $nationality;
 	var $pAddress;
 	var $email;
-	var $dept;
+	var $deptid;
 	var $sem;
 	var $batch;
-	var $primaryKey='sid';
 		
 	var $validate=array(     
-		'userid' => '/[a-z0-9\_\-\.]{3,}$/',
-		'fName' => VALID_NOT_EMPTY,
-		'lName' => VALID_NOT_EMPTY,
+		'sid' => '/^0\d{5,6}$/',
+		'fName' => '/^[a-zA-Z\ ]{,10}$/',
+		'lName' => '/^[a-zA-Z\ ]{,10}$/',
+		'dob' => '/^(0[1-9]|[1-2][0-9]|3[0-1])(0[1-9]|1[0-2])(198[0-9]|199[0-5])$/',
+		'gender' => VALID_NOT_EMPTY,
+		'marital' => VALID_NOT_EMPTY,
+		'category' => VALID_NOT_EMPTY,
+		'nationality' => VALID_NOT_EMPTY,
 		'pAddress' => VALID_NOT_EMPTY,
 		'email' => VALID_EMAIL,
+		'sem' => VALID_NOT_EMPTY,
 						);
 
-/*	var $hasOne = array('Account' =>
+	var $hasOne = array('Account' =>
 						array('className' => 'Account',
 							'conditions' => '',
 							'order' => '',
 							'dependant' = true,
-							'foreignKey' = 'studentid'
+							'foreignKey' = 'collegeid'
 							)
 						);
 								
-	var $hasOne = array('Parent' =>
-						array('className' => 'Parent',
+	var $hasMany = array('Guardian' =>
+						array('className' => 'Guardian',
 							'conditions' => '',
 							'order' => '',
 							'dependant' = true,
-							'foreignKey' = 'studentid'
+							'foreignKey' = 'collegeid'
+							),
+						'Course' =>
+						array('className' => 'Course',
+							'conditions' => '',
+							'order' => '',
+							'dependant' = false,
 							)
 						);
 							
@@ -48,16 +59,16 @@ class Student extends AppModel {
 							array('className' => 'Department',
 								'conditions' => '',
 								'order' => '',
-								'foreignKey' => 'deptName'
+								'foreignKey' => 'deptid'
 								)
 							);
-	var $hasAndBelongsToMany = array('Course' =>
+/*	var $hasAndBelongsToMany = array('Course' =>
 							array('className' => 'Course',
 								'joinTable' = > 'courses_students',
 								'conditions' => 'Course.available = 1',
 								'order' => '',
-								'foreignKey' => 'studentid',
-								'associationForeignKey' => 'courseid',
+								'foreignKey' => 'sid',
+								'associationForeignKey' => 'cid',
 								'unique' => true,
 								'finderQuery' => '',
 								'deleteQuery' => '',
