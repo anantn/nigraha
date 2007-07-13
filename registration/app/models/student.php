@@ -1,10 +1,10 @@
 <?php
 class Student extends AppModel {
 	var $name='Student';
-	
+
+	var $sid;
 	var $fName;
 	var $lName;
-	var $studentid;
 	var $userid;
 	var $pAddress;
 	var $email;

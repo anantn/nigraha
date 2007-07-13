@@ -5,3 +5,4 @@
 2007-07-13 20:26:17 Notice: Notice (8): Undefined variable: from in [CORE/app/views/students/index.thtml, line 6]
 2007-07-13 20:56:51 Notice: Notice (8): Undefined variable: test in [CORE/app/views/students/check.ctp, line 3]
 2007-07-13 20:57:17 Notice: Notice (8): Undefined variable: test in [CORE/app/views/students/check.ctp, line 3]
+2007-07-14 00:12:08 Notice: Notice (8): Undefined index:  label in [CORE/app/views/students/check.ctp, line 19]
