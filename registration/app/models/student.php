@@ -28,8 +28,8 @@ class Student extends AppModel {
 		
 	var $validate=array(     
 		'sid' => '/^0\d{5,6}$/',
-		'fName' => '/^[a-zA-Z\ ]{,10}$/',
-		'lName' => '/^[a-zA-Z\ ]{,10}$/',
+		'fName' => '/^[a-zA-Z\ ]+$/',
+		'lName' => '/^[a-zA-Z\ ]+$/',
 		'dob' => '/^(0[1-9]|[1-2][0-9]|3[0-1])(0[1-9]|1[0-2])(198[0-9]|199[0-5])$/',
 		'gender' => VALID_NOT_EMPTY,
 		'marital' => VALID_NOT_EMPTY,
@@ -38,7 +38,7 @@ class Student extends AppModel {
 		'pAddress' => VALID_NOT_EMPTY,
 		'email' => VALID_EMAIL,
 		'semester' => VALID_NOT_EMPTY,
-		'fatherName' => '/^[a-zA-Z\ ]{,10}$/',
+		'fatherName' => '/^[a-zA-Z\ ]+$/',
 		'parentPhone' => '/\(?\d{2,5}[) -]\s?\d{5,8}$/'
 		);
 

@@ -52,12 +52,12 @@ class StudentsController extends AppController
 
 		if (isset($this->data['Student']['fName'])) {
 
-			//if ($this->Student->save($this->data)) {
+			if ($this->Student->save($this->data)) {
 				$this->set('courseLayout', $this->requestAction('/students/courses', array('return')));
-			//} else {
+			} else {
 				$this->set('sFields', $studentFields);	
 				$this->set('gFields', $guardianFields);
-//			}
+			}
 
 		} else {
 
@@ -81,14 +81,17 @@ class StudentsController extends AppController
 
 	function courses()
 	{
+		//$sem = $this->data['Student']['semester'];
+		$sem = 7;
+
 		$courseInfo = array();
-		$courses = unserialize($this->requestAction('/rest/courses/fetch/7', array('return')));
+		$courses = unserialize($this->requestAction("/rest/courses/fetch/$sem", array('return')));
 		foreach ($courses as $course) {
 			$courseInfo[] = array($course, json_decode($this->requestAction('/rest/courses/info/'.$course, array('return'))));
 		}
 		$this->set('courseInfo', $courseInfo);
 
-		//if(isset($this->data['Courses']))
+		if(isset($this->data['Courses']))
 			var_dump($this->data);
 	}
 }
