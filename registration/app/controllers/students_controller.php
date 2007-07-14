@@ -41,9 +41,9 @@ class StudentsController extends AppController
 						array('type' => 'text', 'name' => 'motherName', 'label' => 'Mothers Full Name', 'error' => 'Cannot be empty, Cannot contain numbers'),
 						array('type' => 'textarea', 'name' => 'parentAddress', 'label' => 'Parent\'s Address', 'error' => NULL),
 						array('type' => 'text', 'name' => 'parentPhone', 'label' => 'Contact Phone', 'error' => 'Must be of the form....'),
-						array('type' => 'text', 'name' => 'fatherOccupation', 'label' => 'fathers Occupation', 'error' => NULL),
-						array('type' => 'text', 'name' => 'motherOccupation', 'label' => 'Mothers Occupation', 'error' => NULL),
-						array('type' => 'text', 'name' => 'lgName', 'label' => 'Local Guardians Name', 'error' => 'Cannot be empty, Cannot contain numbers'),
+						array('type' => 'text', 'name' => 'fatherOccupation', 'label' => 'Father\'s Occupation', 'error' => NULL),
+						array('type' => 'text', 'name' => 'motherOccupation', 'label' => 'Mother\'s Occupation', 'error' => NULL),
+						array('type' => 'text', 'name' => 'lgName', 'label' => 'Local Guardian\'s Name', 'error' => 'Cannot be empty, Cannot contain numbers'),
 						array('type' => 'textarea', 'name' => 'lgAddress', 'label' => 'Local Address', 'error' => NULL),
 						array('type' => 'text', 'name' => 'lgPhone', 'label' => 'Local Phone', 'error' => 'Must be of the form 141-2419999')
 					);
@@ -85,5 +85,7 @@ class StudentsController extends AppController
 
 	function courses()
 	{
+		if(isset($this->data['Courses']))
+			var_dump($this->data);
 	}
 }

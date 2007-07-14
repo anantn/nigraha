@@ -15,13 +15,18 @@ echo '<table border="0">';
 echo '<tr><td><b>Course ID</b></td><td>Title</td><td>Credits</td>';
 
 for ($i = 0; $i <= 10; $i++) {
-	echo '<tr><td>';
-	echo $form->input("Courses.cid.$i", array('label' => false, 'type' => 'text'));
-	echo '</td><td>';
-	echo $form->input('Courses.cname.$i', array('label' => false, 'type' => 'text', 'disabled' => 'true'));
-	echo '</td><td>';
-	echo $form->input('Courses.credits.$i', array('label' => false, 'type' => 'text', 'disabled' => 'true'));
-	echo '</td></tr>';
+	echo "
+<tr>
+	<td>
+		<div class=\"input\"><input name=\"data[Courses][$i][cid]\" type=\"text\" value=\"\" id=\"CoursesCid$i\" /></div>
+	</td>
+	<td>
+		<div class=\"input\"><input name=\"data[Courses][$i][cname]\" type=\"text\" disabled=\"disabled\" value=\"\" id=\"CoursesCname$i\" /></div>
+	</td>
+	<td>
+		<div class=\"input\"><input name=\"data[Courses][$i][credits]\" type=\"text\" disabled=\"disabled\" value=\"\" id=\"CoursesCredits$i\" /></div>
+	</td>
+</tr>";
 }
 echo '</table>';
 
