@@ -12,7 +12,7 @@ class CoursesController extends AppController
 
 	function getInfo($cid)
 	{
-		$test = array('Computer Architecture', 4);
+		$test = array('Computer Architecture', $cid);
 		$this->set('info', $test);
 		$this->layoutPath = 'rest';
 	}

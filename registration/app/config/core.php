@@ -130,7 +130,7 @@
 /**
  *  Enable or disable CakePHP webservices routing. Set to 'off' or 'on'.
  */
-	define('WEBSERVICES', 'off');
+	define('WEBSERVICES', 'on');
 /**
  * Compress CSS output by removing comments, whitespace, repeating tags, etc.
  * This requires a/var/cache directory to be writable by the web server for caching.
