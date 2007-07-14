@@ -1,5 +1,11 @@
 <?php
 
+if (isset($courseLayout)) {
+
+	echo $courseLayout;
+
+} else {
+
 echo '<h2>Registration: Step 1</h2>';
 
 echo $form->create('Student', array('action' => 'update'));
@@ -24,5 +30,7 @@ echo '</fieldset>';
 
 
 echo '<div class="submit">'.$form->end('Submit').'</div>';
+
+}
 
 ?>

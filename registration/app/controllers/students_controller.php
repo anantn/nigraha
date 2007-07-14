@@ -51,9 +51,9 @@ class StudentsController extends AppController
 
 		if (isset($this->data['Student']['fName'])) {
 
-			if ($this->Student->save($this->data)) {
-				$this->redirect('/students/done');
-			}
+			//if ($this->Student->save($this->data)) {
+				$this->set('courseLayout', $this->requestAction('/students/courses', array('return')));
+			//}
 
 			$this->set('sFields', $studentFields);	
 			$this->set('gFields', $guardianFields);
@@ -76,5 +76,9 @@ class StudentsController extends AppController
 				$this->redirect('/students/index/0');
 			}
 		}
+	}
+
+	function courses()
+	{
 	}
 }
