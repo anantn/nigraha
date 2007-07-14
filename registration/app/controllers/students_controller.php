@@ -15,7 +15,7 @@ class StudentsController extends AppController
 
 	function update()
 	{
-		$fields = array(
+		$studentFields = array(
 						array('type' => 'text', 'name' => 'collegeid', 'label' => 'Student ID',
 								'error' => 'Must begin with 0, and should be 5 or 6 digits long'),
 						array('type' => 'text', 'name' => 'fName', 'label' => 'First Name', 'error' => 'Cannot be empty, Cannot contain numbers'),
@@ -35,6 +35,8 @@ class StudentsController extends AppController
 						array('type' => 'text', 'name' => 'sem', 'label' => 'Semester', 'error' => 'Cannot be empty'),
 						array('type' => 'text', 'name' => 'batch', 'label' => 'Batch No', 'error' => NULL)
 					);
+
+		$guardianFields = array();
 
 		if (isset($this->data['Student']['fName'])) {
 
