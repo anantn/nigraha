@@ -55,8 +55,8 @@ class StudentsController extends AppController
 				$this->redirect('/students/done');
 			}
 
-			var_dump($this->data);
-			$this->set('fields', $fields);	
+			$this->set('sFields', $studentFields);	
+			$this->set('gFields', $guardianFields);
 
 		} else {
 
@@ -66,7 +66,8 @@ class StudentsController extends AppController
 			$valid = true;
 
 			if ($valid) {
-				$this->set('fields', $fields);	
+				$this->set('sFields', $studentFields);	
+				$this->set('gFields', $guardianFields);
 				if ($this->Student->exists($this->data['Student']['collegeid']))
 					$this->set('new', 0);
 				else

@@ -14,6 +14,6 @@ class CoursesController extends AppController
 	{
 		$test = array('Computer Architecture', 4);
 		$this->set('info', $test);
-		$this->setLayout = 'rest';
+		$this->layoutPath = 'rest';
 	}
 }
