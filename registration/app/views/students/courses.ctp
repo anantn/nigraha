@@ -61,9 +61,16 @@ echo $form->create('Student', array('action' => 'courses'));
 echo '<table border="0">';
 echo '<tr><td>';
 echo $form->input('Student.collegeid', array('label' => false, 'disabled' => true));
+echo $form->hidden('Student.collegeid');
 echo '</td><td>';
 echo $form->input('Student.fName', array('label' => false, 'disabled' => true));
 echo '</td></tr></table>';
+
+if ($error) {
+	echo '<span class="notice">';
+	echo 'There was an error in processing your form, Please contact a sysadmin!';
+	echo '</span>';
+}
 
 echo '<table border="0">';
 echo '<tr><td><b>Course ID</b></td><td>Title</td><td>Credits</td>';
