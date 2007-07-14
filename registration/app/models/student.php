@@ -70,7 +70,7 @@ class Student extends AppModel {
 							array('className' => 'Department',
 								'conditions' => '',
 								'order' => '',
-								'foreignKey' => 'deptid'
+								'foreignKey' => 'department_id'
 								)
 							);
 	var $hasAndBelongsToMany = array('Course' =>
@@ -78,8 +78,8 @@ class Student extends AppModel {
 								'joinTable' => 'courses_students',
 								'conditions' => 'Course.available = 1',
 								'order' => '',
-								'foreignKey' => 'sid',
-								'associationForeignKey' => 'cid',
+								'foreignKey' => 'collegeid',
+								'associationForeignKey' => 'course_id',
 								'unique' => true,
 								'finderQuery' => '',
 								'deleteQuery' => '',

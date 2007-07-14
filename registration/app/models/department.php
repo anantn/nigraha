@@ -42,7 +42,7 @@ class Department extends AppModel {
 							'conditions'    => '',
                             'order'         => '',
                             'limit'         => '',
-                            'foreignKey'    => 'deptid',
+                            'foreignKey'    => 'department_id',
                             'dependent'     => true,
                             'exclusive'     => false,
                             'finderQuery'   => ''
