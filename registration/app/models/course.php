@@ -10,6 +10,7 @@ class Course extends AppModel {
 	var $requiresLab;
 	var $requiresTutorial;
 	var $requiresPresentation;
+	var $area;
 		
 	var $validate=array();
 

@@ -3,11 +3,11 @@
 class CoursesController extends AppController
 {
 	var $name = 'Courses';
-
+	
 	function fetch($sem)
 	{
-		$test = array('CP-202', 'CP-204', 'CP-206');
-		$this->set('info', serialize($test));
+		$conditions=array("Course.semester" => "7", "Course.area" => "DC");
+		$this->set('info', serialize($this->Course->find($conditions)));
 	}
 
 	function info($cid)
