@@ -36,7 +36,18 @@ class StudentsController extends AppController
 						array('type' => 'text', 'name' => 'batch', 'label' => 'Batch No', 'error' => NULL)
 					);
 
-		$guardianFields = array();
+		$guardianFields = array(
+						array('type' => 'text', 'name' => 'fatherName', 'label' => 'Fathers Full Name', 'error' => 'Cannot be empty, Cannot contain numbers'),
+						array('type' => 'text', 'name' => 'motherName', 'label' => 'Mothers Full Name', 'error' => 'Cannot be empty, Cannot contain numbers'),
+						array('type' => 'textarea', 'name' => 'parentAddress', 'label' => 'Parents Address', 'error' => NULL),
+						array('type' => 'text', 'name' => 'parentPhone', 'label' => 'Parents Phone', 'error' => 'Must be of the form....'),
+						array('type' => 'text', 'name' => 'fatherOccupation', 'label' => 'fathers Occupation', 'error' => NULL),
+						array('type' => 'text', 'name' => 'motherOccupation', 'label' => 'Mothers Occupation', 'error' => NULL),
+						array('type' => 'text', 'name' => 'lgName', 'label' => 'Local Guardians Name', 'error' => 'Cannot be empty, Cannot contain numbers'),
+						array('type' => 'textarea', 'name' => 'lgAddress', 'label' => 'Local Guardians Address', 'error' => NULL),
+						array('type' => 'text', 'name' => 'lgPhone', 'label' => 'Local Guardians Phone', 'error' => 'Must be of the form....'),
+						array('type' => 'text', 'name' => 'lgOccupation', 'label' => 'Local Guardians Occupation', 'error' => NULL)
+					);
 
 		if (isset($this->data['Student']['fName'])) {
 
