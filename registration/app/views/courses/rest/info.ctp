@@ -1,5 +1,5 @@
 <?php
 
-echo '['.$info[0].', '.$info[1].']';
+echo '{"name": '.$info[0].', "credits": '.$info[1].'}';
 
 ?>

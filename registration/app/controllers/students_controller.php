@@ -1,5 +1,7 @@
 <?php
 
+require_once 'JSON.php';
+
 class StudentsController extends AppController
 {
 	var $name 		= 'Students';
@@ -54,7 +56,9 @@ class StudentsController extends AppController
 				$courseInfo = array();
 				$courses = unserialize($this->requestAction('/rest/courses/fetch/7', array('return')));
 				foreach ($courses as $course) {
-					var_dump(json_decode($this->requestAction('/rest/courses/info/'.$course, array('return'))));
+					$tmp = $this->requestAction('/rest/courses/info/'.$course, array('return'));
+					$json = new Services_JSON();
+					var_dump($json->decode($tmp));
 					$courseInfo[] = array($course);
 				}
 				$this->set('courseInfo', $courseInfo);
