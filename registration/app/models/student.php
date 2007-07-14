@@ -37,9 +37,9 @@ class Student extends AppModel {
 		'nationality' => VALID_NOT_EMPTY,
 		'pAddress' => VALID_NOT_EMPTY,
 		'email' => VALID_EMAIL,
-		'semester' => VALID_NOT_EMPTY,
+		'semester' => '/^(1|3|5|7|9)$/',
 		'fatherName' => '/^[a-zA-Z\ ]+$/',
-		'parentPhone' => '/\(?\d{2,5}[) -]\s?\d{5,8}$/'
+		'parentPhone' => '/\(?\d{2,5}[) -]?\s?\d{5,8}$/'
 		);
 
 	var $hasOne = array('Account' =>
