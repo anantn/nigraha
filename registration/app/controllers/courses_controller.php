@@ -6,7 +6,7 @@ class CoursesController extends AppController
 	
 	function fetch($sem)
 	{
-		$conditions=array("Course.semester" => "7", "Course.area" => "DC");
+		$conditions=array("Course.semester" => $sem, "Course.area" => "DC");
 		$tmp = $this->Course->findAll($conditions, array('course_id'));
 		$cinfo = array();
 		foreach ($tmp as $t) {
@@ -17,8 +17,10 @@ class CoursesController extends AppController
 
 	function info($cid)
 	{
-		$test = array('Computer Architecture', $cid);
-		$this->set('info', $test);
-		$this->layoutPath = 'rest';
+		$condtions=array("Course.course_id" => $cid);
+		$feilds = array("name");
+		$tmp = $this->Course->findAll($conditions, $feilds);
+		//$test = array('Computer Architecture', $cid);
+		$this->set('info', serialize($tmp));
 	}
 }
