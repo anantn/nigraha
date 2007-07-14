@@ -17,10 +17,9 @@ class CoursesController extends AppController
 
 	function info($cid)
 	{
-		$condtions=array("Course.course_id" => $cid);
-		$feilds = array("name");
-		$tmp = $this->Course->findAll($conditions, $feilds);
-		//$test = array('Computer Architecture', $cid);
-		$this->set('info', serialize($tmp));
+		$conditions=array("Course.course_id" => $cid);
+		$fields = array('name', 'credits');
+		$tmp = $this->Course->find($conditions, $fields);
+		$this->set('info', array($tmp['Course']['name'], $tmp['Course']['credits']));
 	}
 }

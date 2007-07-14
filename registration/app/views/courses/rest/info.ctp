@@ -1,10 +1,5 @@
 <?php
 
-echo '[';
-
-foreach ($info as $put)
-	echo $put.", ";
-
-echo '0]';
+echo '['.$info[0].', '.$info[1].']';
 
 ?>

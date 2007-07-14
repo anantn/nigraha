@@ -18,13 +18,13 @@ for ($i = 0; $i <= 10; $i++) {
 	echo "
 <tr>
 	<td>
-		<div class=\"input\"><input name=\"data[Courses][$i][course_id]\" type=\"text\" value=\"\" id=\"CoursesCid$i\" /></div>
+		<div class=\"input\"><input name=\"data[Courses][$i][course_id]\" type=\"text\" value=\"".$courseInfo[$i][0]."\" id=\"CoursesCid$i\" /></div>
 	</td>
 	<td>
-		<div class=\"input\"><input name=\"data[Courses][$i][cname]\" type=\"text\" disabled=\"disabled\" value=\"\" id=\"CoursesCname$i\" /></div>
+		<div class=\"input\"><input name=\"data[Courses][$i][cname]\" type=\"text\" disabled=\"disabled\" value=\"".$courseInfo[$i][1][0]."\" id=\"CoursesCname$i\" /></div>
 	</td>
 	<td>
-		<div class=\"input\"><input name=\"data[Courses][$i][credits]\" type=\"text\" disabled=\"disabled\" value=\"\" id=\"CoursesCredits$i\" /></div>
+		<div class=\"input\"><input name=\"data[Courses][$i][credits]\" type=\"text\" disabled=\"disabled\" value=\"".$courseInfo[$i][1][1]."\" id=\"CoursesCredits$i\" /></div>
 	</td>
 </tr>";
 }
