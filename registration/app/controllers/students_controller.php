@@ -50,13 +50,13 @@ class StudentsController extends AppController
 
 		if (isset($this->data['Student']['fName'])) {
 
-			$courseInfo = array();
-			$courses = $this->requestAction('/rest/courses/fetch/6', array('return'));
-			foreach ($courses as $course) {
-				$courseInfo[$course] = json_decode($this->requestAction('/rest/courses/info/'.$course, array('return')));
-			}
-
 			//if ($this->Student->save($this->data)) {
+				$courseInfo = array();
+				$courses = $this->requestAction('/rest/courses/fetch/6', array('return'));
+				foreach ($courses as $course) {
+					$courseInfo[$course] = json_decode($this->requestAction('/rest/courses/info/'.$course, array('return')));
+				}
+				$this->set('courseInfo', $courseInfo);
 				$this->set('courseLayout', $this->requestAction('/students/courses', array('return')));
 			//}
 

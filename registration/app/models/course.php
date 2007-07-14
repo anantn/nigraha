@@ -15,13 +15,16 @@ class Course extends AppModel {
 	var $validate=array();
 
 	var $belongsTo = array('Department' =>
-							array('className' => 'Department')
-							);
+						array(	'className' => 'Department',
+								'foriegnKey' => 'deptid'
+							)
+					);
 	
 	var $hasMany=array('Student' =>
-						array('className' => 'Student',
-                            'dependent' => false
-                         )
-                  );
+						array(	'className' => 'Student',
+                            	'dependent' => false,
+								'foriegnKey' => 'collegeid'
+							)
+					);
 }
 ?>

@@ -16,11 +16,11 @@ echo '<tr><td><b>Course ID</b></td><td>Title</td><td>Credits</td>';
 
 for ($i = 0; $i <= 10; $i++) {
 	echo '<tr><td>';
-	echo $form->input('Courses.cid', array('label' => false, 'type' => 'text'));
+	echo $form->input("Courses.cid.$i", array('label' => false, 'type' => 'text'));
 	echo '</td><td>';
-	echo $form->input('Courses.cname', array('label' => false, 'type' => 'text', 'disabled' => 'true'));
+	echo $form->input('Courses.cname.$i', array('label' => false, 'type' => 'text', 'disabled' => 'true'));
 	echo '</td><td>';
-	echo $form->input('Courses.credits', array('label' => false, 'type' => 'text', 'disabled' => 'true'));
+	echo $form->input('Courses.credits.$i', array('label' => false, 'type' => 'text', 'disabled' => 'true'));
 	echo '</td></tr>';
 }
 echo '</table>';
