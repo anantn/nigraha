@@ -1,15 +1,46 @@
 <script type="text/javascript">
 
-function updateFields(code, field)
+function checkSubmit()
+{
+	var isAlright = true;
+	var daButton;
+	
+	for (i = 0; i < $('StudentCoursesForm').length; i++) {
+		var tempobj = $('StudentCoursesForm').elements[i];
+		if (tempobj.type.toLowerCase() == "submit") {
+			daButton = tempobj;
+		}
+		if (tempobj.id.indexOf("CoursesCredits") == 0) {
+			if (tempobj.value == "0")
+				isAlright = false;
+		}
+	}
+
+	if (isAlright)
+		daButton.disabled = false;
+	else
+		daButton.disabled = true;
+}
+
+function updateFields(code, num)
 {
 	new Ajax.Request(
-		'/rest/courses/info/'+code, {
+		'/cake/rest/courses/info/'+code, {
 		method: 'get',
 		onSuccess: function updateField(transport) {
-			if (!transport.responseText.match("")) {
-				var data = transport.responseText.evalJSON();
-				
-			
+			var data = transport.responseText.evalJSON();
+			if (data[0] == "") {
+				$('CoursesCname'+num).value = "INVALID!";
+				$('CoursesCredits'+num).value = 0;
+				new Effect.Highlight($('CoursesCname'+num), {startcolor: "ff0000"});
+			} else {
+				$('CoursesCname'+num).value = data[0];
+				$('CoursesCredits'+num).value = data[1];
+				new Effect.Highlight($('CoursesCname'+num), {startcolor: "00ff00"});
+			}
+			checkSubmit();
+		}
+	});
 }
 
 </script>
@@ -42,7 +73,7 @@ for ($i = 0; $i <= 10; $i++) {
 	echo "
 <tr>
 	<td>
-		<div class=\"input\"><input name=\"data[Courses][$i][course_id]\" type=\"text\" value=\"".$values[0]."\" id=\"CoursesCid$i\" size=\"6\" onChange=\"updateFields(this.value, this.name)\" /></div>
+		<div class=\"input\"><input name=\"data[Courses][$i][course_id]\" type=\"text\" value=\"".$values[0]."\" id=\"CoursesCid$i\" size=\"6\" onChange=\"updateFields(this.value, ".$i.")\" /></div>
 	</td>
 	<td>
 		<div class=\"input\"><input name=\"data[Courses][$i][cname]\" type=\"text\" disabled=\"disabled\" value=\"".$values[1][0]."\" id=\"CoursesCname$i\" size=\"30\" /></div>
@@ -53,7 +84,6 @@ for ($i = 0; $i <= 10; $i++) {
 </tr>";
 }
 echo '</table>';
-
 echo $form->end('Submit');
 
 ?>

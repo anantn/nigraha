@@ -1,7 +1,5 @@
 <?php
 
-require_once 'JSON.php';
-
 class StudentsController extends AppController
 {
 	var $name 		= 'Students';
@@ -52,12 +50,12 @@ class StudentsController extends AppController
 
 		if (isset($this->data['Student']['fName'])) {
 
-			if ($this->Student->save($this->data)) {
+			//if ($this->Student->save($this->data)) {
 				$this->set('courseLayout', $this->requestAction('/students/courses', array('return')));
-			} else {
+			//} else {
 				$this->set('sFields', $studentFields);	
 				$this->set('gFields', $guardianFields);
-			}
+			//}
 
 		} else {
 

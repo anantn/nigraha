@@ -168,3 +168,7 @@
 2007-07-14 18:26:14 Notice: Notice (8): Uninitialized string offset:  1 in [CORE/app/views/students/courses.ctp, line 48]
 2007-07-14 18:32:02 Notice: Notice (8): Uninitialized string offset:  0 in [CORE/app/views/students/courses.ctp, line 48]
 2007-07-14 18:32:02 Notice: Notice (8): Uninitialized string offset:  1 in [CORE/app/views/students/courses.ctp, line 51]
+2007-07-14 18:48:51 Notice: Notice (8): Uninitialized string offset:  0 in [CORE/app/views/students/courses.ctp, line 52]
+2007-07-14 18:48:51 Notice: Notice (8): Uninitialized string offset:  1 in [CORE/app/views/students/courses.ctp, line 55]
+2007-07-14 18:49:36 Notice: Notice (8): Uninitialized string offset:  0 in [CORE/app/views/students/courses.ctp, line 52]
+2007-07-14 18:49:36 Notice: Notice (8): Uninitialized string offset:  1 in [CORE/app/views/students/courses.ctp, line 55]

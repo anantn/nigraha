@@ -275,3 +275,7 @@
 2007-07-14 18:31:16 Warning: Warning (512): Deprecated: webservices routes are deprecated and will not be supported in future versions.  Use Router::parseExtensions() instead. in [CORE/cake/libs/router.php, line 356]
 2007-07-14 18:32:02 Warning: Warning (512): Deprecated: webservices routes are deprecated and will not be supported in future versions.  Use Router::parseExtensions() instead. in [CORE/cake/libs/router.php, line 356]
 2007-07-14 18:33:39 Warning: Warning (512): Deprecated: webservices routes are deprecated and will not be supported in future versions.  Use Router::parseExtensions() instead. in [CORE/cake/libs/router.php, line 356]
+2007-07-14 18:48:21 Warning: Warning (512): Deprecated: webservices routes are deprecated and will not be supported in future versions.  Use Router::parseExtensions() instead. in [CORE/cake/libs/router.php, line 356]
+2007-07-14 18:48:51 Warning: Warning (512): Deprecated: webservices routes are deprecated and will not be supported in future versions.  Use Router::parseExtensions() instead. in [CORE/cake/libs/router.php, line 356]
+2007-07-14 18:49:36 Warning: Warning (512): Deprecated: webservices routes are deprecated and will not be supported in future versions.  Use Router::parseExtensions() instead. in [CORE/cake/libs/router.php, line 356]
+2007-07-14 18:49:45 Warning: Warning (512): Deprecated: webservices routes are deprecated and will not be supported in future versions.  Use Router::parseExtensions() instead. in [CORE/cake/libs/router.php, line 356]
