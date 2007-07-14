@@ -1,5 +1,8 @@
-<?php 
-classÊRestComponentÊextendsÊObjectÊ{ 
-} 
-?> 
+<?php
 
+class RestComponent extends Object
+{
+
+}
+
+?>
