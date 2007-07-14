@@ -16,3 +16,5 @@
 2007-07-14 15:21:57 Warning: Warning (2): Invalid argument supplied for foreach() in [CORE/app/views/students/update.ctp, line 17]
 2007-07-14 15:21:58 Warning: Warning (2): Invalid argument supplied for foreach() in [CORE/app/views/students/update.ctp, line 8]
 2007-07-14 15:21:58 Warning: Warning (2): Invalid argument supplied for foreach() in [CORE/app/views/students/update.ctp, line 17]
+2007-07-14 15:34:19 Warning: Warning (2): Missing argument 1 for CoursesController::getInfo() in [CORE/app/controllers/courses_controller.php, line 19]
+2007-07-14 15:34:36 Warning: Warning (2): Missing argument 1 for CoursesController::getInfo() in [CORE/app/controllers/courses_controller.php, line 19]

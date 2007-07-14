@@ -21,3 +21,5 @@
 2007-07-14 15:21:58 Notice: Notice (8): Undefined variable: fields in [CORE/app/controllers/students_controller.php, line 70]
 2007-07-14 15:21:58 Notice: Notice (8): Undefined variable: sFields in [CORE/app/views/students/update.ctp, line 8]
 2007-07-14 15:21:58 Notice: Notice (8): Undefined variable: gFields in [CORE/app/views/students/update.ctp, line 17]
+2007-07-14 15:34:19 Notice: Notice (8): Undefined variable: cid in [CORE/app/controllers/courses_controller.php, line 21]
+2007-07-14 15:34:36 Notice: Notice (8): Undefined variable: cid in [CORE/app/controllers/courses_controller.php, line 21]
