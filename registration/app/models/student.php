@@ -73,7 +73,7 @@ class Student extends AppModel {
 								'foreignKey' => 'deptid'
 								)
 							);
-/*	var $hasAndBelongsToMany = array('Course' =>
+	var $hasAndBelongsToMany = array('Course' =>
 							array('className' => 'Course',
 								'joinTable' = > 'courses_students',
 								'conditions' => 'Course.available = 1',
@@ -84,6 +84,6 @@ class Student extends AppModel {
 								'finderQuery' => '',
 								'deleteQuery' => '',
 								)
-							); */
+							); 
 }
 ?>

@@ -4,7 +4,7 @@ class Course extends AppModel {
 	
 	var $cid;
 	var $cname;
-	var $deptid;
+	var $department_id;
 	var $semester;
 	var $credits;
 	var $requiresLab;
@@ -16,15 +16,8 @@ class Course extends AppModel {
 
 	var $belongsTo = array('Department' =>
 						array(	'className' => 'Department',
-								'associationForiegnKey' => 'deptid'
 							)
 					);
 	
-	var $hasMany=array('Student' =>
-						array(	'className' => 'Student',
-                            	'dependent' => false,
-								'foriegnKey' => 'collegeid'
-							)
-					);
 }
 ?>

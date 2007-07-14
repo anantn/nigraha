@@ -3,7 +3,7 @@ class Department extends AppModel {
 	var $name='Department';
 	
 	var $deptName;
-	VAR $deptid;
+	VAR $department_id;
 		
 	var $validate=array();
 
@@ -12,7 +12,7 @@ class Department extends AppModel {
 							'conditions'    => '',
                             'order'         => '',
                             'limit'         => '',
-                            'foreignKey'    => 'deptid',
+                            'foreignKey'    => 'department_id',
                             'dependent'     => false,
                             'exclusive'     => false,
                             'finderQuery'   => ''
