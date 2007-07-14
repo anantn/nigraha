@@ -25,7 +25,6 @@ class Student extends AppModel {
 	var $lgName;
 	var $lgAddress;
 	var $lgPhone;
-	var $lgOccupation;
 		
 	var $validate=array(     
 		'sid' => '/^0\d{5,6}$/',
@@ -40,8 +39,8 @@ class Student extends AppModel {
 		'email' => VALID_EMAIL,
 		'sem' => VALID_NOT_EMPTY,
 		'fatherName' => '/^[a-zA-Z\ ]{,10}$/',
-		'parentPhone' => VALID_NUMBER
-						);
+		'parentPhone' => '/\(?\d{2,5}[) -]\s?\d{5,8}$/'
+		);
 
 	var $hasOne = array('Account' =>
 						array('className' => 'Account',
