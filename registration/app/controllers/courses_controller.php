@@ -7,7 +7,12 @@ class CoursesController extends AppController
 	function fetch($sem)
 	{
 		$conditions=array("Course.semester" => "7", "Course.area" => "DC");
-		$this->set('info', serialize($this->Course->find($conditions, array('course_id')));
+		$tmp = $this->Course->findAll($conditions, array('course_id'));
+		$cinfo = array();
+		foreach ($tmp as $t) {
+			$cinfo[] = $t['Course']['course_id'];	
+		}
+		$this->set('info', serialize($cinfo));
 	}
 
 	function info($cid)
