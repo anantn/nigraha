@@ -53,20 +53,11 @@ class StudentsController extends AppController
 		if (isset($this->data['Student']['fName'])) {
 
 			//if ($this->Student->save($this->data)) {
-				$courseInfo = array();
-				$courses = unserialize($this->requestAction('/rest/courses/fetch/7', array('return')));
-				foreach ($courses as $course) {
-					$tmp = $this->requestAction('/rest/courses/info/'.$course, array('return'));
-					$json = new Services_JSON();
-					var_dump($json->decode($tmp));
-					$courseInfo[] = array($course);
-				}
-				$this->set('courseInfo', $courseInfo);
 				$this->set('courseLayout', $this->requestAction('/students/courses', array('return')));
-			//}
-
-			$this->set('sFields', $studentFields);	
-			$this->set('gFields', $guardianFields);
+			//} else {
+				$this->set('sFields', $studentFields);	
+				$this->set('gFields', $guardianFields);
+//			}
 
 		} else {
 
@@ -90,7 +81,14 @@ class StudentsController extends AppController
 
 	function courses()
 	{
-		if(isset($this->data['Courses']))
+		$courseInfo = array();
+		$courses = unserialize($this->requestAction('/rest/courses/fetch/7', array('return')));
+		foreach ($courses as $course) {
+			$courseInfo[] = array($course, json_decode($this->requestAction('/rest/courses/info/'.$course, array('return'))));
+		}
+		$this->set('courseInfo', $courseInfo);
+
+		//if(isset($this->data['Courses']))
 			var_dump($this->data);
 	}
 }
