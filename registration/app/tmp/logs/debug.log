@@ -13,3 +13,4 @@
 2007-07-14 03:59:54 Notice: Notice (8): Undefined index:  sid in [CORE/app/controllers/students_controller.php, line 48]
 2007-07-14 03:59:54 Notice: Notice (8): Undefined index:  sid in [CORE/app/controllers/students_controller.php, line 55]
 2007-07-14 04:00:52 Notice: Notice (8): Undefined index:  sid in [CORE/app/controllers/students_controller.php, line 56]
+2007-07-14 15:01:38 Notice: Notice (8): Undefined variable: test in [CORE/app/views/courses/rest/fetch.ctp, line 5]
