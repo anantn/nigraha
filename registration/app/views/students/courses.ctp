@@ -18,7 +18,7 @@ for ($i = 0; $i <= 10; $i++) {
 	echo "
 <tr>
 	<td>
-		<div class=\"input\"><input name=\"data[Courses][$i][cid]\" type=\"text\" value=\"\" id=\"CoursesCid$i\" /></div>
+		<div class=\"input\"><input name=\"data[Courses][$i][course_id]\" type=\"text\" value=\"\" id=\"CoursesCid$i\" /></div>
 	</td>
 	<td>
 		<div class=\"input\"><input name=\"data[Courses][$i][cname]\" type=\"text\" disabled=\"disabled\" value=\"\" id=\"CoursesCname$i\" /></div>
