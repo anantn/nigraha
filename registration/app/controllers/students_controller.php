@@ -41,10 +41,9 @@ class StudentsController extends AppController
 		if (isset($this->data['Student']['fName'])) {
 
 			if ($this->Student->save($this->data)) {
-				$this->redirect('/students/done');
+				$this->redirect('/students/courses');
 			}
 
-			var_dump($this->data);
 			$this->set('fields', $fields);	
 
 		} else {
@@ -64,5 +63,21 @@ class StudentsController extends AppController
 				$this->redirect('/students/index/0');
 			}
 		}
+	}
+
+	function courses()
+	{
+		if (isset($this->data['Student']['collegeid'])) {
+
+			if ($this->Student->save($this->data)) {
+				$this->redirect('/students/done');
+			}
+
+		} 
+	}
+
+	function done()
+	{
+			
 	}
 }

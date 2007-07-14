@@ -1,6 +1,6 @@
 <?php
 
-echo '<h2>Registration Form</h2>';
+echo '<h2>Registration: Step 1</h2>';
 
 echo $form->create('Student', array('action' => 'update'));
 
@@ -12,8 +12,6 @@ foreach ($fields as $field) {
 	else
 		echo $form->input('Student.'.$field['name'], array('label' => $field['label'], 'type' => $field['type'], 'error' => $field['error']));
 }
-
-echo $form->input('Guardian.lName', array('label' => "Father Name", 'type' => 'text', 'error' => 'wtf'));
 
 echo '</fieldset>';
 echo '<div class="submit">'.$form->end('Submit').'</div>';

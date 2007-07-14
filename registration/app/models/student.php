@@ -65,7 +65,7 @@ class Student extends AppModel {
 
 	var $hasAndBelongsToMany = array('Course' =>
 							array('className' => 'Course',
-								'joinTable' = > 'courses_students',
+								'joinTable' => 'courses_students',
 								'conditions' => 'Course.available = 1',
 								'order' => '',
 								'foreignKey' => 'sid',
