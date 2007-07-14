@@ -16,7 +16,7 @@ class Course extends AppModel {
 
 	var $belongsTo = array('Department' =>
 						array(	'className' => 'Department',
-								'foriegnKey' => 'deptid'
+								'associationForiegnKey' => 'deptid'
 							)
 					);
 	
