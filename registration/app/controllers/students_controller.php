@@ -44,12 +44,12 @@ class StudentsController extends AppController
 						array('type' => 'text', 'name' => 'fatherName', 'label' => 'Father\'s/Guardian\'s Full Name', 'error' => 'Cannot be empty, Cannot contain numbers'),
 						array('type' => 'text', 'name' => 'motherName', 'label' => 'Mothers Full Name', 'error' => 'Cannot be empty, Cannot contain numbers'),
 						array('type' => 'textarea', 'name' => 'parentAddress', 'label' => 'Parent\'s Address', 'error' => NULL),
-						array('type' => 'text', 'name' => 'parentPhone', 'label' => 'Contact Phone', 'error' => 'Must be of the form....'),
+						array('type' => 'text', 'name' => 'parentPhone', 'label' => 'Contact Phone', 'error' => 'Not a valid phone number!'),
 						array('type' => 'text', 'name' => 'fatherOccupation', 'label' => 'Father\'s Occupation', 'error' => NULL),
 						array('type' => 'text', 'name' => 'motherOccupation', 'label' => 'Mother\'s Occupation', 'error' => NULL),
 						array('type' => 'text', 'name' => 'lgName', 'label' => 'Local Guardian\'s Name', 'error' => 'Cannot be empty, Cannot contain numbers'),
 						array('type' => 'textarea', 'name' => 'lgAddress', 'label' => 'Local Address', 'error' => NULL),
-						array('type' => 'text', 'name' => 'lgPhone', 'label' => 'Local Phone', 'error' => 'Must be of the form 141-2419999')
+						array('type' => 'text', 'name' => 'lgPhone', 'label' => 'Local Phone', 'error' => NULL)
 					);
 
 		if (isset($this->data['Student']['fName'])) {
