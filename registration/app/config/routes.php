@@ -44,5 +44,4 @@
  */
 	Router::connect('/tests', array('controller' => 'tests', 'action' => 'index'));
 
-	Router::parseExtensions('json');
 ?>
