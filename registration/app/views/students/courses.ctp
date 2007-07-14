@@ -63,7 +63,11 @@ echo '<tr><td>';
 echo $form->input('Student.collegeid', array('label' => false, 'disabled' => true));
 echo $form->hidden('Student.collegeid');
 echo '</td><td>';
+echo $form->input('Student.semester', array('label' => false, 'disabled' => true));
+echo $form->hidden('Student.semester');
+echo '</td><td>';
 echo $form->input('Student.fName', array('label' => false, 'disabled' => true));
+echo $form->hidden('Student.fName');
 echo '</td></tr></table>';
 
 if ($error) {

@@ -10,12 +10,12 @@ class StudentsController extends AppController
 		if ($check)
 			$this->set('instructions', 'Please enter your college ID to begin!');
 		else
-			$this->set('instructions', 'Your college ID was invalid! Please try again:');
+			$this->set('instructions', 'Either your college ID was invalid, or this student has already registered! Please try again:');
 	}
 
 	function update()
 	{
-		$studentFields = array(
+		$mainFields = array(
 						array('type' => 'text', 'name' => 'collegeid', 'label' => 'Student ID',
 								'error' => 'Must begin with 0, and should be 5 or 6 digits long'),
 						array('type' => 'text', 'name' => 'fName', 'label' => 'First Name', 'error' => 'Cannot be empty, Cannot contain numbers'),
@@ -23,6 +23,10 @@ class StudentsController extends AppController
 						array('type' => 'text', 'name' => 'dob', 'label' => 'Date Of Birth', 'error' => 'Must be of the form DDMMYYYY'),
 						array('type' => 'select', 'name' => 'gender', 'label' => 'Gender',
 								'values' => array('m' => 'Male', 'f' => 'Female'), 'error' => 'Cannot be empty'),
+						array('type' => 'password', 'name' => 'password', 'label' => 'Password', 'error' => 'Invalid Password!')
+							);
+
+		$extraFields = array(
 						array('type' => 'select', 'name' => 'marital', 'label' => 'Marital Status',
 								'values' => array('u' => 'Unmarried', 'm' => 'Married', 'd' => 'Divorced'), 'error' => 'Cannot be empty'),
 						array('type' => 'text', 'name' => 'bloodGroup', 'label' => 'Blood Group', 'error' => NULL),
@@ -50,27 +54,23 @@ class StudentsController extends AppController
 
 		if (isset($this->data['Student']['fName'])) {
 
-			//if ($this->Student->save($this->data)) {
+			if ($this->Student->save($this->data)) {
 				$this->set('courseLayout', $this->requestAction('/students/courses', array('return')));
-			//} else {
-				$this->set('sFields', $studentFields);	
+			} else {
+				$this->set('mFields', $mainFields);	
+				$this->set('eFields', $extraFields);
 				$this->set('gFields', $guardianFields);
-			//}
+			}
 
 		} else {
 
 			$sid = $this->data['Student']['collegeid'];
-			// Do validation here!
-	
-			$valid = true;
-
-			if ($valid) {
-				$this->set('sFields', $studentFields);	
+			if (preg_match('/^0\d{5,6}$/', $sid)) {
+				$this->set('mFields', $mainFields);	
+				$this->set('eFields', $extraFields);
 				$this->set('gFields', $guardianFields);
-				if ($this->Student->exists($this->data['Student']['collegeid']))
-					$this->set('new', 0);
-				else
-					$this->set('new', 1);
+				if (($this->Student->findCount(array("Student.collegeid" => $this->data['Student']['collegeid']))) != 0)
+					$this->redirect('/students/index/0');
 			} else {
 				$this->redirect('/students/index/0');
 			}
@@ -79,9 +79,7 @@ class StudentsController extends AppController
 
 	function courses()
 	{
-		//$sem = $this->data['Student']['semester'];
-		$sem = 7;
-
+		$sem = $this->data['Student']['semester'];
 		$courseInfo = array();
 		$courses = unserialize($this->requestAction("/rest/courses/fetch/$sem", array('return')));
 		foreach ($courses as $course) {
