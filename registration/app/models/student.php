@@ -14,7 +14,7 @@ class Student extends AppModel {
 	var $pAddress;
 	var $email;
 	var $deptid;
-	var $sem;
+	var $semester;
 	var $batch;
 	var $fatherName;
 	var $motherName;
@@ -37,7 +37,7 @@ class Student extends AppModel {
 		'nationality' => VALID_NOT_EMPTY,
 		'pAddress' => VALID_NOT_EMPTY,
 		'email' => VALID_EMAIL,
-		'sem' => VALID_NOT_EMPTY,
+		'semester' => VALID_NOT_EMPTY,
 		'fatherName' => '/^[a-zA-Z\ ]{,10}$/',
 		'parentPhone' => '/\(?\d{2,5}[) -]\s?\d{5,8}$/'
 		);

@@ -33,8 +33,8 @@ class StudentsController extends AppController
 						array('type' => 'text', 'name' => 'nationality', 'label' => 'Nationality', 'error' => 'Cannot be empty'),
 						array('type' => 'textarea', 'name' => 'pAddress', 'label' => 'Permanent Address', 'error' => 'Cannot be empty'),
 						array('type' => 'text', 'name' => 'email', 'label' => 'Email Address', 'error' => 'Valid Email address required'),
-						array('type' => 'text', 'name' => 'dept', 'label' => 'Department', 'error' => 'Cannot be empty'),
-						array('type' => 'text', 'name' => 'sem', 'label' => 'Semester', 'error' => 'Cannot be empty'),
+						array('type' => 'text', 'name' => 'deptid', 'label' => 'Department ID', 'error' => 'Cannot be empty'),
+						array('type' => 'text', 'name' => 'semester', 'label' => 'Semester', 'error' => 'Cannot be empty'),
 						array('type' => 'text', 'name' => 'batch', 'label' => 'Batch No', 'error' => NULL)
 					);
 
