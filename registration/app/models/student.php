@@ -16,6 +16,16 @@ class Student extends AppModel {
 	var $deptid;
 	var $sem;
 	var $batch;
+	var $fatherName;
+	var $motherName;
+	var $parentAddress;
+	var $parentPhone;
+	var $fatherOccupation;
+	var $motherOccupation;
+	var $lgName;
+	var $lgAddress;
+	var $lgPhone;
+	var $lgOccupation;
 		
 	var $validate=array(     
 		'sid' => '/^0\d{5,6}$/',
@@ -29,6 +39,8 @@ class Student extends AppModel {
 		'pAddress' => VALID_NOT_EMPTY,
 		'email' => VALID_EMAIL,
 		'sem' => VALID_NOT_EMPTY,
+		'fatherName' => '/^[a-zA-Z\ ]{,10}$/',
+		'parentPhone' => VALID_NUMBER
 						);
 
 	var $hasOne = array('Account' =>
@@ -40,7 +52,7 @@ class Student extends AppModel {
 							)
 						);
 								
-	var $hasMany = array('Guardian' =>
+/*	var $hasMany = array('Guardian' =>
 						array('className' => 'Guardian',
 							'conditions' => '',
 							'order' => '',
@@ -54,7 +66,7 @@ class Student extends AppModel {
 							'dependant' => false,
 							)
 						);
-							
+	*/						
 	var $belongsTo = array('Department' =>
 							array('className' => 'Department',
 								'conditions' => '',
@@ -62,8 +74,7 @@ class Student extends AppModel {
 								'foreignKey' => 'deptid'
 								)
 							);
-
-	var $hasAndBelongsToMany = array('Course' =>
+/*	var $hasAndBelongsToMany = array('Course' =>
 							array('className' => 'Course',
 								'joinTable' = > 'courses_students',
 								'conditions' => 'Course.available = 1',
@@ -74,6 +85,6 @@ class Student extends AppModel {
 								'finderQuery' => '',
 								'deleteQuery' => '',
 								)
-							);
+							); */
 }
 ?>
