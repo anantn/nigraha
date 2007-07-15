@@ -2,19 +2,24 @@
 class Account extends AppModel {
 	var $name='Account';
 	
-	var $username;
+	var $id;
 	var $collegeid;
-	var $privilege;
-	var $primaryKey='username';
-		
-	var $validate=array('username' => '/^[a-z0-9\_\-\.]{3,}$/');
+	var $category;
+	var $mode;
+	var $number;
+	var $amount;
+
+	var $primaryKey='id';
+
+	var $validate = array(
+		'collegeid' => '/^0\d{5,6}$/',
+		'category' => VALID_NOT_EMPTY,
+		'mode' => VALID_NOT_EMPTY,
+		'number' => VALID_NOT_EMPTY,
+		'amount' => '/^[0-9\.]+$/');
 
 	var $belongsTo = array('Student' =>
 							array('className' => 'Student',
-								'conditions' => '',
-								'order' => '',
-								'foreignKey' => 'collegeid'
-								)
-							);
+								  'foreignKey' => 'collegeid'));
 }
 ?>

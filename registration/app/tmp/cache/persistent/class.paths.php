@@ -11,6 +11,3 @@ $config['Helpers']['Core']['FormHelper'] = array('path' => '/Library/WebServer/D
 $config['Helpers']['Core']['SessionHelper'] = array('path' => '/Library/WebServer/Documents/cake/cake/libs/view/helpers/session.php', );
 $config['Helpers']['Core']['JavascriptHelper'] = array('path' => '/Library/WebServer/Documents/cake/cake/libs/view/helpers/javascript.php', );
 $config['Helpers']['Core']['AjaxHelper'] = array('path' => '/Library/WebServer/Documents/cake/cake/libs/view/helpers/ajax.php', );
-$config['Controllers']['CoursesController'] = array('path' => '/Library/WebServer/Documents/cake/app/controllers/courses_controller.php', );
-$config['Components']['RestComponent'] = array('path' => '/Library/WebServer/Documents/cake/app/controllers/components/rest.php', );
-$config['Helpers']['RestHelper'] = array('path' => '/Library/WebServer/Documents/cake/app/views/helpers/rest.php', );

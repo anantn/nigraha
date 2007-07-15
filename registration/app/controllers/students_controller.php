@@ -160,4 +160,10 @@ class StudentsController extends AppController
 	{
 	
 	}
+
+	function show($id)
+	{
+		$student = $this->Student->findByCollegeid($id);
+		var_dump($student);
+	}
 }

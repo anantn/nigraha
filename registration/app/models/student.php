@@ -30,7 +30,7 @@ class Student extends AppModel {
 	var $password;
 		
 	var $validate=array(     
-		'sid' => '/^0\d{5,6}$/',
+		'collegeid' => '/^0\d{5,6}$/',
 		'fName' => '/^[a-zA-Z\ \.]+$/',
 		'lName' => '/^[a-zA-Z\ \.]+$/',
 		'dob' => '/^(0[1-9]|[1-2][0-9]|3[0-1])(0[1-9]|1[0-2])(198[0-9]|199[0-5])$/',
@@ -49,6 +49,7 @@ class Student extends AppModel {
 		'password' => VALID_NOT_EMPTY
 	);
 
+	/*
 	var $hasOne = array('Account' =>
 						array('className' => 'Account',
 							'conditions' => '',
@@ -68,7 +69,6 @@ class Student extends AppModel {
 	var $hasAndBelongsToMany = array('Course' =>
 							array('className' => 'Course',
 								'joinTable' => 'courses_students',
-								'conditions' => 'Course.available = 1',
 								'order' => '',
 								'foreignKey' => 'collegeid',
 								'associationForeignKey' => 'course_id',
@@ -77,5 +77,6 @@ class Student extends AppModel {
 								'deleteQuery' => '',
 								)
 							); 
+	 */
 }
 ?>
