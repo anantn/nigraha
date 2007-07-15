@@ -162,7 +162,7 @@ class StudentsController extends AppController
 	
 	}
 
-	function show($id)
+	function print($id)
 	{
 		$student = $this->Student->findByCollegeid($id);
 		if (!$student) {
@@ -193,6 +193,7 @@ class StudentsController extends AppController
 				}
 				$this->set('cInfo', $cInfo);
 			}
-		}		
+		}
+		$this->render(NULL, 'print');
 	}
 }
