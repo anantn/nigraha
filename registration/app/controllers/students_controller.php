@@ -64,7 +64,7 @@ class StudentsController extends AppController
 								'error' => 'Must begin with 0, and should be 5 or 6 digits long', 'disabled' => true),
 						array('type' => 'text', 'name' => 'fName', 'label' => 'First Name', 'error' => 'Cannot be empty, Cannot contain numbers'),
 						array('type' => 'text', 'name' => 'lName', 'label' => 'Last Name', 'error' => 'Cannot be empty, Cannot contain numbers'),
-						array('type' => 'text', 'name' => 'dob', 'label' => 'Date Of Birth (DDMMYY)', 'error' => 'Must be of the form DDMMYYYY'),
+						array('type' => 'text', 'name' => 'dob', 'label' => 'Date Of Birth (DDMMYYYY)', 'error' => 'Must be of the form DDMMYYYY'),
 						array('type' => 'select', 'name' => 'gender', 'label' => 'Gender',
 								'values' => array('m' => 'Male', 'f' => 'Female'), 'error' => 'Cannot be empty'),
 						array('type' => 'password', 'name' => 'password', 'label' => 'Password', 'error' => 'Invalid Password!')

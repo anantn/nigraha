@@ -9,3 +9,6 @@ $config['Helpers']['Core']['FormHelper'] = array('path' => '/Library/WebServer/D
 $config['Helpers']['Core']['SessionHelper'] = array('path' => '/Library/WebServer/Documents/cake/cake/libs/view/helpers/session.php', );
 $config['Helpers']['Core']['JavascriptHelper'] = array('path' => '/Library/WebServer/Documents/cake/cake/libs/view/helpers/javascript.php', );
 $config['Helpers']['Core']['AjaxHelper'] = array('path' => '/Library/WebServer/Documents/cake/cake/libs/view/helpers/ajax.php', );
+$config['Controllers']['StudentsController'] = array('path' => '/Library/WebServer/Documents/cake/app/controllers/students_controller.php', );
+$config['Models']['Department'] = array('path' => '/Library/WebServer/Documents/cake/app/models/department.php', );
+$config['Models']['Course'] = array('path' => '/Library/WebServer/Documents/cake/app/models/course.php', );
