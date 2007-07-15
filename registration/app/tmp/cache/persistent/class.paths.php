@@ -14,3 +14,4 @@ $config['Helpers']['Core']['AjaxHelper'] = array('path' => '/Library/WebServer/D
 $config['Controllers']['CoursesController'] = array('path' => '/Library/WebServer/Documents/cake/app/controllers/courses_controller.php', );
 $config['Components']['RestComponent'] = array('path' => '/Library/WebServer/Documents/cake/app/controllers/components/rest.php', );
 $config['Helpers']['RestHelper'] = array('path' => '/Library/WebServer/Documents/cake/app/views/helpers/rest.php', );
+$config['Controllers']['Core']['PagesController'] = array('path' => '/Library/WebServer/Documents/cake/cake/libs/controller/pages_controller.php', );

@@ -11,14 +11,16 @@ class Student extends AppModel {
 	var $bloodGroup;
 	var $category;
 	var $nationality;
-	var $pAddress;
+	var $pAddress1;
+	var $pAddress2;
+	var $pCity;
+	var $pState;
 	var $email;
 	var $deptid;
 	var $semester;
 	var $batch;
 	var $fatherName;
 	var $motherName;
-	var $parentAddress;
 	var $parentPhone;
 	var $fatherOccupation;
 	var $motherOccupation;
@@ -36,7 +38,10 @@ class Student extends AppModel {
 		'marital' => VALID_NOT_EMPTY,
 		'category' => VALID_NOT_EMPTY,
 		'nationality' => VALID_NOT_EMPTY,
-		'pAddress' => VALID_NOT_EMPTY,
+		'pAddress1' => VALID_NOT_EMPTY,
+		'pAddress2' => VALID_NOT_EMPTY,
+		'pCity' => VALID_NOT_EMPTY,
+		'pState' => VALID_NOT_EMPTY,
 		'email' => VALID_EMAIL,
 		'semester' => '/^(1|3|5|7|9)$/',
 		'fatherName' => '/^[a-zA-Z\ ]+$/',
