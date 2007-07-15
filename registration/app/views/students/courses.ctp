@@ -74,6 +74,7 @@ echo $form->hidden('Student.semester');
 echo '</td><td>';
 echo $form->input('Student.fName', array('label' => false, 'disabled' => true));
 echo $form->hidden('Student.fName');
+echo $form->hidden('Student.department_id');
 echo '</td></tr></table>';
 
 if ($error) {

@@ -4,9 +4,12 @@ class CoursesController extends AppController
 {
 	var $name = 'Courses';
 	
-	function fetch($sem)
+	function fetch($info)
 	{
-		$conditions=array("Course.semester" => $sem, "Course.area" => "DC");
+		$info = explode('-', $info);
+		$sem = $info[0]; $dept = $info[1];
+
+		$conditions=array("Course.semester" => $sem, "Course.area" => "DC", "Course.department_id" => $dept);
 		$tmp = $this->Course->findAll($conditions, array('course_id'));
 		$cinfo = array();
 		foreach ($tmp as $t) {
