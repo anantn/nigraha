@@ -31,8 +31,8 @@ class Student extends AppModel {
 		
 	var $validate=array(     
 		'sid' => '/^0\d{5,6}$/',
-		'fName' => '/^[a-zA-Z\ ]+$/',
-		'lName' => '/^[a-zA-Z\ ]+$/',
+		'fName' => '/^[a-zA-Z\ \.]+$/',
+		'lName' => '/^[a-zA-Z\ \.]+$/',
 		'dob' => '/^(0[1-9]|[1-2][0-9]|3[0-1])(0[1-9]|1[0-2])(198[0-9]|199[0-5])$/',
 		'gender' => VALID_NOT_EMPTY,
 		'marital' => VALID_NOT_EMPTY,
@@ -44,7 +44,7 @@ class Student extends AppModel {
 		'pState' => VALID_NOT_EMPTY,
 		'email' => VALID_EMAIL,
 		'semester' => '/^(1|3|5|7|9)$/',
-		'fatherName' => '/^[a-zA-Z\ ]+$/',
+		'fatherName' => '/^[a-zA-Z\ \.]+$/',
 		'parentPhone' => '/\(?\d{2,5}[) -]?\s?\d{5,8}$/',
 		'password' => VALID_NOT_EMPTY
 	);
@@ -58,21 +58,6 @@ class Student extends AppModel {
 							)
 						);
 								
-/*	var $hasMany = array('Guardian' =>
-						array('className' => 'Guardian',
-							'conditions' => '',
-							'order' => '',
-							'dependant' => true,
-							'foreignKey' => 'collegeid'
-							),
-						'Course' =>
-						array('className' => 'Course',
-							'conditions' => '',
-							'order' => '',
-							'dependant' => false,
-							)
-						);
-	*/						
 	var $belongsTo = array('Department' =>
 							array('className' => 'Department',
 								'conditions' => '',

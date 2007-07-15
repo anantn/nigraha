@@ -15,6 +15,43 @@ class StudentsController extends AppController
 
 	function update()
 	{
+		$states = array(
+            'AN' => 'Andaman and Nicobar Islands',
+            'AP' => 'Andhra Pradesh',
+            'AR' => 'Arunachal Pradesh',
+            'AS' => 'Assam',
+            'BR' => 'Bihar',
+            'CH' => 'Chandigarh',
+            'CT' => 'Chattisgarh',
+            'DN' => 'Dadra and Nagar Haveli',
+            'DD' => 'Daman and Diu',
+            'DL' => 'Delhi',
+            'GA' => 'Goa',
+            'GJ' => 'Gujarat',
+            'HR' => 'Harayana',
+            'HP' => 'Himachal Pradesh',
+            'JK' => 'Jammu and Kashmir',
+            'JH' => 'Jharkhand',
+            'KA' => 'Karnataka',
+            'KL' => 'Kerala',
+            'LD' => 'Lakshwadeep',
+            'MP' => 'Madhya Pradesh',
+            'MH' => 'Maharashtra',
+            'MN' => 'Manipur',
+            'ML' => 'Meghalaya',
+            'MZ' => 'Mizoram',
+            'NL' => 'Nagaland',
+            'OR' => 'Orissa',
+            'PY' => 'Pondicherry',
+            'PB' => 'Punjab',
+            'RJ' => 'Rajasthan',
+            'SK' => 'Sikkim',
+            'TN' => 'Tamil Nadu',
+            'TR' => 'Tripura',
+            'UL' => 'Uttaranchal',
+            'UP' => 'Uttar Pradesh',
+            'WB' => 'West Bengal');
+		
 		$mainFields = array(
 						array('type' => 'text', 'name' => 'collegeid', 'label' => 'Student ID',
 								'error' => 'Must begin with 0, and should be 5 or 6 digits long', 'disabled' => true),
@@ -30,7 +67,7 @@ class StudentsController extends AppController
 						array('type' => 'text', 'name' => 'pAddress1', 'label' => 'Permanent Address (Line 1)', 'error' => 'Cannot be empty'),
 						array('type' => 'text', 'name' => 'pAddress2', 'label' => 'Permanent Address (Line 2)', 'error' => 'Cannot be empty'),
 						array('type' => 'text', 'name' => 'pCity', 'label' => 'Permanent Address (City/Town/Village)', 'error' => 'Cannot be empty'),
-						array('type' => 'select', 'name' => 'pState', 'label' => 'Permanent Address (State)', 'error' => 'Cannot be empty')
+						array('type' => 'select', 'name' => 'pState', 'label' => 'Permanent Address (State)', 'error' => 'Cannot be empty', 'values' => $states)
 							);
 
 		$extraFields = array(
@@ -40,9 +77,9 @@ class StudentsController extends AppController
 						array('type' => 'select', 'name' => 'category', 'label' => 'Category', 
 								'values' => array('gen' => 'General', 'scst' => 'SC/ST', 'obc' => 'OBC'), 'error' => 'Cannot be empty'),
 						array('type' => 'text', 'name' => 'nationality', 'label' => 'Nationality', 'error' => 'Cannot be empty', 'value' => 'Indian'),
-						array('type' => 'text', 'name' => 'email', 'label' => 'Email Address', 'error' => 'Valid Email address required'),
+						array('type' => 'text', 'name' => 'email', 'label' => 'Alternate Email Address', 'error' => 'Valid Email address required'),
 						array('type' => 'text', 'name' => 'deptid', 'label' => 'Department ID', 'error' => 'Cannot be empty'),
-						array('type' => 'text', 'name' => 'semester', 'label' => 'Semester', 'error' => 'Semester has to be 1, 3, 5, 7, 9'),
+						array('type' => 'select', 'name' => 'semester', 'label' => 'Semester', 'error' => 'Cannot be empty', 'values' => array('1' => 'I (First Year)', '3' => 'III (Second Year)', '5' => 'V (Third Year)', '7' => 'VII (Fourth Year)', '9' => 'IX (Fifth Year - Architecture Only)')),
 						array('type' => 'text', 'name' => 'batch', 'label' => 'Batch No', 'error' => NULL)
 					);
 
@@ -62,7 +99,8 @@ class StudentsController extends AppController
 			if ($this->Student->save($this->data)) {
 				$this->set('courseLayout', $this->requestAction('/students/courses', array('return')));
 			} else {
-				$this->set('mFields', $mainFields);	
+				$this->set('mFields', $mainFields);
+				$this->set('aFields', $addFields);	
 				$this->set('eFields', $extraFields);
 				$this->set('gFields', $guardianFields);
 			}
@@ -71,7 +109,8 @@ class StudentsController extends AppController
 
 			$sid = $this->data['Student']['collegeid'];
 			if (preg_match('/^0\d{5,6}$/', $sid)) {
-				$this->set('mFields', $mainFields);	
+				$this->set('mFields', $mainFields);
+				$this->set('aFields', $addFields);
 				$this->set('eFields', $extraFields);
 				$this->set('gFields', $guardianFields);
 				if (($this->Student->findCount(array("Student.collegeid" => $this->data['Student']['collegeid']))) != 0)

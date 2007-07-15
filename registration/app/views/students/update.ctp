@@ -38,6 +38,7 @@ echo '<h2>Registration: Step 1</h2>';
 
 echo $form->create('Student', array('action' => 'update'));
 printFields($mFields, $form);
+printFields($aFields, $form);
 printFields($eFields, $form);
 printFields($gFields, $form);
 echo $form->end('Submit');
