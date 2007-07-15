@@ -13,3 +13,5 @@ $config['Helpers']['Core']['SessionHelper'] = array('path' => '/Library/WebServe
 $config['Helpers']['Core']['FormHelper'] = array('path' => '/Library/WebServer/Documents/cake/cake/libs/view/helpers/form.php', );
 $config['Helpers']['Core']['JavascriptHelper'] = array('path' => '/Library/WebServer/Documents/cake/cake/libs/view/helpers/javascript.php', );
 $config['Helpers']['Core']['AjaxHelper'] = array('path' => '/Library/WebServer/Documents/cake/cake/libs/view/helpers/ajax.php', );
+$config['Controllers']['AccountsController'] = array('path' => '/Library/WebServer/Documents/cake/app/controllers/accounts_controller.php', );
+$config['Models']['Account'] = array('path' => '/Library/WebServer/Documents/cake/app/models/account.php', );
