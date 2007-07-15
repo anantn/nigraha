@@ -5,17 +5,8 @@ class StudentsController extends AppController
 	var $name 		= 'Students';
 	var $helpers	= array('Html', 'Form', 'Javascript', 'Ajax');
 	var $uses = array('Student', 'Department');
-	function index($check = 1)
-	{
-		if ($check)
-			$this->set('instructions', 'Please enter your college ID to begin!');
-		else
-			$this->set('instructions', 'Either your college ID was invalid, or this student has already registered! Please try again:');
-	}
 
-	function update()
-	{
-		$states = array(
+	public $states = array(
             'AN' => 'Andaman and Nicobar Islands',
             'AP' => 'Andhra Pradesh',
             'AR' => 'Arunachal Pradesh',
@@ -50,8 +41,18 @@ class StudentsController extends AppController
             'TR' => 'Tripura',
             'UL' => 'Uttaranchal',
             'UP' => 'Uttar Pradesh',
-            'WB' => 'West Bengal');
-		
+			'WB' => 'West Bengal');
+
+	function index($check = 1)
+	{
+		if ($check)
+			$this->set('instructions', 'Please enter your college ID to begin!');
+		else
+			$this->set('instructions', 'Either your college ID was invalid, or this student has already registered! Please try again:');
+	}
+
+	function update()
+	{
 		$deptList = array();
 		$tmp = $this->Department->findAll();
 		foreach ($tmp as $t) {
@@ -73,7 +74,7 @@ class StudentsController extends AppController
 						array('type' => 'text', 'name' => 'pAddress1', 'label' => 'Permanent Address (Line 1)', 'error' => 'Cannot be empty'),
 						array('type' => 'text', 'name' => 'pAddress2', 'label' => 'Permanent Address (Line 2)', 'error' => 'Cannot be empty'),
 						array('type' => 'text', 'name' => 'pCity', 'label' => 'Permanent Address (City/Town/Village)', 'error' => 'Cannot be empty'),
-						array('type' => 'select', 'name' => 'pState', 'label' => 'Permanent Address (State)', 'error' => 'Cannot be empty', 'values' => $states)
+						array('type' => 'select', 'name' => 'pState', 'label' => 'Permanent Address (State)', 'error' => 'Cannot be empty', 'values' => $this->states)
 							);
 
 		$extraFields = array(
@@ -84,7 +85,7 @@ class StudentsController extends AppController
 								'values' => array('gen' => 'General', 'sc' => 'SC', 'st' => 'ST', 'obc' => 'OBC'), 'error' => 'Cannot be empty'),
 						array('type' => 'text', 'name' => 'nationality', 'label' => 'Nationality', 'error' => 'Cannot be empty', 'value' => 'Indian'),
 						array('type' => 'text', 'name' => 'email', 'label' => 'Alternate Email Address', 'error' => 'Valid Email address required'),
-						array('type' => 'select', 'name' => 'deptid', 'label' => 'Department ID', 'error' => 'Cannot be empty', 'values' => $deptList),
+						array('type' => 'select', 'name' => 'department_id', 'label' => 'Department ID', 'error' => 'Cannot be empty', 'values' => $deptList),
 						array('type' => 'select', 'name' => 'semester', 'label' => 'Semester', 'error' => 'Cannot be empty', 'values' => array('1' => 'I (First Year)', '3' => 'III (Second Year)', '5' => 'V (Third Year)', '7' => 'VII (Fourth Year)', '9' => 'IX (Fifth Year - Architecture Only)')),
 						array('type' => 'text', 'name' => 'batch', 'label' => 'Batch No', 'error' => NULL)
 					);
@@ -164,6 +165,34 @@ class StudentsController extends AppController
 	function show($id)
 	{
 		$student = $this->Student->findByCollegeid($id);
-		var_dump($student);
+		if (!$student) {
+			$this->set('error', true);
+		} else {
+			$res = $this->Student->query("SELECT course_id FROM courses_students WHERE collegeid = $id");
+			if (!$res) {
+				$this->set('error', true);
+			} else {
+				$tmp = $student['Student'];
+				$daName	= $tmp['fName']." ".$tmp['lName'];
+				$daDOB	= substr($tmp['dob'], 0, 2)."-".substr($tmp['dob'], 2, 2)."-".substr($tmp['dob'], 4);
+				$daAdd	= $tmp['pAddress1']."<br>".$tmp['pAddress2'];
+
+				$this->set('sInfo', array(
+								'ID' => '0'.$tmp['collegeid'],
+								'Full Name' => $tmp['fName']." ".$tmp['lName'],
+								'Date of Birth' => $daDOB,
+								"Father's/Guardian's Name" => $tmp['fatherName'],
+								'Address' => $daAdd,
+								'City' => $tmp['pCity'],
+								'State' => $this->states[$tmp['pState']]));
+
+				$cInfo = array();
+				foreach ($res as $r) {
+					$cid = $r['courses_students']['course_id'];
+					$cInfo[$cid] = json_decode($this->requestAction('/rest/courses/info/'.$cid, array('return')));
+				}
+				$this->set('cInfo', $cInfo);
+			}
+		}		
 	}
 }
