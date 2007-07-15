@@ -1,5 +1,7 @@
 <?php
 
+echo "<h2>Confirmation of Registration</h2>";
+
 echo "<h3>Personal Information</h3>";
 echo "<table>";
 foreach ($sInfo as $k=>$v) {

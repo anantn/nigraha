@@ -192,8 +192,7 @@ class StudentsController extends AppController
 					$cInfo[$cid] = json_decode($this->requestAction('/rest/courses/info/'.$cid, array('return')));
 				}
 				$this->set('cInfo', $cInfo);
-
-				$this->setLayout('print');
+				$this->render(NULL, 'print');
 			}
 		}
 	}

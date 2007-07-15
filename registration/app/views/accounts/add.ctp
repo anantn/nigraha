@@ -19,6 +19,7 @@ foreach ($fields as $field) {
 echo '</fieldset>';
 echo $form->end('Submit');
 
+echo '<span class="notice">Please do not leave this page unattended! If you wish to leave your terminal, logout first.</span>';
 echo $html->link('Logout', '/accounts/logout');
 
 ?>
