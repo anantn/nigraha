@@ -4,7 +4,7 @@ class StudentsController extends AppController
 {
 	var $name 		= 'Students';
 	var $helpers	= array('Html', 'Form', 'Javascript', 'Ajax');
-
+	var $uses = array('Student', 'Department');
 	function index($check = 1)
 	{
 		if ($check)
@@ -52,6 +52,12 @@ class StudentsController extends AppController
             'UP' => 'Uttar Pradesh',
             'WB' => 'West Bengal');
 		
+		$deptList = array();
+		$tmp = $this->Department->findAll();
+		foreach ($tmp as $t) {
+			$deptList[$t['Department']['department_id']] = $t['Department']['deptName'];
+		}
+		
 		$mainFields = array(
 						array('type' => 'text', 'name' => 'collegeid', 'label' => 'Student ID',
 								'error' => 'Must begin with 0, and should be 5 or 6 digits long', 'disabled' => true),
@@ -78,7 +84,7 @@ class StudentsController extends AppController
 								'values' => array('gen' => 'General', 'sc' => 'SC', 'st' => 'ST', 'obc' => 'OBC'), 'error' => 'Cannot be empty'),
 						array('type' => 'text', 'name' => 'nationality', 'label' => 'Nationality', 'error' => 'Cannot be empty', 'value' => 'Indian'),
 						array('type' => 'text', 'name' => 'email', 'label' => 'Alternate Email Address', 'error' => 'Valid Email address required'),
-						array('type' => 'text', 'name' => 'deptid', 'label' => 'Department ID', 'error' => 'Cannot be empty'),
+						array('type' => 'select', 'name' => 'deptid', 'label' => 'Department ID', 'error' => 'Cannot be empty', 'values' => $deptList),
 						array('type' => 'select', 'name' => 'semester', 'label' => 'Semester', 'error' => 'Cannot be empty', 'values' => array('1' => 'I (First Year)', '3' => 'III (Second Year)', '5' => 'V (Third Year)', '7' => 'VII (Fourth Year)', '9' => 'IX (Fifth Year - Architecture Only)')),
 						array('type' => 'text', 'name' => 'batch', 'label' => 'Batch No', 'error' => NULL)
 					);
