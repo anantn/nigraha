@@ -30,7 +30,7 @@ function updateFields(code, num)
 		checkSubmit();
 	} else {
 		new Ajax.Request(
-			'/cake/rest/courses/info/'+code, {
+			'/rest/courses/info/'+code, {
 			method: 'get',
 			onSuccess: function updateField(transport) {
 				var data = transport.responseText.evalJSON();
