@@ -16,7 +16,7 @@ class Student extends AppModel {
 	var $pCity;
 	var $pState;
 	var $email;
-	var $deptid;
+	var $department_id;
 	var $semester;
 	var $batch;
 	var $fatherName;
