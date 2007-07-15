@@ -24,29 +24,35 @@ function checkSubmit()
 
 function updateFields(code, num)
 {
-	new Ajax.Request(
-		'/cake/rest/courses/info/'+code, {
-		method: 'get',
-		onSuccess: function updateField(transport) {
-			var data = transport.responseText.evalJSON();
-			if (data[0] == "") {
-				$('CoursesCname'+num).value = "INVALID!";
-				$('CoursesCredits'+num).value = 0;
-				new Effect.Highlight($('CoursesCname'+num), {startcolor: "ff0000"});
-			} else {
-				$('CoursesCname'+num).value = data[0];
-				$('CoursesCredits'+num).value = data[1];
-				new Effect.Highlight($('CoursesCname'+num), {startcolor: "00ff00"});
+	if (code == "") {
+		$('CoursesCname'+num).value = "";
+		$('CoursesCredits'+num).value = "";
+		checkSubmit();
+	} else {
+		new Ajax.Request(
+			'/cake/rest/courses/info/'+code, {
+			method: 'get',
+			onSuccess: function updateField(transport) {
+				var data = transport.responseText.evalJSON();
+				if (data[0] == "") {
+					$('CoursesCname'+num).value = "INVALID!";
+					$('CoursesCredits'+num).value = 0;
+					new Effect.Highlight($('CoursesCname'+num), {startcolor: "ff0000"});
+				} else {
+					$('CoursesCname'+num).value = data[0];
+					$('CoursesCredits'+num).value = data[1];
+					new Effect.Highlight($('CoursesCname'+num), {startcolor: "00ff00"});
+				}
+				checkSubmit();
 			}
-			checkSubmit();
-		}
-	});
+		});
+	}
 }
 
 </script>
 <?php
 
-function getValue($i, $var)
+function getValues($i, $var)
 {
 	if ($i < count($var))
 		return $var[$i];
@@ -80,7 +86,7 @@ echo '<table border="0">';
 echo '<tr><td><b>Course ID</b></td><td>Title</td><td>Credits</td>';
 
 for ($i = 0; $i <= 10; $i++) {
-	$values = getValue($i, $courseInfo);
+	$values = getValues($i, $courseInfo);
 	echo "
 <tr>
 	<td>

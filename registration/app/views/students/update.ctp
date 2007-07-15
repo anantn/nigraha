@@ -24,6 +24,9 @@ function printFields($set, $form)
 			echo $form->input('Student.'.$field['name'], array('label' => $field['label'], 'type' => $field['type'], 'options' => $field['values'], 'error' => $field['error'], 'disabled' => isDisabled($field)));
 		else
 			echo $form->input('Student.'.$field['name'], array('label' => $field['label'], 'type' => $field['type'], 'error' => $field['error'], 'value' => getValue($field), 'disabled' => isDisabled($field)));
+
+		if (isDisabled($field))
+			echo $form->hidden('Student.'.$field['name']);
 	}
 	echo '</fieldset>';
 }

@@ -267,3 +267,6 @@
 2007-07-14 21:27:28 Notice: Notice (8): Undefined variable: error in [CORE/app/views/students/courses.ctp, line 69]
 2007-07-14 21:27:28 Notice: Notice (8): Uninitialized string offset:  0 in [CORE/app/views/students/courses.ctp, line 86]
 2007-07-14 21:27:28 Notice: Notice (8): Uninitialized string offset:  1 in [CORE/app/views/students/courses.ctp, line 89]
+2007-07-15 15:44:06 Notice: Notice (8): Undefined variable: error in [CORE/app/views/students/courses.ctp, line 78]
+2007-07-15 15:44:06 Notice: Notice (8): Uninitialized string offset:  0 in [CORE/app/views/students/courses.ctp, line 95]
+2007-07-15 15:44:06 Notice: Notice (8): Uninitialized string offset:  1 in [CORE/app/views/students/courses.ctp, line 98]

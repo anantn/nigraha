@@ -57,7 +57,7 @@ class StudentsController extends AppController
 								'error' => 'Must begin with 0, and should be 5 or 6 digits long', 'disabled' => true),
 						array('type' => 'text', 'name' => 'fName', 'label' => 'First Name', 'error' => 'Cannot be empty, Cannot contain numbers'),
 						array('type' => 'text', 'name' => 'lName', 'label' => 'Last Name', 'error' => 'Cannot be empty, Cannot contain numbers'),
-						array('type' => 'text', 'name' => 'dob', 'label' => 'Date Of Birth', 'error' => 'Must be of the form DDMMYYYY'),
+						array('type' => 'text', 'name' => 'dob', 'label' => 'Date Of Birth (DDMMYY)', 'error' => 'Must be of the form DDMMYYYY'),
 						array('type' => 'select', 'name' => 'gender', 'label' => 'Gender',
 								'values' => array('m' => 'Male', 'f' => 'Female'), 'error' => 'Cannot be empty'),
 						array('type' => 'password', 'name' => 'password', 'label' => 'Password', 'error' => 'Invalid Password!')
@@ -75,7 +75,7 @@ class StudentsController extends AppController
 								'values' => array('u' => 'Unmarried', 'm' => 'Married', 'd' => 'Divorced'), 'error' => 'Cannot be empty'),
 						array('type' => 'text', 'name' => 'bloodGroup', 'label' => 'Blood Group', 'error' => NULL),
 						array('type' => 'select', 'name' => 'category', 'label' => 'Category', 
-								'values' => array('gen' => 'General', 'scst' => 'SC/ST', 'obc' => 'OBC'), 'error' => 'Cannot be empty'),
+								'values' => array('gen' => 'General', 'sc' => 'SC', 'st' => 'ST', 'obc' => 'OBC'), 'error' => 'Cannot be empty'),
 						array('type' => 'text', 'name' => 'nationality', 'label' => 'Nationality', 'error' => 'Cannot be empty', 'value' => 'Indian'),
 						array('type' => 'text', 'name' => 'email', 'label' => 'Alternate Email Address', 'error' => 'Valid Email address required'),
 						array('type' => 'text', 'name' => 'deptid', 'label' => 'Department ID', 'error' => 'Cannot be empty'),
