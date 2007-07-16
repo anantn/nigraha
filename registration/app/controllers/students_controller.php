@@ -4,7 +4,7 @@ class StudentsController extends AppController
 {
 	var $name 		= 'Students';
 	var $helpers	= array('Html', 'Form', 'Javascript', 'Ajax');
-	var $uses = array('Student', 'Department');
+	var $uses = array('Student', 'Department', 'Account');
 
 	public $states = array(
             'AN' => 'Andaman and Nicobar Islands',
@@ -196,5 +196,14 @@ class StudentsController extends AppController
 				$this->render(NULL, 'print');
 			}
 		}
+	}
+
+	function view()
+	{
+		$nReg = $this->Student->findCount();
+		$nFee = $this->Account->findCount();
+
+		$this->set('nReg', $nReg);
+		$this->set('nFee', $nFee);
 	}
 }

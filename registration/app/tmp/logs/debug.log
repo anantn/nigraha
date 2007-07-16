@@ -328,3 +328,4 @@
 2007-07-15 20:26:57 Notice: Notice (8): Uninitialized string offset:  0 in [CORE/app/views/students/courses.ctp, line 97]
 2007-07-15 20:26:57 Notice: Notice (8): Uninitialized string offset:  1 in [CORE/app/views/students/courses.ctp, line 100]
 2007-07-16 00:20:23 Notice: Notice (8): Undefined variable: javascript in [CORE/app/views/layouts/default.thtml, line 36]
+2007-07-16 14:40:24 Notice: Notice (8): Undefined property:  Student::$Courses in [CORE/app/controllers/students_controller.php, line 204]
