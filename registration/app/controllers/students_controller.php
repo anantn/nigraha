@@ -67,7 +67,7 @@ class StudentsController extends AppController
 						array('type' => 'text', 'name' => 'dob', 'label' => 'Date Of Birth (DDMMYYYY)', 'error' => 'Must be of the form DDMMYYYY'),
 						array('type' => 'select', 'name' => 'gender', 'label' => 'Gender',
 								'values' => array('m' => 'Male', 'f' => 'Female'), 'error' => 'Cannot be empty'),
-						array('type' => 'password', 'name' => 'password', 'label' => 'Password', 'error' => 'Invalid Password!')
+						array('type' => 'password', 'name' => 'password', 'label' => 'New Password (To be used for your MNIT Account)', 'error' => 'Invalid Password!')
 							);
 
 		$addFields	 = array(
