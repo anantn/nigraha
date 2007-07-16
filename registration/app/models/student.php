@@ -30,7 +30,7 @@ class Student extends AppModel {
 	var $password;
 		
 	var $validate=array(     
-		'collegeid' => VALID_NOT_EMPTY,
+		'collegeid' => '/^0\d{5,6}$/',
 		'fName' => '/^[a-zA-Z\ \.]+$/',
 		'lName' => '/^[a-zA-Z\ \.]+$/',
 		'dob' => '/^(0[1-9]|[1-2][0-9]|3[0-1])(0[1-9]|1[0-2])(198[0-9]|199[0-5])$/',
