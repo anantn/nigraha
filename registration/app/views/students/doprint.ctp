@@ -18,8 +18,8 @@ foreach ($cInfo as $k=>$v) {
 }
 echo "</table>";
 
-echo "<p>&nbsp;</p><p>I hereby declare that the above information is correct to the best of my knowledge</p><p>&nbsp;</p>";
-echo "<br /><br /><br />";
+echo "<p>&nbsp;</p><p>I hereby declare that the above information is correct to the best of my knowledge.</p><p>&nbsp;</p>";
+echo "<br /><br />";
 echo "Signature of Student";
 echo "<br />".date('l\, d F Y\. H:i')."</p>";
 
