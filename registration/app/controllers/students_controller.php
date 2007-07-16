@@ -91,8 +91,8 @@ class StudentsController extends AppController
 					);
 
 		$guardianFields = array(
-						array('type' => 'text', 'name' => 'fatherName', 'label' => 'Father\'s/Guardian\'s Full Name', 'error' => 'Cannot be empty, Cannot contain numbers'),
-						array('type' => 'text', 'name' => 'motherName', 'label' => 'Mothers Full Name', 'error' => 'Cannot be empty, Cannot contain numbers'),
+						array('type' => 'text', 'name' => 'fatherName', 'label' => 'Father\'s/Guardian\'s Full Name (As per certificate)', 'error' => 'Cannot be empty, Cannot contain numbers'),
+						array('type' => 'text', 'name' => 'motherName', 'label' => 'Mothers Full Name (As per certificate)', 'error' => 'Cannot be empty, Cannot contain numbers'),
 						array('type' => 'text', 'name' => 'parentPhone', 'label' => 'Contact Phone', 'error' => 'Not a valid phone number!'),
 						array('type' => 'text', 'name' => 'fatherOccupation', 'label' => 'Father\'s Occupation', 'error' => NULL),
 						array('type' => 'text', 'name' => 'motherOccupation', 'label' => 'Mother\'s Occupation', 'error' => NULL),
