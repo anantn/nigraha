@@ -86,7 +86,7 @@ class StudentsController extends AppController
 						array('type' => 'text', 'name' => 'nationality', 'label' => 'Nationality', 'error' => 'Cannot be empty', 'value' => 'Indian'),
 						array('type' => 'text', 'name' => 'email', 'label' => 'Alternate Email Address', 'error' => 'Valid Email address required'),
 						array('type' => 'select', 'name' => 'department_id', 'label' => 'Department ID', 'error' => 'Cannot be empty', 'values' => $deptList),
-						array('type' => 'select', 'name' => 'semester', 'label' => 'Semester', 'error' => 'Cannot be empty', 'values' => array('3' => 'III (Second Year)', '5' => 'V (Third Year)', '7' => 'VII (Fourth Year)', '9' => 'IX (Fifth Year - Architecture Only)')),
+						array('type' => 'select', 'name' => 'semester', 'label' => 'Semester', 'error' => 'Cannot be empty', 'values' => array('1' => 'I (First Year)', '3' => 'III (Second Year)', '5' => 'V (Third Year)', '7' => 'VII (Fourth Year)', '9' => 'IX (Fifth Year - Architecture Only)')),
 						array('type' => 'text', 'name' => 'batch', 'label' => 'Batch No', 'error' => NULL)
 					);
 
