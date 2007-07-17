@@ -41,7 +41,7 @@ class StudentsController extends AppController
             'TR' => 'Tripura',
             'UL' => 'Uttaranchal',
             'UP' => 'Uttar Pradesh',
-			'WB' => 'West Bengal'
+			'WB' => 'West Bengal',
 			'NR' => 'Outside India');
 
 	function index($check = 1)
