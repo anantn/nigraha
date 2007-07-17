@@ -115,7 +115,7 @@ class StudentsController extends AppController
 		} else {
 
 			$sid = $this->data['Student']['collegeid'];
-			if (preg_match('/^0\d{5,6}$/', $sid)) {
+			if (preg_match('/^[A-Z0-9]{6,10}$/', $sid)) {
 				$this->set('mFields', $mainFields);
 				$this->set('aFields', $addFields);
 				$this->set('eFields', $extraFields);
