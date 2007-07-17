@@ -132,21 +132,26 @@ class StudentsController extends AppController
 	{
 		$sem = $this->data['Student']['semester'];
 		$dep = $this->data['Student']['department_id'];
-		$courseInfo = array();
-		$courses = unserialize($this->requestAction("/rest/courses/fetch/$sem-$dep", array('return')));
-		foreach ($courses as $course) {
-			$courseInfo[] = array($course, json_decode($this->requestAction('/rest/courses/info/'.$course, array('return'))));
+
+		if ($sem != '1') {
+			$courseInfo = array();
+			$courses = unserialize($this->requestAction("/rest/courses/fetch/$sem-$dep", array('return')));
+			foreach ($courses as $course) {
+				$courseInfo[] = array($course, json_decode($this->requestAction('/rest/courses/info/'.$course, array('return'))));
+			}
+			$this->set('courseInfo', $courseInfo);
+		} else {
+			$this->set('courseInfo', array());
 		}
-		$this->set('courseInfo', $courseInfo);
 
 		if(isset($this->data['Courses'])) {
 			foreach ($this->data['Courses'] as $course) {
 				if (!empty($course['course_id'])) {
 					$cid = $course['course_id'];
 					$sid = $this->data['Student']['collegeid'];
-					$res = $this->Student->query("SELECT COUNT(*) FROM courses_students WHERE (collegeid = $sid AND course_id = '$cid')");
+					$res = $this->Student->query("SELECT COUNT(*) FROM courses_students WHERE (collegeid = '$sid' AND course_id = '$cid')");
 					if ($res[0][0]['COUNT(*)'] != "0") {
-						$this->Student->query("DELETE FROM courses_students WHERE collegeid = $sid");
+						$this->Student->query("DELETE FROM courses_students WHERE collegeid = '$sid'");
 						$this->set('error', true);
 						$this->render(); exit;
 					} else {
@@ -169,7 +174,7 @@ class StudentsController extends AppController
 		if (!$student) {
 			$this->set('error', true);
 		} else {
-			$res = $this->Student->query("SELECT course_id FROM courses_students WHERE collegeid = $id");
+			$res = $this->Student->query("SELECT course_id FROM courses_students WHERE collegeid = '$id'");
 			if (!$res) {
 				$this->set('error', true);
 			} else {
