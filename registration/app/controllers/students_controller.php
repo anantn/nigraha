@@ -170,9 +170,13 @@ class StudentsController extends AppController
 
 	function doprint($id)
 	{
+		$prefix = substr($id, 0, 1);
 		$student = $this->Student->findByCollegeid($id);
 		if (!$student) {
-			$this->set('error', true);
+			if ($prefix == '0')
+				$student = $this->Student->findByCollegeid(substr($id, 1));
+				if (!$student)
+					$this->set('error', true);
 		} else {
 			$res = $this->Student->query("SELECT course_id FROM courses_students WHERE collegeid = '$id'");
 			if (!$res) {
