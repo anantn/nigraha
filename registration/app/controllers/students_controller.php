@@ -82,7 +82,7 @@ class StudentsController extends AppController
 								'values' => array('u' => 'Unmarried', 'm' => 'Married', 'd' => 'Divorced'), 'error' => 'Cannot be empty'),
 						array('type' => 'text', 'name' => 'bloodGroup', 'label' => 'Blood Group', 'error' => NULL),
 						array('type' => 'select', 'name' => 'category', 'label' => 'Category', 
-								'values' => array('gen' => 'General', 'sc' => 'SC', 'st' => 'ST', 'obc' => 'OBC'), 'error' => 'Cannot be empty'),
+								'values' => array('gen' => 'General', 'sc' => 'SC', 'st' => 'ST', 'obc' => 'OBC', 'das' => 'DASA'), 'error' => 'Cannot be empty'),
 						array('type' => 'text', 'name' => 'nationality', 'label' => 'Nationality', 'error' => 'Cannot be empty', 'value' => 'Indian'),
 						array('type' => 'text', 'name' => 'email', 'label' => 'Alternate Email Address', 'error' => 'Valid Email address required'),
 						array('type' => 'select', 'name' => 'department_id', 'label' => 'Department ID', 'error' => 'Cannot be empty', 'values' => $deptList),

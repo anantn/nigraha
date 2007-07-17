@@ -84,7 +84,7 @@ if ($error) {
 }
 
 echo '<table border="0">';
-echo '<tr><td><b>Course ID</b></td><td>Title</td><td>Credits</td>';
+echo '<tr><td width="20%"><b>Course ID</b></td><td width="60%">Title</td><td width="20%">Credits</td>';
 
 for ($i = 0; $i <= 10; $i++) {
 	$values = getValues($i, $courseInfo);
