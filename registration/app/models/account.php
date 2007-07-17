@@ -12,7 +12,7 @@ class Account extends AppModel {
 	var $primaryKey='id';
 
 	var $validate = array(
-		'collegeid' => '/^0\d{5,6}$/',
+		'collegeid' => '/^[A-Z0-9]{6,10}$/',
 		'category' => VALID_NOT_EMPTY,
 		'mode' => VALID_NOT_EMPTY,
 		'number' => VALID_NOT_EMPTY,

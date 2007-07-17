@@ -184,7 +184,7 @@ class StudentsController extends AppController
 				$daAdd	= $tmp['pAddress1'].", ".$tmp['pAddress2'];
 
 				$this->set('sInfo', array(
-								'ID' => '0'.$tmp['collegeid'],
+								'ID' => $tmp['collegeid'],
 								'Full Name' => $tmp['fName']." ".$tmp['lName'],
 								'Date of Birth' => $daDOB,
 								"Father's/Guardian's Name" => $tmp['fatherName'],
