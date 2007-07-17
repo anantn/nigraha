@@ -39,7 +39,7 @@ class AccountsController extends AppController
 
 		$fields = array(
 					array('type' => 'text', 'name' => 'collegeid', 'label' => 'Student ID'),
-					array('type' => 'select', 'name' => 'category', 'label' => 'Category', 'values' => array('gen' => 'General', 'sc' => 'SC', 'st' => 'ST', 'obc' => 'OBC')),
+					array('type' => 'select', 'name' => 'category', 'label' => 'Category', 'values' => array('gen' => 'General', 'sc' => 'SC', 'st' => 'ST', 'obc' => 'OBC', 'das' => 'DASA')),
 					array('type' => 'select', 'name' => 'mode', 'label' => 'Mode of Payment', 'values' => array('DD' => 'Demand Draft', 'CA' => 'Cash')),
 					array('type' => 'text', 'name' => 'number', 'label' => 'D.D. No. (0 for Cash)'),
 					array('type' => 'text', 'name' => 'amount', 'label' => 'Amount')
