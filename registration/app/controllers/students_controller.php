@@ -155,7 +155,7 @@ class StudentsController extends AppController
 						$this->set('error', true);
 						$this->render(); exit;
 					} else {
-						$this->Student->query("INSERT INTO courses_students VALUES($sid, '$cid')");
+						$this->Student->query("INSERT INTO courses_students VALUES('$sid', '$cid')");
 					}
 				}
 			}
