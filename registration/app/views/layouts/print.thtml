@@ -28,7 +28,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<title>
-		MNIT Online Registration 2008:
+		MNIT Online Registration 2007:
 		<?php echo $title_for_layout;?>
 	</title>
 
