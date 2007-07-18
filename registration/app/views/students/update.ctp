@@ -38,6 +38,7 @@ if (isset($courseLayout)) {
 } else {
 
 echo '<h2>Registration: Step 1</h2>';
+echo '<p>Please enter your personal details as asked below. Be careful while filling the form, and DO NOT press the ENTER key or click the submit button until you have verified all your entries. The fields in <b>BOLD</b> font are compulsory. In case you make a mistake and realize it <i>after</i> pressing ENTER or clicking the Submit button, please DO NOT use the browser\'s back button for corrections and call for assistance instead.</p>';
 
 echo $form->create('Student', array('action' => 'update'));
 printFields($mFields, $form);
