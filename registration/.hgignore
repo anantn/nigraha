@@ -1,2 +1,5 @@
 syntax: glob
 .*.swp
+
+syntax: regexp
+^app/tmp/
