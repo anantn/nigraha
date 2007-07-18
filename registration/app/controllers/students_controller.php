@@ -44,6 +44,14 @@ class StudentsController extends AppController
 			'WB' => 'West Bengal',
 			'NR' => 'Outside India');
 
+	function checkSession()
+	{
+		if (!$this->Session->check('AdminViewLogged')) {
+			$this->redirect('/students/view');
+			exit;
+		}
+	}
+
 	function index($check = 1)
 	{
 		if ($check)
@@ -213,5 +221,14 @@ class StudentsController extends AppController
 
 		$this->set('nReg', $nReg);
 		$this->set('nFee', $nFee);
+
+		if (!empty($this->data)) {
+			if ($this->data['Student']['password'] == '$mnit-pass$') {
+				$this->Session->write('AdminViewLogged', true);
+				$this->set('AdminViewLogged', true);
+			} else {
+				$this->set('error', true);
+			}
+		}
 	}
 }
