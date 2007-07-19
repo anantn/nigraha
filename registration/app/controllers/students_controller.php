@@ -255,7 +255,7 @@ class StudentsController extends AppController
 				if ($this->data['Student']['deptid'] != 'NULL') {
 					$conditions['Student.department_id'] = $this->data['Student']['deptid'];
 					$tmp = $this->getDeptList();
-					$this->set('department', $tmp['Student']['deptid']);
+					$this->set('department', $tmp[$this->data['Student']['deptid']]);
 				}
 				if ($this->data['Student']['semester'] != 'NULL') {
 					$conditions['Student.semester'] = $this->data['Student']['semester'];
