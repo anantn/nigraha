@@ -1,6 +1,7 @@
 <?php
 
 if ($ListGenerated) {
+	echo "<h1>MNIT Student Lists 2007-08</h1>";
 	if (isset($semester))
 		echo "<h2>Semester: $semester</h2>";
 	if (isset($department))
