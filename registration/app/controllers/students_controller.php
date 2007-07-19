@@ -218,17 +218,49 @@ class StudentsController extends AppController
 	{
 		$nReg = $this->Student->findCount();
 		$nFee = $this->Account->findCount();
-
-		$this->set('nReg', $nReg);
-		$this->set('nFee', $nFee);
-
-		if (!empty($this->data)) {
+		$deptList = array();
+		$tmp = $this->Department->findAll();
+		foreach ($tmp as $t) {
+			$deptList[$t['Department']['department_id']] = $t['Department']['deptName'];
+		}
+		$semester = array('1' => 'I (First Year)', '3' => 'III (Second Year)', '5' => 'V (Third Year)', '7' => 'VII (Fourth Year)', '9' => 'IX (Fifth Year - Architecture Only)');
+		
+		if (isset($this->data['Student']['deptid']) or isset($this->data['Student']['semester']) or isset($this->data['Student']['course_id'])) {
+			
+			$conditions = array();
+			if (isset($this->data['Student']['deptid'])) {
+				$conditions['Student.department_id'] = $this->data['Student']['deptid'];
+			}
+			if (isset($this->data['Student']['semester'])) {
+				$conditions['Student.semester'] = $this->data['Student']['semester'];
+			}
+			if (isset($this->data['Student']['course_id'])) {
+			
+			}
+			$lst->Student->findAll($conditions);
+			
+			$this->set('ListGenerated', true);
+			$stdList = array();
+			foreach ($lst['Student'] as $student) {
+				$stdList[$student['collegeid']] = array(
+													'fullname' => $student['fName'}." ".$student['lName'];
+													'semester' => $student['semester'];
+													'dept' => $student['department_id'];
+													);
+			}
+			$this->set('list', $stdList);
+		} else if (isset($this->data['Student']['password'])) {
 			if ($this->data['Student']['password'] == '$mnit-pass$') {
 				$this->Session->write('AdminViewLogged', true);
 				$this->set('AdminViewLogged', true);
 			} else {
 				$this->set('error', true);
 			}
+		} else {
+			$this->set('nReg', $nReg);
+			$this->set('nFee', $nFee);
+			$this->set('deptList', $deptList);
+			$this->set('semester', $semester);
 		}
 	}
 }

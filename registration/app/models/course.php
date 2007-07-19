@@ -2,7 +2,7 @@
 class Course extends AppModel {
 	var $name='Course';
 	
-	var $cid;
+	var $course_id;
 	var $cname;
 	var $department_id;
 	var $semester;
