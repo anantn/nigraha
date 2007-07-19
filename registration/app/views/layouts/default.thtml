@@ -33,7 +33,7 @@
 	</title>
 
 	<?php echo $html->charset('utf-8');?>
-	<?php print $javascript->link('prototype') ?>
+	<?php print $javascript->link('prototype.js') ?>
 	<?php print $javascript->link('scriptaculous.js') ?>
 
 	<link rel="icon" href="<?php echo $this->webroot;?>favicon.ico" type="image/x-icon" />

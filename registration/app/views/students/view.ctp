@@ -1,29 +1,36 @@
 <?php
 
-echo "<h1>Students Registered: $nReg</h1>";
-echo "<h1>Students Paid: $nFee</h1>";
+if ($ListGenerated) {
+	if (isset($semester))
+		echo "<h2>Semester: $semester</h2>";
+	if (isset($department))
+		echo "<h2>Department: $department</h2>";
+	if (isset($course))
+		echo "<h2>".$course[0].": ".$course[1][0]."</h2>";
 
-if ($error)
-	echo '<span class="notice">Your credentials could not be validated</span>';
+	echo '<table class="sortable">';
+	echo '<tr><td><b>College ID</b></td><td><b>Name</b></td></tr>';
+	foreach ($list as $id => $name) {
+		echo "<tr><td>$id</td><td>$name</td></tr>";
+	}
+	echo '</table>';
+	echo '<p><a href="./">Back</a></p>';
+} else {
+	echo "<h1>Students Registered: $nReg</h1>";
+	echo "<h1>Students Paid: $nFee</h1>";
 
-if ($AdminViewLogged) {
-	echo "<h2>Student List</h2>";
+	echo "<h2>Student Lists</h2>";
 	echo $form->create('Student', array('action' => 'view'));
 	echo '<fieldset>';
-	echo $form->input('deptid', array('label' => 'Department', 'value' => $deptList));
-	echo $form->input('semester', array('label' => 'Semester', 'value' => $semester));
+	echo $form->input('deptid', array('label' => 'Department', 'options' => $deptList, 'type' => 'select', 'selected' => 'NULL'));
+	echo $form->input('semester', array('label' => 'Semester', 'options' => $semester, 'type' => 'select', 'selected' => 'NULL'));
+
+	if (isset($invalidCourse) and $invalidCourse)
+		echo '<span class="notice">An invalid course ID was entered</span>';
+
 	echo $form->input('course_id', array('label' => 'Course ID'));
 	echo '</fieldset>';
 	echo $form->end('Submit');	
-} else if ($ListGenerated) {
-	echo var_dump($list);
-} else {
-	echo "<h2>Login for reports:</h2>";
-	echo $form->create('Student', array('action' => 'view'));
-	echo '<fieldset>';
-	echo $form->input('password', array('label' => 'Access Password', 'type' => 'password'));
-	echo '</fieldset>';
-	echo $form->end('Submit');
 }
 
 ?>
