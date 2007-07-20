@@ -3,7 +3,8 @@
 class StudentsController extends AppController
 {
 	var $name 		= 'Students';
-	var $helpers	= array('Html', 'Form', 'Javascript', 'Ajax');
+	var $helpers	= array('Html', 'Form', 'Javascript', 'Ajax', 'Pagination');
+	var $components = array('Pagination');
 	var $uses = array('Student', 'Department', 'Account');
 
 	public $states = array(
