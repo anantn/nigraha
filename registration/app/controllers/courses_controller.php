@@ -2,7 +2,20 @@
 
 class CoursesController extends AppController
 {
-	var $name = 'Courses';
+	var $name 		= 'Courses';
+	var $helpers	= array('Html', 'Javascript', 'Form');
+	var $uses		= array('Course', 'Department');
+
+	function getDeptList()
+	{
+		$deptList = array();
+		$tmp = $this->Department->findAll();
+		foreach ($tmp as $t) {
+			$deptList[$t['Department']['department_id']] = $t['Department']['deptName'];
+		}
+
+		return $deptList;
+	}
 
 	function checkSession()
 	{
@@ -18,9 +31,25 @@ class CoursesController extends AppController
 		$this->set('showMenu', false);
 
 		if (!empty($this->data)) {
-			if ($this->data['Account']['password'] == '$mnit-pass$') {
+			if ($this->data['Course']['password'] == '$mnit-pass$') {
 				$this->Session->write('AdminLogged', true);
 				$this->set('showMenu', true);
+				$this->set('deptList', $this->getDeptList());
+				$this->set('areas', array(
+										'BS' => 'Basic Sciences',
+										'ESA' => 'ESA',
+										'HS' => 'Humanities',
+										'DC' => 'Department Core',
+										'DE' => 'Department Elective',
+										'IE' => 'Institute Elective',
+										'DE-I' => 'Department Elective I',
+										'DE-II' => 'Department Elective II',
+										'DE-III' => 'Department Elective III',
+										'DE-IV' => 'Department Elective IV',
+										'DE-V' => 'Department Elective V',
+										'DE-VI' => 'Department Elective VI',
+										'DE-VII' => 'Department Elective VII',
+										'EX' => 'EX'));
 			} else {
 				$this->set('error', true);
 			}
@@ -53,5 +82,34 @@ class CoursesController extends AppController
 		$fields = array('name', 'credits');
 		$tmp = $this->Course->find($conditions, $fields);
 		$this->set('info', array($tmp['Course']['name'], $tmp['Course']['credits']));
+	}
+
+	function add()
+	{
+		if (!isset($this->data)) {
+			$this->redirect('/courses');
+			exit;
+		}
+
+		if ($this->Course->save($this->data)) {
+			$this->flash('The course '.$this->data['Course']['course_id'].' has been added.', '/courses');	
+		} else {
+			$this->flash('There was an error in processing your form. Try again.', '/courses');
+		}
+	}
+
+	function del()
+	{
+		if (!isset($this->data)) {
+			$this->redirect('/courses');
+			exit;
+		}
+
+		$res = $this->Course->find(array('course_id' => $this->data['Course']['course_id']));
+		if ($this->Course->del($res['Course']['id'])) {
+			$this->flash('The course '.$this->data['Course']['course_id'].' has been deleted.', '/courses');	
+		} else {
+			$this->flash('There was an error in processing your form. Try again.', '/courses');
+		}
 	}
 }
