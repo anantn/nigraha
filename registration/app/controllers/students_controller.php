@@ -157,6 +157,10 @@ class StudentsController extends AppController
 		}
 
 		if(isset($this->data['Courses'])) {
+			$beforeSave = $this->Student->query("SELECT COUNT(*) FROM courses_students WHERE collegeid = '$this->data['Student']['collegeid']'");
+			if ($res[0][0]['COUNT(*)'] != "0") {
+				$this->Student->query("DELETE FROM courses_students WHERE collegeid = '$sid'");
+			}
 			foreach ($this->data['Courses'] as $course) {
 				if (!empty($course['course_id'])) {
 					$cid = $course['course_id'];
