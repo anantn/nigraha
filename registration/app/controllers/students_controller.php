@@ -145,13 +145,19 @@ class StudentsController extends AppController
 		$sem = $this->data['Student']['semester'];
 		$dep = $this->data['Student']['department_id'];
 		$sid = $this->data['Student']['collegeid'];
+		$courseInfo = array();
 		$studentExists = $this->Student->query("SELECT COUNT(*) FROM courses_students WHERE collegeid = '$sid'");
 		
 		if ($studentExists[0][0]['COUNT(*)'] != "0") {
 			$oldCourses = $this->Student->query("SELECT * FROM courses_students WHERE collegeid = '$sid'");
-			var_dump($oldCourses);
+			if (!$oldCourses) {
+				$this->set('error', true);
+			foreach ($oldCourses as $oldCourse) {
+				$course = $oldCourse['courses_students']['course_id'];
+				$courseInfo[] = array($course, json_decode($this->requestAction('/rest/courses/info/'.$course, array('return'))));
+			}
+			$this->set('courseInfo', $courseInfo);
 		} elseif ($sem != '1') {
-			$courseInfo = array();
 			$courses = unserialize($this->requestAction("/rest/courses/fetch/$sem-$dep", array('return')));
 			foreach ($courses as $course) {
 				$courseInfo[] = array($course, json_decode($this->requestAction('/rest/courses/info/'.$course, array('return'))));
