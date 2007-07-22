@@ -149,7 +149,7 @@ class StudentsController extends AppController
 		
 		if ($studentExists[0][0]['COUNT(*)'] != "0") {
 			$oldCourses = $this->Student->query("SELECT * FROM courses_students WHERE collegeid = '$sid'");
-			vardump($oldCourses);
+			var_dump($oldCourses);
 		} elseif ($sem != '1') {
 			$courseInfo = array();
 			$courses = unserialize($this->requestAction("/rest/courses/fetch/$sem-$dep", array('return')));
