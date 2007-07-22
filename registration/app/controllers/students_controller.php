@@ -63,7 +63,7 @@ class StudentsController extends AppController
 		if ($check)
 			$this->set('instructions', 'Please enter your college ID to begin!');
 		else
-			$this->set('instructions', 'Either your college ID was invalid, or this student has already registered! Please try again:');
+			$this->set('instructions', 'Your college ID was invalid! Please try again:');
 	}
 
 	function update()

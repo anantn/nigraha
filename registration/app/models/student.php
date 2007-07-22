@@ -49,6 +49,13 @@ class Student extends AppModel {
 		'password' => VALID_NOT_EMPTY
 	);
 
+	function beforeSave()
+	{
+		if (($this->Student->findCount(array("Student.collegeid" => $this->data['Student']['collegeid']))) != 0)
+			$this->del($this->data['Student']['id']);
+
+		return true;
+	}	
 	/*
 	var $hasOne = array('Account' =>
 						array('className' => 'Account',
