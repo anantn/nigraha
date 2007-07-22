@@ -69,6 +69,7 @@ class StudentsController extends AppController
 	function update()
 	{
 		$mainFields = array(
+						array('type' => 'hidden', 'name' => 'id', 'label' => NULL, 'error' => NULL),
 						array('type' => 'text', 'name' => 'collegeid', 'label' => 'Student ID',
 								'error' => 'Must begin with 0, and should be 5 or 6 digits long', 'disabled' => true),
 						array('type' => 'text', 'name' => 'fName', 'label' => 'First Name', 'error' => 'Cannot be empty, Cannot contain numbers'),
