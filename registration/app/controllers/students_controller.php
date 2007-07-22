@@ -129,8 +129,10 @@ class StudentsController extends AppController
 				$this->set('aFields', $addFields);
 				$this->set('eFields', $extraFields);
 				$this->set('gFields', $guardianFields);
-				if (($this->Student->findCount(array("Student.collegeid" => $this->data['Student']['collegeid']))) != 0)
-					$this->redirect('/students/index/0');
+				if (($this->Student->findCount(array("Student.collegeid" => $this->data['Student']['collegeid']))) != 0) {
+					$res = $this->Student->find(array('collegeid' => $this->data['Student']['collegeid']));
+					$this->data = $this->Student->read(NULL, $res['Student']['id']);
+				}
 			} else {
 				$this->redirect('/students/index/0');
 			}
