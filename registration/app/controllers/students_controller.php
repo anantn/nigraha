@@ -144,8 +144,13 @@ class StudentsController extends AppController
 	{
 		$sem = $this->data['Student']['semester'];
 		$dep = $this->data['Student']['department_id'];
-
-		if ($sem != '1') {
+		$sid = $this->data['Student']['collegeid'];
+		$studentExists = $this->Student->query("SELECT COUNT(*) FROM courses_students WHERE collegeid = '$sid'");
+		
+		if ($studentExists[0][0]['COUNT(*)'] != "0") {
+			$oldCourses = $this->Student->query("SELECT * FROM courses_students WHERE collegeid = '$sid'");
+			vardump($oldCourses);
+		} elseif ($sem != '1') {
 			$courseInfo = array();
 			$courses = unserialize($this->requestAction("/rest/courses/fetch/$sem-$dep", array('return')));
 			foreach ($courses as $course) {
@@ -157,9 +162,7 @@ class StudentsController extends AppController
 		}
 
 		if(isset($this->data['Courses'])) {
-			$sid = $this->data['Student']['collegeid'];
-			$beforeSave = $this->Student->query("SELECT COUNT(*) FROM courses_students WHERE collegeid = '$sid'");
-			if ($beforeSave[0][0]['COUNT(*)'] != "0") {
+			if ($studentExists[0][0]['COUNT(*)'] != "0") {
 				$this->Student->query("DELETE FROM courses_students WHERE collegeid = '$sid'");
 			}
 			foreach ($this->data['Courses'] as $course) {
