@@ -18,6 +18,13 @@ class Course extends AppModel {
 						array(	'className' => 'Department',
 							)
 					);
-	
+
+	function beforeSave()
+	{
+		if ($this->findCount(array('course_id' => $this->data['Course']['course_id'])) > 0)
+			$this->del($this->data['Course']['id']);
+
+		return true;
+	}	
 }
 ?>

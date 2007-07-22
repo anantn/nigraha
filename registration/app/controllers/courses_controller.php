@@ -6,6 +6,22 @@ class CoursesController extends AppController
 	var $helpers	= array('Html', 'Javascript', 'Form');
 	var $uses		= array('Course', 'Department');
 
+	public $areas = array(
+						'BS' => 'Basic Sciences',
+						'ESA' => 'ESA',
+						'HS' => 'Humanities',
+						'DC' => 'Department Core',
+						'DE' => 'Department Elective',
+						'IE' => 'Institute Elective',
+						'DE-I' => 'Department Elective I',
+						'DE-II' => 'Department Elective II',
+						'DE-III' => 'Department Elective III',
+						'DE-IV' => 'Department Elective IV',
+						'DE-V' => 'Department Elective V',
+						'DE-VI' => 'Department Elective VI',
+						'DE-VII' => 'Department Elective VII',
+						'EX' => 'EX');
+
 	function getDeptList()
 	{
 		$deptList = array();
@@ -35,21 +51,7 @@ class CoursesController extends AppController
 				$this->Session->write('AdminLogged', true);
 				$this->set('showMenu', true);
 				$this->set('deptList', $this->getDeptList());
-				$this->set('areas', array(
-										'BS' => 'Basic Sciences',
-										'ESA' => 'ESA',
-										'HS' => 'Humanities',
-										'DC' => 'Department Core',
-										'DE' => 'Department Elective',
-										'IE' => 'Institute Elective',
-										'DE-I' => 'Department Elective I',
-										'DE-II' => 'Department Elective II',
-										'DE-III' => 'Department Elective III',
-										'DE-IV' => 'Department Elective IV',
-										'DE-V' => 'Department Elective V',
-										'DE-VI' => 'Department Elective VI',
-										'DE-VII' => 'Department Elective VII',
-										'EX' => 'EX'));
+				$this->set('areas', $this->areas);
 			} else {
 				$this->set('error', true);
 			}
@@ -95,6 +97,26 @@ class CoursesController extends AppController
 			$this->flash('The course '.$this->data['Course']['course_id'].' has been added.', '/courses');	
 		} else {
 			$this->flash('There was an error in processing your form. Try again.', '/courses');
+		}
+	}
+
+	function mod()
+	{
+		if (isset($this->data['Course']['course_id'])) {
+			if (isset($this->data['Course']['name'])) {
+				/* Second Submission */
+				$this->Course->del($this->data['Course']['id']);
+				if ($this->Course->save($this->data)) 
+					$this->flash('Course '.$this->data['Course']['course_id'].' was successfully modified.', '/courses');	
+			} else {
+				/* First Submission */
+				$res = $this->Course->find(array('course_id' => $this->data['Course']['course_id']));
+				$this->data = $this->Course->read(NULL, $res['Course']['id']);
+				$this->set('deptList', $this->getDeptList());
+				$this->set('areas', $this->areas);
+			}
+		} else {
+			$this->redirect('/courses');
 		}
 	}
 
