@@ -3,7 +3,36 @@
 class CoursesController extends AppController
 {
 	var $name = 'Courses';
-	
+
+	function checkSession()
+	{
+		if (!$this->Session->check('AdminLogged')) {
+			$this->redirect('/courses');
+			exit;
+		}
+	}
+
+	function index()
+	{
+		$this->set('error', false);
+		$this->set('showMenu', false);
+
+		if (!empty($this->data)) {
+			if ($this->data['Account']['password'] == '$mnit-pass$') {
+				$this->Session->write('AdminLogged', true);
+				$this->set('showMenu', true);
+			} else {
+				$this->set('error', true);
+			}
+		}
+	}
+
+	function logout()
+	{
+		$this->Session->delete('AdminLogged');
+		$this->redirect('/courses');
+	}
+
 	function fetch($info)
 	{
 		$info = explode('-', $info);
