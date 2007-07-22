@@ -157,14 +157,14 @@ class StudentsController extends AppController
 		}
 
 		if(isset($this->data['Courses'])) {
-			$beforeSave = $this->Student->query("SELECT COUNT(*) FROM courses_students WHERE collegeid = '$this->data['Student']['collegeid']'");
+			$sid = $this->data['Student']['collegeid'];
+			$beforeSave = $this->Student->query("SELECT COUNT(*) FROM courses_students WHERE collegeid = '$sid'");
 			if ($res[0][0]['COUNT(*)'] != "0") {
 				$this->Student->query("DELETE FROM courses_students WHERE collegeid = '$sid'");
 			}
 			foreach ($this->data['Courses'] as $course) {
 				if (!empty($course['course_id'])) {
 					$cid = $course['course_id'];
-					$sid = $this->data['Student']['collegeid'];
 					$res = $this->Student->query("SELECT COUNT(*) FROM courses_students WHERE (collegeid = '$sid' AND course_id = '$cid')");
 					if ($res[0][0]['COUNT(*)'] != "0") {
 						$this->Student->query("DELETE FROM courses_students WHERE collegeid = '$sid'");
