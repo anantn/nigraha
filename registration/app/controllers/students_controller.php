@@ -303,4 +303,11 @@ class StudentsController extends AppController
 		$this->set('deptList', $dTmp);
 		$this->set('semester', $sTmp);
 	}
+
+	function getlist()
+	{
+		$res = $this->Student->findAll();
+		$this->set('list', $res);
+	}
+	
 }
