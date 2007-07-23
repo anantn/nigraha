@@ -60,14 +60,19 @@ class StudentsController extends AppController
 
 	function index($check = 1)
 	{
-		if ($check)
+		$stdFormLock = TRUE;
+		$this->set('stdFormLock', $stdFormLock);
+		if ($check == 1)
 			$this->set('instructions', 'Please enter your college ID to begin!');
+		elseif ($check == 2)
+			$this->set('instructions', 'The form could not be unlocked. The service password you entered may be invalid!');
 		else
 			$this->set('instructions', 'Your college ID was invalid! Please try again:');
 	}
 
 	function update()
 	{
+		
 		$mainFields = array(
 						array('type' => 'hidden', 'name' => 'id', 'label' => NULL, 'error' => NULL),
 						array('type' => 'text', 'name' => 'collegeid', 'label' => 'Student ID',
@@ -123,19 +128,22 @@ class StudentsController extends AppController
 			}
 
 		} else {
-
-			$sid = $this->data['Student']['collegeid'];
-			if (preg_match('/^[A-Z0-9]{6,10}$/', $sid)) {
-				$this->set('mFields', $mainFields);
-				$this->set('aFields', $addFields);
-				$this->set('eFields', $extraFields);
-				$this->set('gFields', $guardianFields);
-				if (($this->Student->findCount(array("Student.collegeid" => $this->data['Student']['collegeid']))) != 0) {
-					$res = $this->Student->find(array('collegeid' => $this->data['Student']['collegeid']));
-					$this->data = $this->Student->read(NULL, $res['Student']['id']);
+			if($this->data['Student']['password'] == '$mnit-pass$') {
+				$sid = $this->data['Student']['collegeid'];
+				if (preg_match('/^[A-Z0-9]{6,10}$/', $sid)) {
+					$this->set('mFields', $mainFields);
+					$this->set('aFields', $addFields);
+					$this->set('eFields', $extraFields);
+					$this->set('gFields', $guardianFields);
+					if (($this->Student->findCount(array("Student.collegeid" => $this->data['Student']['collegeid']))) != 0) {
+						$res = $this->Student->find(array('collegeid' => $this->data['Student']['collegeid']));
+						$this->data = $this->Student->read(NULL, $res['Student']['id']);
+					}
+				} else {
+					$this->redirect('/students/index/0');
 				}
 			} else {
-				$this->redirect('/students/index/0');
+				$this->redirect('/student/index/2');
 			}
 		}
 	}
@@ -167,7 +175,6 @@ class StudentsController extends AppController
 		} else {
 			$this->set('courseInfo', array());
 		}
-		var_dump($courseInfo);
 		if(isset($this->data['Courses'])) {
 			if ($studentExists[0][0]['COUNT(*)'] != "0") {
 				$this->Student->query("DELETE FROM courses_students WHERE collegeid = '$sid'");
