@@ -10,11 +10,9 @@ if ($ListGenerated) {
 		echo "<h2>".$course[0].": ".$course[1][0]."</h2>";
 
 	echo '<table border="1">';
-	echo '<tr><td><b>Serial No.</b></td><td><b>College ID</b></td><td><b>Name</b></td></tr>';
-	$i = 1;
+	echo '<tr><td><b>College ID</b></td><td><b>Name</b></td></tr>';
 	foreach ($list as $id => $name) {
-		echo "<tr><td>$i</td><td>$id</td><td>$name</td></tr>";
-		$i++;
+		echo "<td>$id</td><td>$name</td></tr>";
 	}
 	echo '</table>';
 	echo '<p><a href="./">Back</a></p>';
