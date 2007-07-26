@@ -22,9 +22,16 @@ if ($ListGenerated) {
 	$csv = '';
 	echo '<table border="1">';
 	echo '<tr><td><b>College ID</b></td><td><b>Name</b></td></tr>';
+	$i = 1;
 	foreach ($list as $id => $name) {
 		echo "<td>$id</td><td>$name</td></tr>";
 		$csv .= "$id,$name\n";
+		$i++;
+		if ($i == 25) {
+			echo '</table><br /><br /><br /><br /><br /><table border="1">';
+			echo '<tr><td><b>College ID</b></td><td><b>Name</b></td></tr>';
+			$i = 0;
+		}
 	}
 	echo '</table>';
 	echo '<a name="csv"><p><a href="./">Back</a> | <a href="#csv" onClick="showBox();">Show/Hide CSV</a></p></a>';
