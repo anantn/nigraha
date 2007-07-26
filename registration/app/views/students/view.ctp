@@ -9,7 +9,7 @@ if ($ListGenerated) {
 	if (isset($course))
 		echo "<h2>".$course[0].": ".$course[1][0]."</h2>";
 
-	echo '<table class="sortable" border="1">';
+	echo '<table border="1">';
 	echo '<tr><td><b>Serial No.</b></td><td><b>College ID</b></td><td><b>Name</b></td></tr>';
 	$i = 1;
 	foreach ($list as $id => $name) {
