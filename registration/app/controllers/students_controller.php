@@ -238,7 +238,7 @@ class StudentsController extends AppController
 		}
 	}
 
-	function view($arg = false)
+	function view()
 	{
 		$nReg = $this->Student->findCount();
 		$nFee = $this->Account->findCount();
@@ -269,19 +269,10 @@ class StudentsController extends AppController
 					$stdList[$student['courses_students']['collegeid']] = $tmp['Student']['fName']." ".$tmp['Student']['lName'];
 				}
 
-				if (!$arg) {
-					$this->set('ListGenerated', true);
-					$this->set('list', $stdList);
-					$this->set('course', $courseInfo);
-					$this->set('csv', true);
-					$this->render(NULL, 'print');
-				} else {
-					$this->set('ListGenerated', true);
-					$this->set('list', $stdList);
-					$this->set('course', $courseInfo);
-					$this->set('csv', true);
-					$this->render(NULL, 'print');
-				}
+				$this->set('ListGenerated', true);
+				$this->set('list', $stdList);
+				$this->set('course', $courseInfo);
+				$this->render(NULL, 'print');
 			}
 		} else {
 			if (isset($this->data['Student']['deptid'])) {
@@ -304,7 +295,6 @@ class StudentsController extends AppController
 
 				$this->set('ListGenerated', true);
 				$this->set('list', $stdList);
-				$this->set('csv', true);
 				$this->render(NULL, 'print');
 			}
 		}	

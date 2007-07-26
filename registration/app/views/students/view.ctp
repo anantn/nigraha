@@ -1,27 +1,29 @@
+<script type="text/javascript">
+	function onClick()
+	{
+		alert("Hi!");
+	}
+</script>
+
 <?php
 
 if ($ListGenerated) {
-	if (!$csv) {
-		echo "<h1>MNIT Student Lists 2007-08</h1>";
-		if (isset($semester))
-			echo "<h2>Semester: $semester</h2>";
-		if (isset($department))
-			echo "<h2>Department: $department</h2>";
-		if (isset($course))
-			echo "<h2>".$course[0].": ".$course[1][0]."</h2>";
+	echo "<h1>MNIT Student Lists 2007-08</h1>";
+	if (isset($semester))
+		echo "<h2>Semester: $semester</h2>";
+	if (isset($department))
+		echo "<h2>Department: $department</h2>";
+	if (isset($course))
+		echo "<h2>".$course[0].": ".$course[1][0]."</h2>";
 
-		echo '<table border="1">';
-		echo '<tr><td><b>College ID</b></td><td><b>Name</b></td></tr>';
-		foreach ($list as $id => $name) {
-			echo "<td>$id</td><td>$name</td></tr>";
-		}
-		echo '</table>';
-		echo '<p><a href="./">Back</a></p>';
-	} else {
-		foreach ($list as $id => $name) {
-			echo "$id,$name<br />";
-		}
+	echo '<table border="1">';
+	echo '<tr><td><b>College ID</b></td><td><b>Name</b></td></tr>';
+	foreach ($list as $id => $name) {
+		echo "<td>$id</td><td>$name</td></tr>";
 	}
+	echo '</table>';
+	echo '<p><a href="./">Back</a> | <a onClick="showBox();">Show CSV</a></p>';
+	echo '<p><input id="csv" type="textarea" style="visibility: hidden"></input></p>';
 } else {
 	echo "<h1>Students Registered: $nReg</h1>";
 	echo "<h1>Students Paid: $nFee</h1>";
