@@ -28,7 +28,7 @@ if ($ListGenerated) {
 		echo "<td>$id</td><td>$name</td></tr>";
 	}
 	echo '</table>';
-	echo '<p><a href="./">Back</a> | <a onClick="showBox();">Show/Hide CSV</a></p>';
+	echo '<p><a href="./">Back</a> | <a onClick="showBox();">Show or Hide CSV</a></p>';
 	echo '<p><input id="csv" type="textarea" style="visibility: hidden"></input></p>';
 } else {
 	echo "<h1>Students Registered: $nReg</h1>";
