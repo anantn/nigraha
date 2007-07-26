@@ -1,7 +1,10 @@
 <script type="text/javascript">
-	function onClick()
+	function showBox()
 	{
-		alert("Hi!");
+		if (document.getElementById("csv").style.visibility == 'hidden')
+			document.getElementById("csv").style.visibility = 'visible';
+		else
+			document.getElementById("csv").style.visibility = 'hidden';
 	}
 </script>
 
@@ -22,7 +25,7 @@ if ($ListGenerated) {
 		echo "<td>$id</td><td>$name</td></tr>";
 	}
 	echo '</table>';
-	echo '<p><a href="./">Back</a> | <a onClick="showBox();">Show CSV</a></p>';
+	echo '<p><a href="./">Back</a> | <a onClick="showBox();">Show/Hide CSV</a></p>';
 	echo '<p><input id="csv" type="textarea" style="visibility: hidden"></input></p>';
 } else {
 	echo "<h1>Students Registered: $nReg</h1>";
