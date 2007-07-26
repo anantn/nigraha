@@ -1,11 +1,13 @@
 <script type="text/javascript">
 	function showBox()
 	{
+		/*
 		if (document.getElementById("csv").style.visibility == 'hidden') {
 			document.getElementById("csv").style.visibility = 'visible';
 		} else {
 			document.getElementById("csv").style.visibility = 'hidden';
-		}
+		}*
+		alert("Hi");
 	}
 </script>
 
