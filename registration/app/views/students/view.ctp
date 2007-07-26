@@ -1,13 +1,10 @@
 <script type="text/javascript">
 	function showBox()
 	{
-		/*
-		if (document.getElementById("csv").style.visibility == 'hidden') {
+		if (document.getElementById("csv").style.visibility == 'hidden') 
 			document.getElementById("csv").style.visibility = 'visible';
-		} else {
+		else
 			document.getElementById("csv").style.visibility = 'hidden';
-		}*
-		alert("Hi");
 	}
 </script>
 
@@ -22,14 +19,16 @@ if ($ListGenerated) {
 	if (isset($course))
 		echo "<h2>".$course[0].": ".$course[1][0]."</h2>";
 
+	$csv = '';
 	echo '<table border="1">';
 	echo '<tr><td><b>College ID</b></td><td><b>Name</b></td></tr>';
 	foreach ($list as $id => $name) {
 		echo "<td>$id</td><td>$name</td></tr>";
+		$csv .= "$id,$name\n";
 	}
 	echo '</table>';
-	echo '<p><a href="./">Back</a> | <a onClick="showBox();">Show or Hide CSV</a></p>';
-	echo '<p><input id="csv" type="textarea" style="visibility: hidden"></input></p>';
+	echo '<a name="csv"><p><a href="./">Back</a> | <a href="#csv" onClick="showBox();">Show/Hide CSV</a></p></a>';
+	echo '<p><textarea id="csv" style="visibility: hidden" rows="5">'.$csv.'</textarea></p>';
 } else {
 	echo "<h1>Students Registered: $nReg</h1>";
 	echo "<h1>Students Paid: $nFee</h1>";
