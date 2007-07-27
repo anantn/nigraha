@@ -267,6 +267,7 @@ class StudentsController extends AppController
 					$tmp = $this->Student->find(array('collegeid' => $student['courses_students']['collegeid']));
 					$stdList[$student['courses_students']['collegeid']] = $tmp['Student']['fName']." ".$tmp['Student']['lName'];
 				}
+				asort($stdList);
 
 				$this->set('ListGenerated', true);
 				$this->set('list', $stdList);
@@ -292,6 +293,7 @@ class StudentsController extends AppController
 				foreach ($list as $student) {
 					$stdList[$student['Student']['collegeid']] = $student['Student']['fName']." ".$student['Student']['lName'];
 				}
+				asort($stdList);
 
 				$this->set('ListGenerated', true);
 				$this->set('list', $stdList);
