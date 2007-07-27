@@ -238,6 +238,14 @@ class StudentsController extends AppController
 		}
 	}
 
+	function compare($x, $y)
+	{
+		if ($x[1] < $y[1])
+			return -1;
+		else
+			return 1;
+	}
+
 	function view()
 	{
 		$nReg = $this->Student->findCount();
@@ -267,7 +275,7 @@ class StudentsController extends AppController
 					$tmp = $this->Student->find(array('collegeid' => $student['courses_students']['collegeid']));
 					$stdList[] = array($student['courses_students']['collegeid'], $tmp['Student']['fName']." ".$tmp['Student']['lName']);
 				}
-				sort($stdList);
+				usort($stdList, array($this, 'compare'));				
 
 				$this->set('ListGenerated', true);
 				$this->set('list', $stdList);
@@ -297,7 +305,7 @@ class StudentsController extends AppController
 						$cStr .= ' '.$res['courses_students']['course_id'];
 					$stdList[] = array($student['Student']['collegeid'], $student['Student']['fName']." ".$student['Student']['lName'], $cStr);
 				}
-				sort($stdList);
+				usort($stdList, array($this, 'compare'));
 
 				$this->set('ListGenerated', true);
 				$this->set('list', $stdList);
