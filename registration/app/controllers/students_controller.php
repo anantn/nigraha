@@ -265,9 +265,9 @@ class StudentsController extends AppController
 				$stdList = array();
 				foreach ($res as $student) {
 					$tmp = $this->Student->find(array('collegeid' => $student['courses_students']['collegeid']));
-					$stdList[$student['courses_students']['collegeid']] = $tmp['Student']['fName']." ".$tmp['Student']['lName'];
+					$stdList[] = array($student['courses_students']['collegeid'], $tmp['Student']['fName']." ".$tmp['Student']['lName']);
 				}
-				asort($stdList);
+				sort($stdList);
 
 				$this->set('ListGenerated', true);
 				$this->set('list', $stdList);
@@ -291,9 +291,13 @@ class StudentsController extends AppController
 				$list = $this->Student->findAll($conditions);
 				$stdList = array();
 				foreach ($list as $student) {
-					$stdList[$student['Student']['collegeid']] = $student['Student']['fName']." ".$student['Student']['lName'];
+					$cRes = $this->Student->query("SELECT * FROM courses_students WHERE collegeid = '".$student['Student']['collegeid']."'");
+					$cStr = '';
+					foreach ($cRes as $res)
+						$cStr .= ' '.$res['courses_students']['course_id'];
+					$stdList[] = array($student['Student']['collegeid'], $student['Student']['fName']." ".$student['Student']['lName'], $cStr);
 				}
-				asort($stdList);
+				sort($stdList);
 
 				$this->set('ListGenerated', true);
 				$this->set('list', $stdList);

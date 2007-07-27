@@ -22,6 +22,8 @@ class PDF extends FPDF
 	
 	function FancyTable($header, $data)
 	{
+		$count = count($header);
+
     	//Colors, line width and bold font
 	    $this->SetFillColor(199, 0, 0);
     	$this->SetTextColor(255);
@@ -30,7 +32,11 @@ class PDF extends FPDF
 	    $this->SetFont('','B');
     
 		//Header
-	    $w = array(50, 140);
+		if ($count == 3)
+			$w = array(25, 55, 110);
+		else
+		    $w = array(50, 140);
+
     	for($i=0; $i<count($header); $i++)
         	$this->Cell($w[$i], 7, $header[$i], 1, 0, 'C', 1);
 	    $this->Ln();
@@ -45,6 +51,8 @@ class PDF extends FPDF
 	    foreach($data as $row) {
 	        $this->Cell($w[0],6,$row[0],'LR',0,'C',$fill);
         	$this->Cell($w[1],6,$row[1],'LR',0,'C',$fill);
+			if ($count == 3)
+				$this->Cell($w[2],6,$row[2],'LR',0,'R',$fill);
         	$this->Ln();
     	    $fill=!$fill;
 	    }
@@ -55,12 +63,11 @@ class PDF extends FPDF
 if ($ListGenerated) {
 
 	if ($output == 'pdf') {
-		$header = array('Student ID', 'Name');
-		$data = array();
-		foreach ($list as $id => $name) {
-			$data[] = array($id, $name);
-		}
-	
+		if (count($list[0]) == 3)
+			$header = array('Student ID', 'Name', 'Courses');
+		else
+			$header = array('Student ID', 'Name');
+
 		$pdf = new PDF();
 		$pdf->AliasNbPages();
 		$pdf->AddPage();
@@ -75,7 +82,7 @@ if ($ListGenerated) {
 			$pdf->Cell(0, 6, "$course[0]: ".$course[1][0], 0, 1, 'L', 1);
 		$pdf->Ln(4);
 
-		$pdf->FancyTable($header, $data);
+		$pdf->FancyTable($header, $list);
 		$pdf->Output('list.pdf', 'I');
 	} else {
 		header("Content-Type: text/csv");
