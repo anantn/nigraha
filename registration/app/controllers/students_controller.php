@@ -259,7 +259,6 @@ class StudentsController extends AppController
 				$this->set('nFee', $nFee);
 				$this->set('deptList', $dTmp);
 				$this->set('semester', $sTmp);
-
 				$this->render();
 			} else {
 				$res = $this->Student->query("SELECT * FROM courses_students WHERE course_id = '$cid'");
@@ -272,7 +271,8 @@ class StudentsController extends AppController
 				$this->set('ListGenerated', true);
 				$this->set('list', $stdList);
 				$this->set('course', $courseInfo);
-				$this->render(NULL, 'print');
+				$this->set('output', $this->data['Student']['type']);
+				$this->render(NULL, 'plain');
 			}
 		} else {
 			if (isset($this->data['Student']['deptid'])) {
@@ -295,7 +295,8 @@ class StudentsController extends AppController
 
 				$this->set('ListGenerated', true);
 				$this->set('list', $stdList);
-				$this->render(NULL, 'print');
+				$this->set('output', $this->data['Student']['type']);
+				$this->render(NULL, 'plain');
 			}
 		}	
 		
