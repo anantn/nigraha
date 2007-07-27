@@ -87,8 +87,11 @@ if ($ListGenerated) {
 	} else {
 		header("Content-Type: text/csv");
 		header("Content-Disposition: attachment; filename=list.csv");
-		foreach($list as $id => $name) {
-			echo "$id, $name\n";
+		foreach($list as $details) {
+			echo $details[0].", ".$details[1];
+			if (isset($details[2]))
+				echo ", ".$details[2];
+			echo "\n";
 		}
 	}
 	
