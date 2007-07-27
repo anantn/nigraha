@@ -1,5 +1,8 @@
 <?php
 
+mysql_connect('localhost', 'cake', 'cakephp');
+mysql_select_db('cake');
+
 echo "Checking 'courses_students' table...........\n\n";
 $query = 'SELECT * FROM courses_students';
 $result = mysql_query($query);
