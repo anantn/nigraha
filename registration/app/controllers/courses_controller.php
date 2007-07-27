@@ -106,12 +106,19 @@ class CoursesController extends AppController
 			if (isset($this->data['Course']['name'])) {
 				/* Second Submission */
 				$this->Course->del($this->data['Course']['id']);
-				if ($this->Course->save($this->data)) 
-					$this->flash('Course '.$this->data['Course']['course_id'].' was successfully modified.', '/courses');	
+				if ($this->Course->save($this->data)) {
+					$newcourseid = $this->data['Course']['course_id'];
+					$oldcourseid = $this->data['Course']['old_course_id'];
+					if($newcourseid!=$oldcourseid) {
+						$this->Course->query("UPDATE courses_students SET course_id = '$newcourseid' where course_id = '$oldcourseid'");
+					}
+					$this->flash('Course '.$this->data['Course']['course_id'].' was successfully modified.', '/courses');
+				}
 			} else {
 				/* First Submission */
 				$res = $this->Course->find(array('course_id' => $this->data['Course']['course_id']));
 				$this->data = $this->Course->read(NULL, $res['Course']['id']);
+				$this->set('oldCourseID', $this->data['Course']['course_id']);
 				$this->set('deptList', $this->getDeptList());
 				$this->set('areas', $this->areas);
 			}

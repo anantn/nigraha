@@ -4,6 +4,7 @@ echo '<h2>Modify Course</h2>';
 echo $form->create('Course', array('action' => 'mod'));
 echo '<fieldset>';
 echo $form->hidden('id');
+echo $form->hidden('old_course_id', array('label' => NULL, 'type' => 'text', 'value' => $oldCourseID));
 echo $form->input('course_id', array('label' => 'Course ID'));
 echo $form->input('name', array('label' => 'Course Name'));
 echo $form->input('department_id', array('label' => 'Department', 'type' => 'select', 'options' => $deptList));
