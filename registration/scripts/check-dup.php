@@ -21,8 +21,8 @@ while($entry = mysql_fetch_assoc($result)) {
                 mysql_query($query4) or die(mysql_error());
                 echo $entry['collegeid']." --> 0".$entry['collegeid']."\n\n\n";
         } else if(strlen($entry['collegeid'])==6 AND substr($entry['collegeid'],0,1)!='0') {
-                $query4 = "UPDATE courses_students SET collegeid = '0".$entry['collegeid']."' WHERE (collegeid = '".$entry['collegeid']."' and course_id = '".$e
-ntry['course_id']."')";
+				$query4 = 
+					"UPDATE courses_students SET collegeid = '0".$entry['collegeid']."' WHERE (collegeid = '".$entry['collegeid']."' and course_id = '".$entry['course_id']."')";
 
                 mysql_query($query4) or die(mysql_error());
                 echo $entry['collegeid']." --> 0".$entry['collegeid']."\n\n\n";
