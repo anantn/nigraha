@@ -9,10 +9,11 @@ foreach ($list as $student) {
 	$uid = $uid.'U';
 	$uid = $uid.$student['Student']['department_id'];
 	
-	echo $uid.'|'.$student['Student']['password'].'|';
-	echo $student['Student']['fName'].' '.$student['Student']['lName'].'|';
-	echo $uid.'@mnit.ac.in'.'|';
+	echo $uid.'|'.$student['Student']['password'].', ';
+	echo $student['Student']['fName'].' '.$student['Student']['lName'].', ';
+	echo $uid.'@mnit.ac.in'.', ';
 	echo $student['Student']['email'];
+	echo $student['Student']['department_id'];
 	echo "<br>";
 }
 
