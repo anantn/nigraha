@@ -109,9 +109,14 @@ if ($ListGenerated) {
 	if (isset($invalidCourse) and $invalidCourse)
 		echo '<span class="notice">An invalid course ID was entered</span>';
 
-	$outOptions = array('pdf' => 'PDF', 'csv' => 'Excel (CSV)');
 	echo $form->input('course_id', array('label' => 'Course ID'));
+
+	$outOptions = array('pdf' => 'PDF', 'csv' => 'Excel (CSV)');
 	echo $form->input('type', array('label' => 'Output Type', 'type' => 'select', 'options' => $outOptions));
+
+	$sortOptions = array('id' => 'Student ID', 'name' => 'Student Name');
+	echo $form->input('sortBy', array('label' => 'Sort By', 'type' => 'select', 'options' => $sortOptions));
+
 	echo '</fieldset>';
 	echo $form->end('Submit');	
 

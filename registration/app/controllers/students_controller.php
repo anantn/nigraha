@@ -238,9 +238,17 @@ class StudentsController extends AppController
 		}
 	}
 
-	function compare($x, $y)
+	function sortByName($x, $y)
 	{
 		if ($x[1] < $y[1])
+			return -1;
+		else
+			return 1;
+	}
+
+	function sortById($x, $y)
+	{
+		if ($x[0] < $y[0])
 			return -1;
 		else
 			return 1;
@@ -275,7 +283,11 @@ class StudentsController extends AppController
 					$tmp = $this->Student->find(array('collegeid' => $student['courses_students']['collegeid']));
 					$stdList[] = array($student['courses_students']['collegeid'], $tmp['Student']['fName']." ".$tmp['Student']['lName']);
 				}
-				usort($stdList, array($this, 'compare'));				
+
+				if ($this->data['Student']['sortBy'] == 'id')
+					usort($stdList, array($this, 'sortById'));				
+				else
+					usort($stdList, array($this, 'sortByName'));
 
 				$this->set('ListGenerated', true);
 				$this->set('list', $stdList);
@@ -305,7 +317,11 @@ class StudentsController extends AppController
 						$cStr .= ' '.$res['courses_students']['course_id'];
 					$stdList[] = array($student['Student']['collegeid'], $student['Student']['fName']." ".$student['Student']['lName'], $cStr);
 				}
-				usort($stdList, array($this, 'compare'));
+
+				if ($this->data['Student']['sortBy'] == 'id')
+					usort($stdList, array($this, 'sortById'));				
+				else
+					usort($stdList, array($this, 'sortByName'));
 
 				$this->set('ListGenerated', true);
 				$this->set('list', $stdList);
