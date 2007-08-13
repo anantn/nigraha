@@ -6,6 +6,12 @@ class CoursesController extends AppController
 	var $helpers	= array('Html', 'Javascript', 'Form');
 	var $uses		= array('Course', 'Department');
 
+	public $degree = array(
+						'btech' => 'B-Tech',
+						'mtech' => 'M-Tech',
+						'msc' => 'M.Sc.',
+						'phd' => 'Ph.D');
+						
 	public $areas = array(
 						'BS' => 'Basic Sciences',
 						'ESA' => 'ESA',
@@ -32,6 +38,17 @@ class CoursesController extends AppController
 
 		return $deptList;
 	}
+	
+	function getProgList()
+	{
+		$progList = array();
+		$tmp = $this->Program->findAll();
+		foreach ($tmp as $t) {
+			$progList[$t['Program']['program_id']] = $t['Program']['name'];
+		}
+
+		return $progList;
+	}
 
 	function checkSession()
 	{
@@ -50,7 +67,9 @@ class CoursesController extends AppController
 			if ($this->data['Course']['password'] == '$mnit-pass$') {
 				$this->Session->write('AdminLogged', true);
 				$this->set('showMenu', true);
+				$this->set('degree', $this->degree);
 				$this->set('deptList', $this->getDeptList());
+				$this->set('progList', $this->getProgList());
 				$this->set('areas', $this->areas);
 			} else {
 				$this->set('error', true);
@@ -119,7 +138,9 @@ class CoursesController extends AppController
 				$res = $this->Course->find(array('course_id' => $this->data['Course']['course_id']));
 				$this->data = $this->Course->read(NULL, $res['Course']['id']);
 				$this->set('oldCourseID', $this->data['Course']['course_id']);
+				$this->set('degree', $this->degree);
 				$this->set('deptList', $this->getDeptList());
+				$this->set('progList', $this->getProgList());
 				$this->set('areas', $this->areas);
 			}
 		} else {
@@ -141,4 +162,34 @@ class CoursesController extends AppController
 			$this->flash('There was an error in processing your form. Try again.', '/courses');
 		}
 	}
+	
+	function addProg()
+	{
+		if (!isset($this->data)) {
+			$this->redirect('/courses');
+			exit;
+		}
+
+		if ($this->Program->save($this->data)) {
+			$this->flash('The program '.$this->data['Program']['name'].' has been added.', '/courses');	
+		} else {
+			$this->flash('There was an error in processing your form. Try again.', '/courses');
+		}
+	}
+
+	function delProg()
+	{
+		if (!isset($this->data)) {
+			$this->redirect('/courses');
+			exit;
+		}
+
+		$res = $this->Program->find(array('name' => $this->data['Program']['name']));
+		if ($this->Course->del($res['Program']['id'])) {
+			$this->flash('The program '.$this->data['Program']['name'].' has been deleted.', '/courses');	
+		} else {
+			$this->flash('There was an error in processing your form. Try again.', '/courses');
+		}
+	}
+	
 }
