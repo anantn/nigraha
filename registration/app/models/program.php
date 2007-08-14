@@ -3,7 +3,6 @@ class Program extends AppModel {
 	var $name='Program';
 	
 	var $program_id;
-	var $name;
 	var $department_id;
 	var $degree;
 		
