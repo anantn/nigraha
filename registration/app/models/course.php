@@ -4,7 +4,9 @@ class Course extends AppModel {
 	
 	var $course_id;
 	var $cname;
+	var $degree;
 	var $department_id;
+	var $program_id;
 	var $semester;
 	var $credits;
 	var $requiresLab;

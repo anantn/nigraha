@@ -185,7 +185,7 @@ class CoursesController extends AppController
 		}
 
 		$res = $this->Program->find(array('name' => $this->data['Program']['name']));
-		if ($this->Course->del($res['Program']['id'])) {
+		if ($this->Program->del($res['Program']['program_id'])) {
 			$this->flash('The program '.$this->data['Program']['name'].' has been deleted.', '/courses');	
 		} else {
 			$this->flash('There was an error in processing your form. Try again.', '/courses');
