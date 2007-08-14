@@ -4,7 +4,7 @@ class CoursesController extends AppController
 {
 	var $name 		= 'Courses';
 	var $helpers	= array('Html', 'Javascript', 'Form');
-	var $uses		= array('Course', 'Department');
+	var $uses		= array('Course', 'Department', 'Program');
 
 	public $degree = array(
 						'btech' => 'B-Tech',
