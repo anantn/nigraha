@@ -11,6 +11,29 @@ class ProgramsController extends AppController
 						'msc' => 'M.Sc.',
 						'phd' => 'Ph.D');
 
+	function getDeptList()
+	{
+		$deptList = array();
+		$tmp = $this->Department->findAll();
+		foreach ($tmp as $t) {
+			$deptList[$t['Department']['department_id']] = $t['Department']['deptName'];
+		}
+
+		return $deptList;
+	}
+	
+	function getProgList()
+	{
+		$progList = array();
+		$tmp = $this->Program->findAll();
+		foreach ($tmp as $t) {
+			$progList[$t['Program']['program_id']] = $t['Program']['name'];
+		}
+
+		return $progList;
+	}
+
+
 	function index()
 	{
 		$this->set('error', false);
