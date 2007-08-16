@@ -41,7 +41,7 @@ class CoursesController extends AppController
 	
 	function getProgList()
 	{
-		$progList = array();
+		$progList = array('NULL' => '');
 		$tmp = $this->Program->findAll();
 		foreach ($tmp as $t) {
 			$progList[$t['Program']['program_id']] = $t['Program']['name'];
