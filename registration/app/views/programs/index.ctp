@@ -1,3 +1,5 @@
+<?php
+
 if ($error) {
 	echo '<span class="notice">The credentials were invalid, please try again!</span>';
 }
@@ -32,3 +34,4 @@ if ($showMenu) {
 
 }
 
+?>
