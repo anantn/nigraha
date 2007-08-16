@@ -7,7 +7,7 @@ if ($error) {
 if ($showMenu) {
 
 	echo '<h2>Add a Program</h2>';
-	echo $form->create('Program', array('action' => 'addProg'));
+	echo $form->create('Program', array('action' => 'add'));
 	echo '<fieldset>';
 	echo $form->input('degree', array('label' => 'Degree', 'type' => 'select', 'options' => $degree));
 	echo $form->input('department_id', array('label' => 'Department', 'type' => 'select', 'options' => $deptList));
@@ -16,7 +16,7 @@ if ($showMenu) {
 	echo '</fieldset>';
 	
 	echo '<h2>Delete a Program</h2>';
-	echo $form->create('Program', array('action' => 'delProg'));
+	echo $form->create('Program', array('action' => 'del'));
 	echo '<fieldset>';
 	echo $form->input('degree', array('label' => 'Degree', 'type' => 'select', 'options' => $degree));
 	echo $form->input('department_id', array('label' => 'Department', 'type' => 'select', 'options' => $deptList));
