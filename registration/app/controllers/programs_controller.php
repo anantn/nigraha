@@ -1,6 +1,6 @@
 <?php
 
-class CoursesController extends AppController
+class ProgramsController extends AppController
 {
 	var $name 		= 'Programs';
 	var $helpers	= array('Html', 'Javascript', 'Form');
