@@ -173,8 +173,8 @@ class CoursesController extends AppController
 				if (count($students) > 0) {
 					$data = array();
 					foreach ($students as $aStudent) {
-						$studentRecord = $this->Student->read(NULL, $aStudent['courses_students']['collegeid'];);
-						$data[] = array($studentRecord['Student']['collegeid'], $studentRecord['Student']['fName']." ".$studentRecord['Student']['lName'])
+						$studentRecord = $this->Student->read(NULL, $aStudent['courses_students']['collegeid']);
+						$data[] = array($studentRecord['Student']['collegeid'], $studentRecord['Student']['fName']." ".$studentRecord['Student']['lName']);
 					}
 					$list[$course['Course']['course_id']] = array($course['Course']['name'],
 																		$course['Course']['semester'], $course['Course']['department_id'], $data);
