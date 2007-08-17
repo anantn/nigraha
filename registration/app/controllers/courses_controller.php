@@ -4,7 +4,7 @@ class CoursesController extends AppController
 {
 	var $name 		= 'Courses';
 	var $helpers	= array('Html', 'Javascript', 'Form');
-	var $uses		= array('Course', 'Department', 'Program');
+	var $uses		= array('Course', 'Department', 'Program', 'Student');
 
 	public $degree = array(
 						'btech' => 'B-Tech',
@@ -172,8 +172,12 @@ class CoursesController extends AppController
 				$students = $this->Course->query("SELECT * FROM courses_students WHERE course_id = '".$course['Course']['course_id']."'");
 				if (count($students) > 0) {
 					$data = array();
+					foreach ($students as $aStudent) {
+						$studentRecord = $this->Student->read(NULL, $aStudent['courses_students']['collegeid'];);
+						$data[] = array($studentRecord['Student']['collegeid'], $studentRecord['Student']['fName']." ".$studentRecord['Student']['lName'])
+					}
 					$list[$course['Course']['course_id']] = array($course['Course']['name'],
-																		$course['Course']['semester'], $course['Course']['department_id'], $students);
+																		$course['Course']['semester'], $course['Course']['department_id'], $data);
 				}
 			}
 
