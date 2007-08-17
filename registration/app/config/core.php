@@ -199,5 +199,5 @@
  * 		'dataField' => 'value',
  * 		'expiryField' => 'expires'));
  */
-	$cakeCache = array('File');
+	$cakeCache = array('File', array('dir' => '/tmp/', 'prefix' => 'cake_', 'lock' => true));
 ?>
