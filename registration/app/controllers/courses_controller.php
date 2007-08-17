@@ -162,5 +162,25 @@ class CoursesController extends AppController
 			$this->flash('There was an error in processing your form. Try again.', '/courses');
 		}
 	}
+
+	function view()
+	{
+		if (isset($this->data['Course']['type'])) {
+			$courses = $this->Course->findAll();
+			$list = array();
+			foreach($courses as $course) {
+				$students = $this->Course->query("SELECT * FROM courses_students WHERE course_id = '".$course['Course']['course_id']."'");
+				if (count($students) > 0) {
+					$data = array();
+					$list[$course['Course']['course_id']] = array($course['Course']['name'],
+																		$course['Course']['semester'], $course['Course']['department_id'], $students);
+				}
+			}
+
+			$this->set('students', $list);
+			$this->set('ListGenerated', true);
+			$this->set('output', $this->data['Course']['type']);
+		} 
+	}
 	
 }
