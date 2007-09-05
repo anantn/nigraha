@@ -12,8 +12,8 @@ foreach ($list as $student) {
 	echo strtolower($uid).'|'.$student['Student']['password'].'|';
 	echo $student['Student']['fName'].' '.$student['Student']['lName'].'|';
 	echo strtolower($uid).'@mnit.ac.in'.'|';
-	echo $student['Student']['email'].', ';
-	echo $student['Student']['department_id'];
+	echo $student['Student']['email'].'|';
+	echo strtolower($student['Student']['department_id']);
 	echo "<br>";
 }
 
