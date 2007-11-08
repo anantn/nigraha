@@ -77,7 +77,7 @@ class DATABASE_CONFIG {
 		'port' => '',
 		'login' => 'cake',
 		'password' => 'cakephp',
-		'database' => 'faculty',
+		'database' => 'cse',
 		'schema' => '',
 		'prefix' => '',
 		'encoding' => ''

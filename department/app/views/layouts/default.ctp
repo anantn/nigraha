@@ -41,7 +41,7 @@
 <body>
 	<div class="header">
 		<div class="header_interior"><img src="<?php echo $this->webroot;?>images/logo.gif" alt="Logo" width="44" height="44" style="float:left; margin-right:10px;" /> 
-  		<h1 class="title">MNIT Faculty Pages</h1></div>
+  		<h1 class="title"><a href="<?php echo $this->webroot;?>">MNIT Faculty Pages</a></h1></div>
 	</div>
 	<div class="content_body">
 		<div class="content_interior">

@@ -12,7 +12,7 @@ background-color:#006699;
 border-top: 8px solid #6699CC }
 
 .content_body{
-background-image:url(/cake/images/bg1.jpg);
+background-image:url(/images/bg1.jpg);
 background-repeat: repeat-x;
 background-color:#F6F1DE;
 }
@@ -47,12 +47,12 @@ clear:both;
 width:150px;
 padding-left:6px;
 padding-right:6px;
-background-image:url(/cake/images/nav_side.jpg);
+background-image:url(/images/nav_side.jpg);
 }
 
 .navigationbtm{
 width:165px;
-background-image:url(/cake/images/nav_btm.jpg);
+background-image:url(/images/nav_btm.jpg);
 background-repeat:no-repeat;
 height:8px;
 margin-top:-1px;
@@ -71,7 +71,7 @@ margin-top:-1px;
 .hr{
 	width:485px;
 	height:8px;
-	background-image:url(/cake/images/hr.gif);
+	background-image:url(/images/hr.gif);
 	margin-left:auto;
 	margin-right:auto;
 	margin-bottom:10px;
@@ -94,7 +94,7 @@ h2 {
 	font-weight: normal;
 	letter-spacing: -1px;
 	padding-left:25px;
-	background-image:url(/cake/images/h2.gif);
+	background-image:url(/images/h2.gif);
 	background-repeat:no-repeat;
 }
 
@@ -152,7 +152,7 @@ list-style:none;
 }
 
 .markermenu li a{
-background:url(/cake/images/arrow.gif) no-repeat 2px center;
+background:url(/images/arrow.gif) no-repeat 2px center;
 font-weight:bold;
 color: #006699;
 display: block;
