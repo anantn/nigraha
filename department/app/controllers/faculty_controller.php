@@ -73,6 +73,7 @@ class FacultyController extends AppController
 				$this->set('isForm', true);
 			}
 		}
+
 		$this->render('edit');
 	}
 
@@ -83,30 +84,46 @@ class FacultyController extends AppController
 			case 'name':
 				$query .= "name = '".$_POST['value']."' ";
 				$res = "<h1>".$_POST['value']."</h1>";
+				$ren = 'updated';
 				break;
 			case 'post':
 				$query .= "post = '".$_POST['value']."' ";
 				$res = "<h3>".$_POST['value']."</h3>";
+				$ren = 'updated';
 				break;
 			case 'educ':
 				$query .= "education = '".$_POST['value']."' ";
 				$res = "<p>".$_POST['value']."</p>";
+				$ren = 'updated';
 				break;
 			case 'rese':
 				$query .= "research = '".$_POST['value']."' ";
 				$res = "<p>".$_POST['value']."</p>";
+				$ren = 'updated';
 				break;
 			case 'cour':
 				$query .= "courses = '".$_POST['value']."' ";
 				$res = "<p>".$_POST['value']."</p>";
+				$ren = 'updated';
 				break;
 			case 'publ':
 				$query .= "publications = '".$_POST['value']."' ";
 				$res = "<p>".$_POST['value']."</p>";
+				$ren = 'updated';
 				break;
 			case 'proj':
 				$query .= "projects = '".$_POST['value']."' ";
 				$res = "<p>".$_POST['value']."</p>";
+				$ren = 'updated';
+				break;
+			case 'imag':
+				$query .= "image = 1 ";
+				$uploadFinal = dirname(__FILE__)."/../webroot/images/faculty/".$this->Session->read('FPageUID');
+				if (move_uploaded_file($_FILES['imag']['tmp_name'], $uploadFinal))
+					$res = true;
+				else
+					$res = false;
+				$ren = 'uploaded';
 				break;
 			default:
 				$res = "<h1>ERROR!</h1>";
@@ -115,7 +132,11 @@ class FacultyController extends AppController
 		
 		$this->Faculty->query($query);
 		$this->set('which', $res);
-		$this->render('updated', 'ajax');
+		if ($ren == 'updated') {
+			$this->render($ren, 'ajax');
+		} else {
+			$this->render($ren);
+		}
 	}
 
 	public function index($id = false, $param = false)

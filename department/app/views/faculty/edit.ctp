@@ -21,7 +21,9 @@ if (isset($logged) and ($logged === true) and ($f != false)) {
 
 	<div class="left_column">
 	<img src="<?php echo $this->webroot.$f['imag']; ?>" alt="Faculty Photo" /><br /><br />
-	<p>Click on an item to edit it</p>
+	<hr />
+	<p>Click on an item to edit it. Each line corresponds to a single bullet in view mode.</p>
+	<hr />
 	<div class="navigation">
 		<ul class="markermenu">
 		<li class="markermenu"><?php echo $html->link('Logout', '/faculty/logout'); ?></li>
@@ -42,6 +44,25 @@ if (isset($logged) and ($logged === true) and ($f != false)) {
 		<p id="fPubl"><?php echo $f['publ']; ?></p>
 		<h2>Projects</h2>
 		<p id="fProj"><?php echo $f['proj']; ?></p>
+		<hr />
+		<h3>Uploads</h3>
+		<h4>Picture</h4>
+		<div id="imagDone">
+		<form enctype="multipart/form-data" action="edit/imag" method="POST">
+			<input type="hidden" name="MAX_FILE_SIZE" value="2097152" />
+			<input type="file" name="imag" />
+			<input type="submit" value="Upload" />
+		</form>
+		</div>
+		<h4>Résumé</h4>
+		<div id="resuDone">
+		<form enctype="multipart/form-data" action="edit/resu" method="POST">
+			<input type="hidden" name="MAX_FILE_SIZE" value="2097152" />
+			<input type="file" name="resu" />
+			<input type="submit" value="Upload" />
+		</form>
+		</div>
+		<p>(Maximum Size: 2MB)</p>
 	</div>
 
 <?php }?>
