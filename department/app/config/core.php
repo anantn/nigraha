@@ -87,7 +87,7 @@
 /**
  * The preferred session handling method. Valid values:
  *
- * 'php'	 		Uses settings defined in your php.ini.
+ * 'php'	 	Uses settings defined in your php.ini.
  * 'cake'		Saves session files in CakePHP's /tmp directory.
  * 'database'	Uses CakePHP's database sessions.
  *
@@ -97,7 +97,7 @@
  * To use database sessions, execute the SQL file found at /app/config/sql/sessions.sql.
  *
  */
-	Configure::write('Session.save', 'php');
+	Configure::write('Session.save', 'cake');
 /**
  * The name of the table used to store CakePHP database sessions.
  *
