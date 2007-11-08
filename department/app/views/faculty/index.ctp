@@ -29,4 +29,8 @@ function untangle($string)
 	<?php untangle($f['rese']); ?>	
 	<h2>Current Courses</h2>
 	<?php untangle($f['cour']); ?>
+	<h2>Publications</h2>
+	<?php untangle($f['publ']); ?>
+	<h2>Projects</h2>
+	<?php untangle($f['proj']); ?>
 </div>

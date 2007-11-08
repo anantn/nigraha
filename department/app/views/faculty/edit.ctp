@@ -38,6 +38,10 @@ if (isset($logged) and ($logged === true) and ($f != false)) {
 		<p id="fRese"><?php echo $f['rese']; ?></p>	
 		<h2>Current Courses</h2>
 		<p id="fCour"><?php echo $f['cour']; ?></p>
+		<h2>Publications</h2>
+		<p id="fPubl"><?php echo $f['publ']; ?></p>
+		<h2>Projects</h2>
+		<p id="fProj"><?php echo $f['proj']; ?></p>
 	</div>
 
 <?php }?>
@@ -47,6 +51,8 @@ if (isset($logged) and ($logged === true) and ($f != false)) {
 	new Ajax.InPlaceEditor('fEduc', '<?php echo $html->url('/faculty/edit/educ', true);?>', {rows: 10, cols: 40});
 	new Ajax.InPlaceEditor('fRese', '<?php echo $html->url('/faculty/edit/rese', true);?>', {rows: 10, cols: 40});
 	new Ajax.InPlaceEditor('fCour', '<?php echo $html->url('/faculty/edit/cour', true);?>', {rows: 10, cols: 40});
+	new Ajax.InPlaceEditor('fPubl', '<?php echo $html->url('/faculty/edit/publ', true);?>', {rows: 10, cols: 40});
+	new Ajax.InPlaceEditor('fProj', '<?php echo $html->url('/faculty/edit/proj', true);?>', {rows: 10, cols: 40});
 
 	function setupCategoryEditor() {
 		var editor = new Ajax.InPlaceEditor('fPost', '<?php echo $html->url('/faculty/edit/post', true);?>');

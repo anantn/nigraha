@@ -35,6 +35,8 @@ class FacultyController extends AppController
 		$det['educ'] = $res['Faculty']['education'];
 		$det['rese'] = $res['Faculty']['research'];
 		$det['cour'] = $res['Faculty']['courses'];
+		$det['publ'] = $res['Faculty']['publications'];
+		$det['proj'] = $res['Faculty']['projects'];
 
 		if ($res['Faculty']['image'])
 			$det['imag'] = 'images/'.$res['Faculty']['id'].'.png';
@@ -96,6 +98,14 @@ class FacultyController extends AppController
 				break;
 			case 'cour':
 				$query .= "courses = '".$_POST['value']."' ";
+				$res = "<p>".$_POST['value']."</p>";
+				break;
+			case 'publ':
+				$query .= "publications = '".$_POST['value']."' ";
+				$res = "<p>".$_POST['value']."</p>";
+				break;
+			case 'proj':
+				$query .= "projects = '".$_POST['projects']."' ";
 				$res = "<p>".$_POST['value']."</p>";
 				break;
 			default:
