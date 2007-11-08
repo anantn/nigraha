@@ -105,7 +105,7 @@ class FacultyController extends AppController
 				$res = "<p>".$_POST['value']."</p>";
 				break;
 			case 'proj':
-				$query .= "projects = '".$_POST['projects']."' ";
+				$query .= "projects = '".$_POST['value']."' ";
 				$res = "<p>".$_POST['value']."</p>";
 				break;
 			default:
