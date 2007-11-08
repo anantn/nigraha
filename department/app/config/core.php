@@ -40,7 +40,7 @@
  * In production mode, flash messages redirect after a time interval.
  * In development mode, you need to click the flash message to continue.
  */
-	Configure::write('debug', 3);
+	Configure::write('debug', 1);
 /**
  * To configure CakePHP *not* to use mod_rewrite and to
  * use CakePHP pretty URLs, remove these .htaccess
@@ -97,7 +97,7 @@
  * To use database sessions, execute the SQL file found at /app/config/sql/sessions.sql.
  *
  */
-	Configure::write('Session.save', 'cake');
+	Configure::write('Session.save', 'php');
 /**
  * The name of the table used to store CakePHP database sessions.
  *
