@@ -47,12 +47,12 @@ if (isset($logged) and ($logged === true) and ($f != false)) {
 <?php }?>
 
 <script type="text/javascript">
-	new Ajax.InPlaceEditor('fName', '<?php echo $html->url('/faculty/edit/name', true);?>');
-	new Ajax.InPlaceEditor('fEduc', '<?php echo $html->url('/faculty/edit/educ', true);?>', {rows: 10, cols: 40});
-	new Ajax.InPlaceEditor('fRese', '<?php echo $html->url('/faculty/edit/rese', true);?>', {rows: 10, cols: 40});
-	new Ajax.InPlaceEditor('fCour', '<?php echo $html->url('/faculty/edit/cour', true);?>', {rows: 10, cols: 40});
-	new Ajax.InPlaceEditor('fPubl', '<?php echo $html->url('/faculty/edit/publ', true);?>', {rows: 10, cols: 40});
-	new Ajax.InPlaceEditor('fProj', '<?php echo $html->url('/faculty/edit/proj', true);?>', {rows: 10, cols: 40});
+	new Ajax.InPlaceEditor('fName', 'http://cse.mnit.ac.in/faculty/edit/name');
+	new Ajax.InPlaceEditor('fEduc', 'http://cse.mnit.ac.in/faculty/edit/name', {rows: 10, cols: 40});
+	new Ajax.InPlaceEditor('fRese', 'http://cse.mnit.ac.in/faculty/edit/name', {rows: 10, cols: 40});
+	new Ajax.InPlaceEditor('fCour', 'http://cse.mnit.ac.in/faculty/edit/name', {rows: 10, cols: 40});
+	new Ajax.InPlaceEditor('fPubl', 'http://cse.mnit.ac.in/faculty/edit/name', {rows: 10, cols: 40});
+	new Ajax.InPlaceEditor('fProj', 'http://cse.mnit.ac.in/faculty/edit/name', {rows: 10, cols: 40});
 
 	function setupCategoryEditor() {
 		var editor = new Ajax.InPlaceEditor('fPost', '<?php echo $html->url('/faculty/edit/post', true);?>');
