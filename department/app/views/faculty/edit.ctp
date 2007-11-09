@@ -20,7 +20,7 @@ if (isset($logged) and ($logged === true) and ($f != false)) {
 ?>
 
 	<div class="left_column">
-	<img src="<?php echo $this->webroot.$f['imag']; ?>" alt="Faculty Photo" /><br /><br />
+	<img src="<?php echo $this->webroot.$f['imag']; ?>" alt="Faculty Photo" width="160" height="200" /><br /><br />
 	<hr />
 	<p>Click on an item to edit it. Each line corresponds to a single bullet in view mode.</p>
 	<hr />
@@ -52,6 +52,7 @@ if (isset($logged) and ($logged === true) and ($f != false)) {
 			<input type="hidden" name="MAX_FILE_SIZE" value="2097152" />
 			<input type="file" name="imag" />
 			<input type="submit" value="Upload" />
+			<p>For best results, upload a PNG, JPG or GIF image with dimensions 160x200</p>
 		</form>
 		</div>
 		<h4>Résumé</h4>
@@ -60,6 +61,7 @@ if (isset($logged) and ($logged === true) and ($f != false)) {
 			<input type="hidden" name="MAX_FILE_SIZE" value="2097152" />
 			<input type="file" name="resu" />
 			<input type="submit" value="Upload" />
+			<p>For best results, upload a PDF document. You may also upload an HTML document if it does not include external styling or images.</p>
 		</form>
 		</div>
 		<p>(Maximum Size: 2MB)</p>

@@ -13,9 +13,13 @@ function untangle($string)
 ?>
 
 <div class="left_column">
-	<img src="<?php echo $this->webroot.$f['imag']; ?>" alt="Faculty Photo" /><br /><br />
+	<img src="<?php echo $this->webroot.$f['imag']; ?>" alt="Faculty Photo" width="160" height="200" /><br /><br />
 	<div class="navigation">
 	<ul class="markermenu">
+		<?php if ($f['resu']) { ?>
+		<li class="markermenu"><a href="<?php echo $this->webroot.$f['resu']; ?>">View/Download Resume</a></li>
+		<?php } ?>
+		<br />
 		<li class="markermenu"><?php echo $html->link('Login', '/faculty/edit'); ?></li>
 	</ul>
 	</div>

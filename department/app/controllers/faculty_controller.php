@@ -38,10 +38,15 @@ class FacultyController extends AppController
 		$det['publ'] = $res['Faculty']['publications'];
 		$det['proj'] = $res['Faculty']['projects'];
 
-		if ($res['Faculty']['image'])
-			$det['imag'] = 'images/'.$res['Faculty']['id'].'.png';
+		if ($res['Faculty']['image'] != '0')
+			$det['imag'] = 'images/faculty/'.$res['Faculty']['image'];
 		else
 			$det['imag'] = 'images/default.png';
+
+		if ($res['Faculty']['resume'])
+			$det['resu'] = 'resume/'.$res['Faculty']['resume'];
+		else
+			$det['resu'] = false;
 
 		return $det;
 	}
@@ -117,12 +122,29 @@ class FacultyController extends AppController
 				$ren = 'updated';
 				break;
 			case 'imag':
-				$query .= "image = 1 ";
-				$uploadFinal = dirname(__FILE__)."/../webroot/images/faculty/".$this->Session->read('FPageUID');
-				if (move_uploaded_file($_FILES['imag']['tmp_name'], $uploadFinal))
+				$parts = explode('.', $_FILES['imag']['name']);
+				$uploadFinal = dirname(__FILE__)."/../webroot/images/faculty/";
+				$fileName = $this->Session->read('FPageUID').".".end($parts);
+				if (move_uploaded_file($_FILES['imag']['tmp_name'], $uploadFinal.$fileName)) {
 					$res = true;
-				else
+					$query .= "image = '".$fileName."' ";
+				} else {
 					$res = false;
+					$query .= "image = 0 ";
+				}
+				$ren = 'uploaded';
+				break;
+			case 'resu':
+				$parts = explode('.', $_FILES['resu']['name']);
+				$uploadFinal = dirname(__FILE__)."/../webroot/resume/";
+				$fileName = $this->Session->read('FPageUID').".".end($parts);
+				if (move_uploaded_file($_FILES['resu']['tmp_name'], $uploadFinal.$fileName)) {
+					$res = true;
+					$query .= "resume = '".$fileName."' ";
+				} else {
+					$res = false;
+					$query .= "resume = 0 ";
+				}
 				$ren = 'uploaded';
 				break;
 			default:
