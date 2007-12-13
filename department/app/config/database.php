@@ -73,7 +73,7 @@ class DATABASE_CONFIG {
 	var $default = array(
 		'driver' => 'mysql',
 		'persistent' => false,
-		'host' => 'localhost',
+		'host' => 'tg-nix',
 		'port' => '',
 		'login' => 'cake',
 		'password' => 'cakephp',

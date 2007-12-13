@@ -26,7 +26,7 @@ if (isset($logged) and ($logged === true) and ($f != false)) {
 	<hr />
 	<div class="navigation">
 		<ul class="markermenu">
-		<li class="markermenu"><?php echo $html->link('Logout', '/faculty/logout'); ?></li>
+            <li class="markermenu"><?php echo $html->link('Logout', '/faculty/logout'); ?></li>
 		</ul>
 	</div>
 	

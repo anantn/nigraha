@@ -20,6 +20,15 @@ function untangle($string)
 		<li class="markermenu"><a href="<?php echo $this->webroot.$f['resu']; ?>">View/Download Resume</a></li>
 		<?php } ?>
 		<br />
+        <li class="markermenu"><?php echo $html->link('Home', '/faculty'); ?></li>
+        <li class="markermenu"><?php echo $html->link('Faculty', '/faculty/list'); ?></li>
+        <li class="markermenu"><?php echo $html->link('Courses', '/course'); ?></li>
+        <li class="markermenu"><?php echo $html->link('Research', '/research'); ?></li>
+		<br />
+		<li class="markermenu"><?php echo $html->link('Login', '/faculty/edit'); ?></li>
+	</ul>
+	</div>
+
 		<li class="markermenu"><?php echo $html->link('Login', '/faculty/edit'); ?></li>
 	</ul>
 	</div>

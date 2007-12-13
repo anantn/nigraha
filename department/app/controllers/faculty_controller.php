@@ -4,21 +4,37 @@ class FacultyController extends AppController
 {
 	var $helpers = array('Html', 'Form', 'Ajax', 'Javascript');
 	var $ldap = false;
-
+    var $ip = '172.16.1.20';
+    
 	private function isFaculty($uid)
 	{
+        /* LDAP backend */
 		$dn = "cn=facultycse,ou=Group,dc=mnit,dc=ac,dc=in";
 		$sr = ldap_search($this->ldap, $dn, "memberUid=*");
 		$re = ldap_get_entries($this->ldap, $sr);
 		$fa = $re[0]['memberuid'];
-
+        
+        /* mySQL backend
+        $re = $this->Faculty->query('SELECT id FROM faculties');
+        $fa = array();
+        foreach ($re as $f) {
+            $fa[] = $f['faculties']['id'];
+        }
+        */
+        
 		if ($uid) {
 			if (in_array($uid, $fa))
 				return true;
 			else
 				return false;
 		} else {
-			return $fa;
+            $names = array();
+			foreach ($fa as $id) {
+                $name = $this->Faculty->findById($id);
+                $names[$id] = $name['Faculty']['name'];
+			}
+			asort($names);
+			return $names;
 		}
 	}
 
@@ -59,10 +75,10 @@ class FacultyController extends AppController
 			$this->set('f', $this->prepareData($this->Session->read('FPageUID')));
 		} else {
 			if (!empty($this->data)) {
-				$ds = ldap_connect('172.16.1.20');
+			    /* LDAP Backend */
+				$ds = ldap_connect($this->ip);
 				ldap_set_option($ds, LDAP_OPT_PROTOCOL_VERSION, 3);
 				$r = ldap_bind($ds, 'uid='.$this->data['Faculty']['uid'].',ou=people,dc=mnit,dc=ac,dc=in', $this->data['Faculty']['pas']);
-
 				if ($r) {
 					ldap_unbind($ds);
 					$this->set('isForm', false);
@@ -163,7 +179,8 @@ class FacultyController extends AppController
 
 	public function index($id = false, $param = false)
 	{
-		$this->ldap = ldap_connect('172.16.1.20');
+        /* LDAP Backend */
+		$this->ldap = ldap_connect($this->ip);
 		ldap_set_option($this->ldap, LDAP_OPT_PROTOCOL_VERSION, 3);
 		$r = ldap_bind($this->ldap, 'uid=easypush,ou=people,dc=mnit,dc=ac,dc=in', 'sholay');
 

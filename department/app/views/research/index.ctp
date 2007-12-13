@@ -11,14 +11,17 @@
 	</div>
 </div>
 <div class="right_column">
-	<h1>Welcome!</h1>
-	<p>
-		If you know the userid of the faculty you are looking for,
-		you can visit his/her site by appending it to the URL directly.
-	</p>
-	<p>
-		Alternatively, you may want to view a
-		<?php echo $html->link('list', '/faculty/list'); ?>
-		of faculty members belonging to the deparment.
-	</p>
+	<h1>Research Areas</h1>
+	<hr />
+    <?php
+        foreach ($values as $area => $faculty) {
+            echo "<h3>$area</h3><p>";
+            foreach ($faculty as $f) {
+                echo $html->link($f.' ', '/faculty/'.$f);
+            }
+        }
+    ?>
+    <hr />
+    <h1><?php echo $html->link('List of Publications', '/research/publications'); ?></h1>
+    <hr />
 </div>
