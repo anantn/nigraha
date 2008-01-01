@@ -95,6 +95,7 @@ class CoursesController extends AppController
 			$cinfo[] = $t['Course']['course_id'];	
 		}
 		$this->set('info', serialize($cinfo));
+		$this->render('fetch', 'plain');
 	}
 
 	function info($cid)
@@ -103,6 +104,7 @@ class CoursesController extends AppController
 		$fields = array('name', 'credits');
 		$tmp = $this->Course->find($conditions, $fields);
 		$this->set('info', array($tmp['Course']['name'], $tmp['Course']['credits']));
+		$this->render('info', 'plain');
 	}
 
 	function add()

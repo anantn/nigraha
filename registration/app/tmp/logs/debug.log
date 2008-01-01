@@ -353,3 +353,6 @@
 2008-01-01 18:50:33 Notice: Notice (8): Undefined variable: url in [CORE/cake/libs/controller/controller.php, line 714]
 2008-01-01 18:50:34 Notice: Notice (8): Undefined variable: url in [CORE/cake/libs/controller/controller.php, line 714]
 2008-01-01 18:52:27 Notice: Notice (8): Undefined variable: sid in [CORE/app/controllers/students_controller.php, line 159]
+2008-01-01 19:04:53 Notice: Notice (8): Undefined variable: info in [CORE/app/controllers/courses_controller.php, line 88]
+2008-01-01 19:04:53 Notice: Notice (8): Undefined offset:  1 in [CORE/app/controllers/courses_controller.php, line 89]
+2008-01-01 19:04:58 Notice: Notice (8): Undefined variable: cid in [CORE/app/controllers/courses_controller.php, line 103]
