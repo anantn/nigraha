@@ -67,7 +67,7 @@ class StudentsController extends AppController
 		elseif ($check == 2)
 			$this->set('instructions', 'The form could not be unlocked. The service password you entered may be invalid!');
 		elseif ($check == 3)
-			$this->set('instructions', 'You tried to update your personal details without filling in your account details. Please retry');
+			$this->set('instructions', 'You tried to update your personal details without filling in your account details. Please retry!');
 		else
 			$this->set('instructions', 'Your college ID was invalid! Please try again:');
 	}
@@ -94,12 +94,21 @@ class StudentsController extends AppController
 		}
 	}
 	
-	function update($sid)
+	function update($sid = 0)
 	{
+		/* Check if we have atleast $sid or Student.collegeid
+		 * If both are present, Student.collegeid takes preference
+		 */
+		if (isset($this->data['Student']['collegeid'])) {
+			$sid = $this->data['Student']['collegeid'];
+		} elseif ($sid == 0) {
+			/* How did this happen?! */
+			$this->flash('Oops! System error, please call a sysadmin immediately and report error code 901. Thank you!', '/students/index', 10);
+		}
+		
 		/* We need to check if the student has entered payment details before continuing */
 		if ($this->Account->findCount(array('Account.collegeid' => $sid)) < 1) {
-			$this->flash('Account details not entered, illegal access!');
-			$this->redirect('/students/index/3');
+			$this->flash('Account details not entered, illegal access!', '/students/index/3', 3);
 		}
 		
 		$mainFields = array(
