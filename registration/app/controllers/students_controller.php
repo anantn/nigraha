@@ -204,13 +204,13 @@ class StudentsController extends AppController
 			}
 			foreach ($oldCourses as $oldCourse) {
 				$course = $oldCourse['courses_students']['course_id'];
-				$courseInfo[] = array($course, json_decode($this->requestAction('/rest/courses/info/'.$course, array('return'))));
+				$courseInfo[] = array($course, json_decode($this->requestAction('/courses/info/'.$course, array('return'))));
 			}
 			$this->set('courseInfo', $courseInfo);
 		} elseif ($sem != '1') {
-			$courses = unserialize($this->requestAction("/rest/courses/fetch/$sem-$dep", array('return')));
+			$courses = unserialize($this->requestAction("/courses/fetch/$sem-$dep", array('return')));
 			foreach ($courses as $course) {
-				$courseInfo[] = array($course, json_decode($this->requestAction('/rest/courses/info/'.$course, array('return'))));
+				$courseInfo[] = array($course, json_decode($this->requestAction('/courses/info/'.$course, array('return'))));
 			}
 			$this->set('courseInfo', $courseInfo);
 		} else {
@@ -271,7 +271,7 @@ class StudentsController extends AppController
 				$cInfo = array();
 				foreach ($res as $r) {
 					$cid = $r['courses_students']['course_id'];
-					$cInfo[$cid] = json_decode($this->requestAction('/rest/courses/info/'.$cid, array('return')));
+					$cInfo[$cid] = json_decode($this->requestAction('/courses/info/'.$cid, array('return')));
 				}
 				$this->set('cInfo', $cInfo);
 				$this->render(NULL, 'print');
@@ -302,7 +302,7 @@ class StudentsController extends AppController
 
 		if ($this->data['Student']['course_id'] != "") {
 			$cid = $this->data['Student']['course_id'];
-			$courseInfo = array($cid, json_decode($this->requestAction('/rest/courses/info/'.$cid, array('return'))));
+			$courseInfo = array($cid, json_decode($this->requestAction('/courses/info/'.$cid, array('return'))));
 			if ($courseInfo[1][0] == "") {
 				$this->set('invalidCourse', true);
 

@@ -8,8 +8,4 @@ $config['Models']['Department'] = array('path' => '/Library/WebServer/Documents/
 $config['Models']['Course'] = array('path' => '/Library/WebServer/Documents/cake/app/models/course.php', );
 $config['Models']['Account'] = array('path' => '/Library/WebServer/Documents/cake/app/models/account.php', );
 $config['Helpers']['Core']['HtmlHelper'] = array('path' => '/Library/WebServer/Documents/cake/cake/libs/view/helpers/html.php', );
-$config['Helpers']['Core']['FormHelper'] = array('path' => '/Library/WebServer/Documents/cake/cake/libs/view/helpers/form.php', );
 $config['Helpers']['Core']['SessionHelper'] = array('path' => '/Library/WebServer/Documents/cake/cake/libs/view/helpers/session.php', );
-$config['Helpers']['Core']['JavascriptHelper'] = array('path' => '/Library/WebServer/Documents/cake/cake/libs/view/helpers/javascript.php', );
-$config['Helpers']['Core']['AjaxHelper'] = array('path' => '/Library/WebServer/Documents/cake/cake/libs/view/helpers/ajax.php', );
-$config['Helpers']['PaginationHelper'] = array('path' => '/Library/WebServer/Documents/cake/app/views/helpers/pagination.php', );
