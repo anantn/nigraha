@@ -66,6 +66,8 @@ class StudentsController extends AppController
 			$this->set('instructions', 'Please enter your college ID to begin!');
 		elseif ($check == 2)
 			$this->set('instructions', 'The form could not be unlocked. The service password you entered may be invalid!');
+		elseif ($check == 3)
+			$this->set('instructions', 'You tried to update your personal details without filling in your account details. Please retry');
 		else
 			$this->set('instructions', 'Your college ID was invalid! Please try again:');
 	}
@@ -82,18 +84,23 @@ class StudentsController extends AppController
 		$this->set('fields', $fields);
 		$this->set('sid', $this->data['Student']['collegeid']);
 		
-		if (!empty($this->data)) {
+		if (isset($this->data['Account']['category'])) {
 			if ($this->Account->save($this->data)) {
 				$this->set('done', true);
-				$this->redirect('/students/update');
+				$this->redirect('/students/update/'.$this->data['Student']['collegeid']);
 			} else {
 				$this->set('done', false);	
 			}
 		}
 	}
 	
-	function update()
+	function update($sid)
 	{
+		/* We need to check if the student has entered payment details before continuing */
+		if ($this->Account->findCount(array('Account.collegeid' => $sid)) < 1) {
+			$this->flash('Account details not entered, illegal access!');
+			$this->redirect('/students/index/3');
+		}
 		
 		$mainFields = array(
 						array('type' => 'hidden', 'name' => 'id', 'label' => NULL, 'error' => NULL),
@@ -157,14 +164,13 @@ class StudentsController extends AppController
 					return;
 				}
 			} else {
-				$sid = $this->data['Student']['collegeid'];
 				if (preg_match('/^[A-Z0-9]{6,10}$/', $sid)) {
 					$this->set('mFields', $mainFields);
 					$this->set('aFields', $addFields);
 					$this->set('eFields', $extraFields);
 					$this->set('gFields', $guardianFields);
-					if (($this->Student->findCount(array("Student.collegeid" => $this->data['Student']['collegeid']))) != 0) {
-						$res = $this->Student->find(array('collegeid' => $this->data['Student']['collegeid']));
+					if (($this->Student->findCount(array("Student.collegeid" => $sid))) != 0) {
+						$res = $this->Student->find(array('collegeid' => $sid));
 						$this->data = $this->Student->read(NULL, $res['Student']['id']);
 					}
 				} else {
