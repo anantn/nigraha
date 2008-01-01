@@ -6,7 +6,8 @@ class StudentsController extends AppController
 	var $helpers	= array('Html', 'Form', 'Javascript', 'Ajax', 'Pagination');
 	var $components = array('Pagination');
 	var $uses = array('Student', 'Department', 'Account');
-
+	var $stdFormLock = FALSE;
+	
 	public $states = array(
             'AN' => 'Andaman and Nicobar Islands',
             'AP' => 'Andhra Pradesh',
@@ -45,7 +46,7 @@ class StudentsController extends AppController
 			'WB' => 'West Bengal',
 			'NR' => 'Outside India');
 
-	public $semesterList =  array('1' => 'I (First Year)', '3' => 'III (Second Year)', '5' => 'V (Third Year)', '7' => 'VII (Fourth Year)', '9' => 'IX (Fifth Year - Architecture Only)');
+	public $semesterList =  array('2' => 'II (First Year)', '4' => 'IV (Second Year)', '6' => 'VI (Third Year)', '8' => 'VIII (Fourth Year)', '10' => 'X (Fifth Year - Architecture Only)');
 
 	function getDeptList()
 	{
@@ -60,8 +61,7 @@ class StudentsController extends AppController
 
 	function index($check = 1)
 	{
-		$stdFormLock = TRUE;
-		$this->set('stdFormLock', $stdFormLock);
+		$this->set('stdFormLock', $this->stdFormLock);
 		if ($check == 1)
 			$this->set('instructions', 'Please enter your college ID to begin!');
 		elseif ($check == 2)
@@ -128,7 +128,13 @@ class StudentsController extends AppController
 			}
 
 		} else {
-			if($this->data['Student']['password'] == '$mnit-pass$') {
+			/* Check if we are in service mode */
+			if ($this->stdFormLock) {
+				if ($this->data['Student']['password'] != '$mnit-pass$') {
+					$this->redirect('/student/index/2');
+					return;
+				}
+			} else {
 				$sid = $this->data['Student']['collegeid'];
 				if (preg_match('/^[A-Z0-9]{6,10}$/', $sid)) {
 					$this->set('mFields', $mainFields);
@@ -142,9 +148,7 @@ class StudentsController extends AppController
 				} else {
 					$this->redirect('/students/index/0');
 				}
-			} else {
-				$this->redirect('/student/index/2');
-			}
+			} 
 		}
 	}
 
