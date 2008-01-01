@@ -85,9 +85,10 @@ if (isset($error) && $error) {
 }
 
 echo '<table border="0">';
-echo '<tr><td width="20%"><b>Course ID</b></td><td width="60%">Title</td><td width="20%">Credits</td>';
+echo '<tr><td colspan=4><h3>Current Semester Courses</h3></td></tr>';
+echo '<tr><td width="20%"><b>Course ID</b></td><td width="60%">Title</td><td width="10%">Credits</td><td width="10%">Former Grade</td></tr>';
 
-for ($i = 0; $i <= 10; $i++) {
+for ($i = 0; $i < 7; $i++) {
 	$values = getValues($i, $courseInfo);
 	echo "
 <tr>
@@ -100,9 +101,36 @@ for ($i = 0; $i <= 10; $i++) {
 	<td>
 		<div class=\"input\"><input name=\"data[Courses][$i][credits]\" type=\"text\" disabled=\"disabled\" value=\"".$values[1][1]."\" id=\"CoursesCredits$i\" size=\"2\" /></div>
 	</td>
+	<td> N.A. <input name=\"data[Courses][$i][bgrade]\" type=\"hidden\" value=\"0\" id=\"CoursesBgrade$i\" size=\"1\" /></td>
 </tr>";
 }
+
+echo '<tr><td colspan=4><h3>Back Papers</h3></td></tr>';
+echo '<tr><td><b>Course ID</b></td><td>Title</td><td>Credits</td><td>Former Grade</td></tr>';
+
+for ($i = 7; $i < 10; $i++) {
+	$values = getValues($i, $courseInfo);
+	echo "
+<tr>
+	<td>
+		<div class=\"input\"><input name=\"data[Courses][$i][course_id]\" type=\"text\" value=\"".$values[0]."\" id=\"CoursesCid$i\" size=\"6\" onChange=\"updateFields(this.value, ".$i.")\" /></div>
+	</td>
+	<td>
+		<div class=\"input\"><input name=\"data[Courses][$i][cname]\" type=\"text\" disabled=\"disabled\" value=\"".$values[1][0]."\" id=\"CoursesCname$i\" size=\"30\" /></div>
+	</td>
+	<td>
+		<div class=\"input\"><input name=\"data[Courses][$i][credits]\" type=\"text\" disabled=\"disabled\" value=\"".$values[1][1]."\" id=\"CoursesCredits$i\" size=\"2\" /></div>
+	</td>
+	<td> <div class=\"input\"><select name=\"data[Courses][$i][bgrade]\"id=\"CoursesBgrade$i\" />
+	<option></option><option value=\"E\">E</option><option value=\"F\">F</option></select>
+	</div></td>
+</tr>";
+}
+
+echo '<tr><td colspan=4><h3>Extra Credits</h3></td></tr>';
+
 echo '</table>';
 echo $form->end('Submit');
 
 ?>
+

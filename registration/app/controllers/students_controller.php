@@ -223,13 +223,15 @@ class StudentsController extends AppController
 			foreach ($this->data['Courses'] as $course) {
 				if (!empty($course['course_id'])) {
 					$cid = $course['course_id'];
+					$bgrade = $course['bgrade'];
+					$category = ($bgrade)?1:0;
 					$res = $this->Student->query("SELECT COUNT(*) FROM courses_students WHERE (collegeid = '$sid' AND course_id = '$cid')");
 					if ($res[0][0]['COUNT(*)'] != "0") {
 						$this->Student->query("DELETE FROM courses_students WHERE collegeid = '$sid'");
 						$this->set('error', true);
 						$this->render(); exit;
 					} else {
-						$this->Student->query("INSERT INTO courses_students VALUES('$sid', '$cid')");
+						$this->Student->query("INSERT INTO courses_students VALUES('$sid', '$cid', '$bgrade', '$category')");
 					}
 				}
 			}
