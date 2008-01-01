@@ -43,7 +43,7 @@ class Student extends AppModel {
 		'pCity' => VALID_NOT_EMPTY,
 		'pState' => VALID_NOT_EMPTY,
 		'email' => VALID_EMAIL,
-		'semester' => '/^(1|3|5|7|9)$/',
+		'semester' => '/^(2|4|6|8|10)$/',
 		'fatherName' => '/^[a-zA-Z\ \.]+$/',
 		'parentPhone' => '/\(?\d{2,5}[) -]?\s?\d{5,8}$/',
 		'password' => VALID_NOT_EMPTY
