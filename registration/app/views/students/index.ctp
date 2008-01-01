@@ -1,6 +1,6 @@
 <?php
 
-echo $form->create('Student', array('action' => 'update'));
+echo $form->create('Student', array('action' => 'account'));
 echo '<span class="notice">'.$instructions.'</span>';
 echo "<fieldset>";
 echo $form->input('Student.collegeid', array('label' => false));

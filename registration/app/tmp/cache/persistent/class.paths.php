@@ -13,7 +13,4 @@ $config['Helpers']['Core']['SessionHelper'] = array('path' => '/Library/WebServe
 $config['Helpers']['Core']['JavascriptHelper'] = array('path' => '/Library/WebServer/Documents/cake/cake/libs/view/helpers/javascript.php', );
 $config['Helpers']['Core']['AjaxHelper'] = array('path' => '/Library/WebServer/Documents/cake/cake/libs/view/helpers/ajax.php', );
 $config['Helpers']['PaginationHelper'] = array('path' => '/Library/WebServer/Documents/cake/app/views/helpers/pagination.php', );
-$config['Controllers']['CoursesController'] = array('path' => '/Library/WebServer/Documents/cake/app/controllers/courses_controller.php', );
-$config['Components']['RestComponent'] = array('path' => '/Library/WebServer/Documents/cake/app/controllers/components/rest.php', );
-$config['Models']['Program'] = array('path' => '/Library/WebServer/Documents/cake/app/models/program.php', );
-$config['Helpers']['RestHelper'] = array('path' => '/Library/WebServer/Documents/cake/app/views/helpers/rest.php', );
+$config['Controllers']['Core']['PagesController'] = array('path' => '/Library/WebServer/Documents/cake/cake/libs/controller/pages_controller.php', );

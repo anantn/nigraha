@@ -70,6 +70,28 @@ class StudentsController extends AppController
 			$this->set('instructions', 'Your college ID was invalid! Please try again:');
 	}
 
+	function account()
+	{
+		$fields = array(
+					array('type' => 'text', 'name' => 'collegeid', 'label' => 'Student ID', 'value' => $this->data['Student']['collegeid']),
+					array('type' => 'select', 'name' => 'category', 'label' => 'Category', 'values' => array('gen' => 'General', 'sc' => 'SC', 'st' => 'ST', 'obc' => 'OBC', 'das' => 'DASA')),
+					array('type' => 'select', 'name' => 'mode', 'label' => 'Mode of Payment', 'values' => array('DD' => 'Demand Draft', 'CA' => 'Cash')),
+					array('type' => 'text', 'name' => 'number', 'label' => 'D.D. No. (0 for Cash)'),
+					array('type' => 'text', 'name' => 'amount', 'label' => 'Amount')
+				);
+		$this->set('fields', $fields);
+		$this->set('sid', $this->data['Student']['collegeid']);
+		
+		if (!empty($this->data)) {
+			if ($this->Account->save($this->data)) {
+				$this->set('done', true);
+				$this->redirect('/students/update');
+			} else {
+				$this->set('done', false);	
+			}
+		}
+	}
+	
 	function update()
 	{
 		
