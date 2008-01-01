@@ -74,7 +74,7 @@ class DATABASE_CONFIG {
 	var $default = array(
 		'driver' => 'mysql',
 		'persistent' => false,
-		'host' => 'tg-nix',
+		'host' => 'localhost',
 		'login' => 'cake',
 		'password' => 'cakephp',
 		'database' => 'cake',
