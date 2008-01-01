@@ -78,7 +78,7 @@ echo $form->hidden('Student.fName');
 echo $form->hidden('Student.department_id');
 echo '</td></tr></table>';
 
-if ($error) {
+if (isset($error) && $error) {
 	echo '<span class="notice">';
 	echo 'There was an error in processing your form, Please contact a sysadmin!';
 	echo '</span>';
