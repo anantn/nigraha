@@ -252,7 +252,9 @@ class StudentsController extends AppController
 				$this->set('error', true);
 		} else {
 			$res = $this->Student->query("SELECT course_id FROM courses_students WHERE collegeid = '$id'");
-			if (!$res) {
+			$accQ = $this->Account->query("SELECT MAX(id) FROM accounts WHERE collegeid = '$id'");
+			$accN = $this->Account->query("SELECT * FROM accounts WHERE id = ".$accQ[0][0]["MAX(id)"]);
+			if (!$res || !$accN) {
 				$this->set('error', true);
 			} else {
 				$tmp = $student['Student'];
@@ -268,14 +270,18 @@ class StudentsController extends AppController
 								'Address' => $daAdd,
 								'City' => $tmp['pCity'],
 								'State' => $this->states[$tmp['pState']]));
-
+				
+				$cTot = 0;
 				$cInfo = array();
 				foreach ($res as $r) {
 					$cid = $r['courses_students']['course_id'];
 					$cInfo[$cid] = json_decode($this->requestAction('/courses/info/'.$cid, array('return')));
+					$cTot += $cInfo[$cid][1];
 				}
 				$this->set('cInfo', $cInfo);
-				$this->render(NULL, 'print');
+				$this->set('cTot', $cTot);
+				$this->set('aInfo', $accN);
+				$this->render('doprint', 'print');
 			}
 		}
 	}
