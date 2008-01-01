@@ -251,7 +251,7 @@ class StudentsController extends AppController
 			if (!$student)
 				$this->set('error', true);
 		} else {
-			$res = $this->Student->query("SELECT course_id FROM courses_students WHERE collegeid = '$id'");
+			$res = $this->Student->query("SELECT * FROM courses_students WHERE collegeid = '$id'");
 			$accQ = $this->Account->query("SELECT MAX(id) FROM accounts WHERE collegeid = '$id'");
 			$accN = $this->Account->query("SELECT * FROM accounts WHERE id = ".$accQ[0][0]["MAX(id)"]);
 			if (!$res || !$accN) {
@@ -273,12 +273,19 @@ class StudentsController extends AppController
 				
 				$cTot = 0;
 				$cInfo = array();
+				$bInfo = array();
 				foreach ($res as $r) {
 					$cid = $r['courses_students']['course_id'];
-					$cInfo[$cid] = json_decode($this->requestAction('/courses/info/'.$cid, array('return')));
-					$cTot += $cInfo[$cid][1];
+					$cin = json_decode($this->requestAction('/courses/info/'.$cid, array('return')));
+					$cTot += $cin[1];
+					if ($r['courses_students']['bgrade'] != '0')
+						$cInfo[$cid] = $cin;
+					else
+						$bInfo[$cid] = array($cin, $r['courses_students']['bgrade']);
+						
 				}
 				$this->set('cInfo', $cInfo);
+				$this->set('bInfo', $bInfo);
 				$this->set('cTot', $cTot);
 				$this->set('aInfo', $accN);
 				$this->render('doprint', 'print');
