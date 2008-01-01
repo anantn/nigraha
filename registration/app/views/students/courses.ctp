@@ -61,7 +61,7 @@ function getValues($i, $var)
 }
 
 echo '<h2>Registration: Step 3</h2>';
-echo '<p>Enter only the course codes of the courses you wish to register for this semester. Once you enter a course-code, press the TAB key and the course name and credits will appear automatically. In case they do not, kindly ask for assistance. DO NOT press the ENTER key until you have entered all the course codes for this semester</p>';
+echo '<p><b>Enter only the course codes of the courses you wish to register for this semester. Once you enter a course-code, press the TAB key and the course name and credits will appear automatically. In case they do not, kindly ask for assistance. DO NOT press the ENTER key until you have entered all the course codes for this semester</b></p>';
 
 echo $form->create('Student', array('action' => 'courses'));
 

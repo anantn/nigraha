@@ -47,7 +47,7 @@
 			<?php echo $content_for_layout;?>
 		</div>
 		<div id="footer">
-			&copy; 2007 | <a href="http://code.kix.in/projects/nigraha">Nigraha</a>
+			&copy; 2008 | <a href="http://www.kix.in/projects/nigraha">Nigraha</a>
 		</div>
 	</div>
 	<?php echo $cakeDebug?>
