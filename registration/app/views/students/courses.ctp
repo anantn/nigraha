@@ -132,21 +132,23 @@ echo '<tr><td width="20%">&nbsp;</td><td width="60%">Title</td><td width="10%">C
 
 if($sem=="2" or $sem==4) {
 	echo '<tr><td>&nbsp; <input name="data[Courses][$i][course_id]" type="hidden" size="1" /></td><td>Extra Curricular Activity</td><td>2</td>';
-	echo '<td>Sports: <input type="radio" name="data[Courses][$i][eca]" value="ECA-SP"><br>';
-	echo 'Music: <input type="radio" name="data[Courses][$i][eca]" value="ECA-MC"><br>';
-	echo 'Drama: <input type="radio" name="data[Courses][$i][eca]" value="ECA-DR"><br>';
-	echo 'Photography: <input type="radio" name="data[Courses][$i][eca]" value="ECA-PH"><br>';
-	echo 'Literary: <input type="radio" name="data[Courses][$i][eca]" value="ECA-LT"><br>';
-	echo 'Fine Arts: <input type="radio" name="data[Courses][$i][eca]" value="ECA-FA"><br>';
-	echo 'Electronica: <input type="radio" name="data[Courses][$i][eca]" value="ECA-EL"><br>';
-	echo 'ITIKA: <input type="radio" name="data[Courses][$i][eca]" value="ECA-IT"><br>';
+	echo '<td><select name="data[Courses][$i][eca]">';
+	echo '<option type="radio" value="ECA-SP">Sports</option>';
+	echo '<option type="radio" value="ECA-MC">Music</option>';
+	echo '<option type="radio" value="ECA-DR">Drama</option>';
+	echo '<option type="radio" value="ECA-PH">Photography</option>';
+	echo '<option type="radio" value="ECA-LT">Literary</option>';
+	echo '<option type="radio" value="ECA-FA">Fine Arts</option>';
+	echo '<option type="radio" value="ECA-EL">Electronica</option>';
+	echo '<option type="radio" name="" value="ECA-IT">ITIKA</option>';
 	echo '</tr>';
 	
 	$i = $i+1;
 	echo '<tr><td>&nbsp; <input name="data[Courses][$i][course_id]" type="hidden" size="1" /></td><td>NCC/NSS/Hindi</td><td>2</td>';
-	echo '<td>NCC: <input type="radio" name="data[Courses][$i][nnh]" value="NNH-C"><br>';
-	echo 'NSS: <input type="radio" name="data[Courses][$i][nnh]" value="NNH-S"><br>';
-	echo 'Hindi: <input type="radio" name="data[Courses][$i][nnh]" value="NNH-H"><br>';
+	echo '<td><select name="data[Courses][$i][nnh]">';
+	echo '<option value="NNH-C">NCC</option>';
+	echo '<option value="NNH-S">NSS</option>';
+	echo '<option value="NNH-H">Hindi</option>';
 	echo '</tr>';
 	
 	$i = $i+1;
