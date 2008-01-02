@@ -33,15 +33,15 @@
  * its action called 'display', and we pass a param to select the view file
  * to use (in this case, /app/views/pages/home.thtml)...
  */
-	Router::connect('/', array('controller' => 'pages', 'action' => 'display', 'home'));
+	Router::connect('/', array('controller' => 'students', 'action' => 'index'));
 /**
  * ...and connect the rest of 'Pages' controller's urls.
  */
-	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
+	//Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
 /**
  * Then we connect url '/test' to our test controller. This is helpfull in
  * developement.
  */
-	Router::connect('/tests', array('controller' => 'tests', 'action' => 'index'));
+	//Router::connect('/tests', array('controller' => 'tests', 'action' => 'index'));
 
 ?>
