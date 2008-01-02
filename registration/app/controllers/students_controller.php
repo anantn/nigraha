@@ -77,8 +77,8 @@ class StudentsController extends AppController
 		$fields = array(
 					array('type' => 'text', 'name' => 'collegeid', 'label' => 'Student ID', 'value' => $this->data['Student']['collegeid']),
 					array('type' => 'select', 'name' => 'category', 'label' => 'Category', 'values' => array('genh' => 'General Hosteler', 'gend' => 'General Day Scholar', 'sch' => 'SC Hosteler', 'scd' => 'SC Day Scholar', 'sth' => 'ST Hosteler', 'std' => 'ST Day Scholar', 'obch' => 'OBC Hosteler', 'obcd' => 'OBC Day Scholar', 'dash' => 'DASA Hosteler', 'dasd' => 'DASA Day Scholar')),
-					array('type' => 'select', 'name' => 'mode', 'label' => 'Mode of Payment', 'values' => array('DD' => 'Demand Draft')),
-					array('type' => 'text', 'name' => 'number', 'label' => 'D.D. No.'),
+					array('type' => 'select', 'name' => 'mode', 'label' => 'Mode of Payment', 'values' => array('DD' => 'Demand Draft', 'CQ' => 'Cheque')),
+					array('type' => 'text', 'name' => 'number', 'label' => 'D.D./Cheque No.'),
 					array('type' => 'text', 'name' => 'amount', 'label' => 'Amount')
 				);
 		$this->set('fields', $fields);

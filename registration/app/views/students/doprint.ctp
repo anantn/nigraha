@@ -4,8 +4,8 @@ echo "<h2>Confirmation of Registration</h2>";
 
 echo "<p><b>Payment Made</b>&nbsp;&nbsp;&nbsp;&nbsp;</b>";
 switch ($aInfo[0]["accounts"]["mode"]) {
-	case "CA": 
-				echo "By Cash: ";
+	case "CQ": 
+				echo "By Cheque - No. ".$aInfo[0]["accounts"]["number"].": ";
 				break;
 	case "DD": 
 				echo "By Demand Draft - No. ".$aInfo[0]["accounts"]["number"].": ";
