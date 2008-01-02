@@ -127,10 +127,10 @@ for ($i = 7; $i < 10; $i++) {
 </tr>";
 }
 
-echo '<tr><td colspan=4><h3>Extra Credits</h3></td></tr>';
-echo '<tr><td width="20%">&nbsp;</td><td width="60%">Title</td><td width="10%">Credits</td><td width="10%">&nbsp;</td></tr>';
-
 if($sem=="2" or $sem==4) {
+	echo '<tr><td colspan=4><h3>Extra Credits</h3></td></tr>';
+	echo '<tr><td width="20%">&nbsp;</td><td width="60%">Title</td><td width="10%">Credits</td><td width="10%">&nbsp;</td></tr>';
+	
 	echo '<tr><td>&nbsp; <input name="data[Courses][$i][course_id]" type="hidden" size="1" /></td><td>Extra Curricular Activity</td><td>2</td>';
 	echo '<td><select name="data[Courses][$i][eca]">';
 	echo '<option type="radio" value="ECA-SP">Sports</option>';
