@@ -195,6 +195,7 @@ class StudentsController extends AppController
 		$dep = $this->data['Student']['department_id'];
 		$sid = $this->data['Student']['collegeid'];
 		$courseInfo = array();
+		$this->set('sem', $sem);
 		$studentExists = $this->Student->query("SELECT COUNT(*) FROM courses_students WHERE collegeid = '$sid'");
 		
 		if ($studentExists[0][0]['COUNT(*)'] != "0") {
@@ -224,7 +225,10 @@ class StudentsController extends AppController
 				if (!empty($course['course_id'])) {
 					$cid = $course['course_id'];
 					$bgrade = $course['bgrade'];
-					$category = ($bgrade)?1:0;
+					if (isset($course['category']) and !empty($course['category']))
+						$category = $course['category'];
+					else
+					 	$category = ($bgrade)?1:0;
 					$res = $this->Student->query("SELECT COUNT(*) FROM courses_students WHERE (collegeid = '$sid' AND course_id = '$cid')");
 					if ($res[0][0]['COUNT(*)'] != "0") {
 						$this->Student->query("DELETE FROM courses_students WHERE collegeid = '$sid'");
@@ -233,6 +237,12 @@ class StudentsController extends AppController
 					} else {
 						$this->Student->query("INSERT INTO courses_students VALUES('$sid', '$cid', '$bgrade', '$category')");
 					}
+				}
+				if (isset($course['eca']) and !empty($course['eca'])) {
+					$this->Student->query("INSERT INTO courses_students VALUES('$sid', '$course[eca]', '0','3')");
+				}
+				if (isset($course['nnh']) and !empty($course['nnh'])) {
+					$this->Student->query("INSERT INTO courses_students VALUES('$sid', '$course[nnh]', '0','3')");
 				}
 			}
 			$this->redirect('/students/done');

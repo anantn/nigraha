@@ -128,9 +128,35 @@ for ($i = 7; $i < 10; $i++) {
 }
 
 echo '<tr><td colspan=4><h3>Extra Credits</h3></td></tr>';
+echo '<tr><td width="20%">&nbsp;</td><td width="60%">Title</td><td width="10%">Credits</td><td width="10%">&nbsp;</td></tr>';
 
+if($sem=="2" or $sem==4) {
+	echo '<tr><td>&nbsp; <input name="data[Courses][$i][course_id]" type="hidden" size="1" /></td><td>Extra Curricular Activity</td><td>2</td>';
+	echo '<td>Sports: <input type="radio" name="data[Courses][$i][eca]" value="ECA-SP"><br>';
+	echo 'Music: <input type="radio" name="data[Courses][$i][eca]" value="ECA-MC"><br>';
+	echo 'Drama: <input type="radio" name="data[Courses][$i][eca]" value="ECA-DR"><br>';
+	echo 'Photography: <input type="radio" name="data[Courses][$i][eca]" value="ECA-PH"><br>';
+	echo 'Literary: <input type="radio" name="data[Courses][$i][eca]" value="ECA-LT"><br>';
+	echo 'Fine Arts: <input type="radio" name="data[Courses][$i][eca]" value="ECA-FA"><br>';
+	echo 'Electronica: <input type="radio" name="data[Courses][$i][eca]" value="ECA-EL"><br>';
+	echo 'ITIKA: <input type="radio" name="data[Courses][$i][eca]" value="ECA-IT"><br>';
+	echo '</tr>';
+	
+	$i = $i+1;
+	echo '<tr><td>&nbsp; <input name="data[Courses][$i][course_id]" type="hidden" size="1" /></td><td>NCC/NSS/Hindi</td><td>2</td>';
+	echo '<td>NCC: <input type="radio" name="data[Courses][$i][nnh]" value="NNH-C"><br>';
+	echo 'NSS: <input type="radio" name="data[Courses][$i][nnh]" value="NNH-S"><br>';
+	echo 'Hindi: <input type="radio" name="data[Courses][$i][nnh]" value="NNH-H"><br>';
+	echo '</tr>';
+	
+	$i = $i+1;
+	echo '<tr><td>&nbsp; <input name="data[Courses][$i][course_id]" type="hidden" value="ECA-2" size="1" /></td>
+	<td>Discipline</td>
+	<td>2 </td>
+	<td>N.A <input name="data[Courses][$i][bgrade]" type="hidden" value="0" id="CoursesBgrade$i" size="1" /><input name="data[Courses][$i][category]" type="hidden" value="3" id="CoursesCategory$i" size="1" /></td></tr>';
+	$i = $i+1;
+}
 echo '</table>';
 echo $form->end('Submit');
-
 ?>
 
