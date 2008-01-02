@@ -28,7 +28,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<title>
-		MNIT Online Registration 2007:
+		MNIT Online Registration 2008: Even Semester:
 		<?php echo $title_for_layout;?>
 	</title>
 
@@ -56,7 +56,7 @@
 
 		</div>
 		<div id="footer">
-			&copy; 2007 | <a href="http://code.kix.in/projects/nigraha">Nigraha</a>
+			&copy; 2008 | <a href="http://www.kix.in/projects/nigraha">Nigraha</a>
 		</div>
 	</div>
 	<?php echo $cakeDebug?>

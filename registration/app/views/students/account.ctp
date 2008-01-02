@@ -1,8 +1,7 @@
 <?php
 
 echo '<h2>Registration: Step 1</h2>';
-echo '<p>Please fill in all the payment details below. All fields are compulsory. Please take care while filling in details!<br />';
-echo 'YOU ARE RESPONSIBLE FOR INCORRECT INFORMATION SUBMITTED!</p>';
+echo '<p>Please fill in all the payment details below. All fields are compulsory. Please take care while filling in details, <b>since you are responsible for your payment details!</b>';
 
 echo $form->create('Student', array('action' => 'account'));
 echo '<fieldset>';

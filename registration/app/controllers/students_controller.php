@@ -76,7 +76,7 @@ class StudentsController extends AppController
 	{
 		$fields = array(
 					array('type' => 'text', 'name' => 'collegeid', 'label' => 'Student ID', 'value' => $this->data['Student']['collegeid']),
-					array('type' => 'select', 'name' => 'category', 'label' => 'Category', 'values' => array('gen' => 'General', 'sc' => 'SC', 'st' => 'ST', 'obc' => 'OBC', 'das' => 'DASA')),
+					array('type' => 'select', 'name' => 'category', 'label' => 'Category', 'values' => array('genh' => 'General Hosteler', 'gend' => 'General Day Scholar', 'sch' => 'SC Hosteler', 'scd' => 'SC Day Scholar', 'sth' => 'ST Hosteler', 'std' => 'ST Day Scholar', 'obch' => 'OBC Hosteler', 'obcd' => 'OBC Day Scholar', 'dash' => 'DASA Hosteler', 'dasd' => 'DASA Day Scholar')),
 					array('type' => 'select', 'name' => 'mode', 'label' => 'Mode of Payment', 'values' => array('DD' => 'Demand Draft', 'CA' => 'Cash')),
 					array('type' => 'text', 'name' => 'number', 'label' => 'D.D. No. (0 for Cash)'),
 					array('type' => 'text', 'name' => 'amount', 'label' => 'Amount')
@@ -120,7 +120,8 @@ class StudentsController extends AppController
 						array('type' => 'text', 'name' => 'dob', 'label' => 'Date Of Birth (DDMMYYYY)', 'error' => 'Must be of the form DDMMYYYY'),
 						array('type' => 'select', 'name' => 'gender', 'label' => 'Gender',
 								'values' => array('m' => 'Male', 'f' => 'Female'), 'error' => 'Cannot be empty'),
-						array('type' => 'password', 'name' => 'password', 'label' => 'New Password (To be used for your MNIT Account)', 'error' => 'Invalid Password!')
+						// We don't need this in even semesters
+						// array('type' => 'password', 'name' => 'password', 'label' => 'New Password (To be used for your MNIT Account)', 'error' => 'Invalid Password!')
 							);
 
 		$addFields	 = array(
@@ -262,8 +263,10 @@ class StudentsController extends AppController
 			if (!$student)
 				$this->set('error', true);
 		} else {
-			$res = $this->Student->query("SELECT course_id FROM courses_students WHERE collegeid = '$id'");
-			if (!$res) {
+			$res = $this->Student->query("SELECT * FROM courses_students WHERE collegeid = '$id'");
+			$accQ = $this->Account->query("SELECT MAX(id) FROM accounts WHERE collegeid = '$id'");
+			$accN = $this->Account->query("SELECT * FROM accounts WHERE id = ".$accQ[0][0]["MAX(id)"]);
+			if (!$res || !$accN) {
 				$this->set('error', true);
 			} else {
 				$tmp = $student['Student'];
@@ -279,14 +282,25 @@ class StudentsController extends AppController
 								'Address' => $daAdd,
 								'City' => $tmp['pCity'],
 								'State' => $this->states[$tmp['pState']]));
-
+				
+				$cTot = 0;
 				$cInfo = array();
+				$bInfo = array();
 				foreach ($res as $r) {
 					$cid = $r['courses_students']['course_id'];
-					$cInfo[$cid] = json_decode($this->requestAction('/courses/info/'.$cid, array('return')));
+					$cin = json_decode($this->requestAction('/courses/info/'.$cid, array('return')));
+					$cTot += $cin[1];
+					if ($r['courses_students']['bgrade'] != '0')
+						$cInfo[$cid] = $cin;
+					else
+						$bInfo[$cid] = array($cin, $r['courses_students']['bgrade']);
+						
 				}
 				$this->set('cInfo', $cInfo);
-				$this->render(NULL, 'print');
+				$this->set('bInfo', $bInfo);
+				$this->set('cTot', $cTot);
+				$this->set('aInfo', $accN);
+				$this->render('doprint', 'print');
 			}
 		}
 	}
