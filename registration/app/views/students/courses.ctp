@@ -133,22 +133,15 @@ if($sem=="2" or $sem==4) {
 	
 	echo '<tr><td>&nbsp; <input name="data[Courses][$i][course_id]" type="hidden" size="1" /></td><td>Extra Curricular Activity</td><td>2</td>';
 	echo '<td><select name="data[Courses][$i][eca]">';
-	echo '<option type="radio" value="ECA-SP">Sports</option>';
-	echo '<option type="radio" value="ECA-MC">Music</option>';
-	echo '<option type="radio" value="ECA-DR">Drama</option>';
-	echo '<option type="radio" value="ECA-PH">Photography</option>';
-	echo '<option type="radio" value="ECA-LT">Literary</option>';
-	echo '<option type="radio" value="ECA-FA">Fine Arts</option>';
-	echo '<option type="radio" value="ECA-EL">Electronica</option>';
-	echo '<option type="radio" name="" value="ECA-IT">ITIKA</option>';
-	echo '</tr>';
-	
-	$i = $i+1;
-	echo '<tr><td>&nbsp; <input name="data[Courses][$i][course_id]" type="hidden" size="1" /></td><td>NCC/NSS/Hindi</td><td>2</td>';
-	echo '<td><select name="data[Courses][$i][nnh]">';
-	echo '<option value="NNH-C">NCC</option>';
-	echo '<option value="NNH-S">NSS</option>';
-	echo '<option value="NNH-H">Hindi</option>';
+	echo '<option value="ECA-SP">Sports</option>';
+	echo '<option value="ECA-MC">Music</option>';
+	echo '<option value="ECA-DR">Drama</option>';
+	echo '<option value="ECA-PH">Photography</option>';
+	echo '<option value="ECA-LT">Literary</option>';
+	echo '<option value="ECA-FA">Fine Arts</option>';
+	echo '<option value="ECA-EL">Electronica</option>';
+	echo '<option value="ECA-IT">ITIKA</option>';
+	echo '<option value="ECA-NS">NSS</option>';
 	echo '</tr>';
 	
 	$i = $i+1;

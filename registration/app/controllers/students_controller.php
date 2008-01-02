@@ -242,9 +242,11 @@ class StudentsController extends AppController
 				if (isset($course['eca']) and !empty($course['eca'])) {
 					$this->Student->query("INSERT INTO courses_students VALUES('$sid', '$course[eca]', '0','3')");
 				}
+				/*
 				if (isset($course['nnh']) and !empty($course['nnh'])) {
 					$this->Student->query("INSERT INTO courses_students VALUES('$sid', '$course[nnh]', '0','3')");
 				}
+				*/
 			}
 			$this->redirect('/students/done');
 		}
