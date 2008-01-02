@@ -41,9 +41,9 @@ echo "<td><b>Total Credits:</b> $cTot</td></tr>";
 echo "</table>";
 
 if (count($ccInfo) > 0) {
-	echo "<p>Extra-Curricular: <ul>";
+	echo "<p>Extra-Curricular";
 	foreach ($ccInfo as $k => $b) {
-		echo "<li>$b[0]: $b[1]</li>";
+		echo ", $b[0]: $b[1].";
 	}
 }
 echo "<table border=\"0\"><tr><td>";
