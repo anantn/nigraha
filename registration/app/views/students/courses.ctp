@@ -86,7 +86,7 @@ if (isset($error) && $error) {
 
 echo '<table border="0">';
 echo '<tr><td colspan=4><h3>Current Semester Courses</h3></td></tr>';
-echo '<tr><td width="20%"><b>Course ID</b></td><td width="60%">Title</td><td width="10%">Credits</td><td width="10%">Former Grade</td></tr>';
+echo '<tr><td width="20%"><b>Course ID</b></td><td width="60%">Title</td><td>Credits</td></tr>';
 
 for ($i = 0; $i < 7; $i++) {
 	$values = getValues($i, $courseInfo);
@@ -101,8 +101,7 @@ for ($i = 0; $i < 7; $i++) {
 	<td>
 		<div class=\"input\"><input name=\"data[Courses][$i][credits]\" type=\"text\" disabled=\"disabled\" value=\"".$values[1][1]."\" id=\"CoursesCredits$i\" size=\"2\" /></div>
 	</td>
-	<td> N.A. <input name=\"data[Courses][$i][bgrade]\" type=\"hidden\" value=\"0\" id=\"CoursesBgrade$i\" size=\"1\" /></td>
-</tr>";
+	<input name=\"data[Courses][$i][bgrade]\" type=\"hidden\" value=\"0\" id=\"CoursesBgrade$i\" size=\"1\" /></tr>";
 }
 
 echo '<tr><td colspan=4><h3>Back Papers</h3></td></tr>';
