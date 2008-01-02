@@ -286,17 +286,22 @@ class StudentsController extends AppController
 				$cTot = 0;
 				$cInfo = array();
 				$bInfo = array();
+				$ccInfo = array();
 				foreach ($res as $r) {
 					$cid = $r['courses_students']['course_id'];
 					$cin = json_decode($this->requestAction('/courses/info/'.$cid, array('return')));
 					$cTot += $cin[1];
-					if ($r['courses_students']['bgrade'] != '0')
-						$cInfo[$cid] = $cin;
-					else
-						$bInfo[$cid] = array($cin, $r['courses_students']['bgrade']);
-						
+					if ($r['courses_students']['category'] != '3') {
+						if ($r['courses_students']['bgrade'] == '0')
+							$cInfo[$cid] = $cin;
+						else
+							$bInfo[$cid] = array($cin, $r['courses_students']['bgrade']);
+					} else {
+						$ccInfo[$cid] = $cin;
+					}
 				}
 				$this->set('cInfo', $cInfo);
+				$this->set('ccInfo', $ccInfo);
 				$this->set('bInfo', $bInfo);
 				$this->set('cTot', $cTot);
 				$this->set('aInfo', $accN);
