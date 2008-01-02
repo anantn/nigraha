@@ -121,7 +121,7 @@ for ($i = 7; $i < 10; $i++) {
 		<div class=\"input\"><input name=\"data[Courses][$i][credits]\" type=\"text\" disabled=\"disabled\" value=\"".$values[1][1]."\" id=\"CoursesCredits$i\" size=\"2\" /></div>
 	</td>
 	<td> <div class=\"input\"><select name=\"data[Courses][$i][bgrade]\"id=\"CoursesBgrade$i\" />
-	<option></option><option value=\"E\">E</option><option value=\"F\">F</option></select>
+	<option value=\"E\">E</option><option value=\"F\">F</option></select>
 	</div></td>
 </tr>";
 }
