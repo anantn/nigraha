@@ -72,6 +72,22 @@ class StudentsController extends AppController
 			$this->set('instructions', 'Your college ID was invalid! Please try again:');
 	}
 
+	/* For folks who haven't registered before */
+	function add($which = 0)
+	{
+		$this->set('which', $which);
+		if (isset($this->data['Student']['collegeid'])) {
+			if ($this->data['Student']['password'] != '$mnit-pass$') {
+				$this->redirect('/students/add/1');
+			} else {
+				if ($this->Student->save($this->data))
+					$this->redirect('/students/add/3');
+				else
+					$this->redirect('/students/add/2');
+			}
+		}
+	}
+	
 	function account()
 	{
 		$fields = array(
