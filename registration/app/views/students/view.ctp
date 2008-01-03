@@ -16,7 +16,7 @@ class PDF extends FPDF
 	{
 		$this->SetY(-15);
 		$this->SetFont('Arial', 'I', 8);
-		$this->Cell(0, 10, 'Page '.$this->PageNo().' of {nb} | © 2007, Nigraha', 0, 0, 'C');
+		$this->Cell(0, 10, 'Page '.$this->PageNo().' of {nb} | © 2008, Nigraha', 0, 0, 'C');
 	}
 	
 	function FancyTable($header, $data)
@@ -81,7 +81,7 @@ if ($ListGenerated) {
 			$pdf->Cell(0, 6, "$course[0]: ".$course[1][0], 0, 1, 'L', 1);
 			
 		$pdf->Cell(0, 6, "Total students registered: ".count($list));
-		$pdf->Ln(4);
+		$pdf->Ln(6);
 
 		$pdf->FancyTable($header, $list);
 		$pdf->Output('list.pdf', 'I');
