@@ -9,8 +9,7 @@ class PDF extends FPDF
 		$this->Cell(45);
 		$this->Cell(100, 10, 'MNIT Student Lists 2007-08', 1, 0, 'C');
 		$this->Ln(20);
-		$this->SetFont('Arial', '', 10);
-		
+		$this->SetFont('Arial', '', 10);		
 	}
 
 	function Footer()
@@ -80,6 +79,7 @@ if ($ListGenerated) {
 			$pdf->Cell(0, 6, "Department: $department", 0, 1, 'L', 1);
 		if (isset($course))
 			$pdf->Cell(0, 6, "$course[0]: ".$course[1][0], 0, 1, 'L', 1);
+		$pdf->(0, 6, "Total students registered: ".count($list));
 		$pdf->Ln(4);
 
 		$pdf->FancyTable($header, $list);
