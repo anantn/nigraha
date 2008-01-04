@@ -23,14 +23,14 @@ class PDF extends FPDF
 	{
 		$count = count($header);
 
-    	//Colors, line width and bold font
+    	/* Colors, line width and bold font */
 	    $this->SetFillColor(199, 0, 0);
     	$this->SetTextColor(255);
 	    $this->SetDrawColor(128, 0, 0);
     	$this->SetLineWidth(.3);
 	    $this->SetFont('','B');
     
-		//Header
+		/* Header */
 		if ($count == 3)
 			$w = array(25, 55, 110);
 		else
@@ -40,12 +40,12 @@ class PDF extends FPDF
         	$this->Cell($w[$i], 7, $header[$i], 1, 0, 'C', 1);
 	    $this->Ln();
     
-		//Color and font restoration
+		/* Color and font restoration */
 	    $this->SetFillColor(224,235,255);
     	$this->SetTextColor(0);
 	    $this->SetFont('');
     	
-		//Data
+		/* Data */
 	    $fill=0;
 	    foreach($data as $row) {
 	        $this->Cell($w[0],6,$row[0],'LR',0,'C',$fill);
@@ -63,7 +63,10 @@ if ($ListGenerated) {
 
 	if ($output == 'pdf') {
 		if (count($list[0]) == 3)
-			$header = array('Student ID', 'Name', 'Courses');
+			if (isset($course))
+				$header = array('Student ID', 'Name', 'Department');
+			else
+				$header = array('Student ID', 'Name', 'Courses');
 		else
 			$header = array('Student ID', 'Name');
 

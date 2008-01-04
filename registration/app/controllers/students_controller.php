@@ -336,6 +336,14 @@ class StudentsController extends AppController
 			return 1;
 	}
 
+	function sortByDept($x, $y)
+	{
+		if ($x[2] < $y[2])
+			return -1;
+		else
+			return 1;
+	}
+	
 	function sortById($x, $y)
 	{
 		if ($x[0] < $y[0])
@@ -369,16 +377,31 @@ class StudentsController extends AppController
 			} else {
 				$res = $this->Student->query("SELECT * FROM courses_students WHERE course_id = '$cid'");
 				$stdList = array();
-				foreach ($res as $student) {
-					$tmp = $this->Student->find(array('collegeid' => $student['courses_students']['collegeid']));
-					$stdList[] = array($student['courses_students']['collegeid'], $tmp['Student']['fName']." ".$tmp['Student']['lName']);
+				
+				/* Check if this is an institute elective, if yes, show department info too */
+				if (substr($cid, 0, 2) == 'IE') {
+					$map = $this->getDeptList();
+					foreach ($res as $student) {
+						$tmp = $this->Student->find(array('collegeid' => $student['courses_students']['collegeid']));
+						$stdList[] = array($student['courses_students']['collegeid'],
+											$tmp['Student']['fName']." ".$tmp['Student']['lName'],
+											$map[$tmp['Student']['department_id']]);
+					}
+				} else {
+					foreach ($res as $student) {
+						$tmp = $this->Student->find(array('collegeid' => $student['courses_students']['collegeid']));
+						$stdList[] = array($student['courses_students']['collegeid'], $tmp['Student']['fName']." ".$tmp['Student']['lName']);
+					}
 				}
 
+				/* Sort. In addition, sort by department for institute electives */
 				if ($this->data['Student']['sortBy'] == 'id')
 					usort($stdList, array($this, 'sortById'));				
 				else
 					usort($stdList, array($this, 'sortByName'));
-
+				if (substr($cid, 0, 2) == 'IE')
+					usort($stdList, array($this, 'sortByDept'));
+				
 				$this->set('ListGenerated', true);
 				$this->set('list', $stdList);
 				$this->set('course', $courseInfo);
