@@ -109,7 +109,51 @@ class StudentsController extends AppController
 			}
 		}
 	}
-	
+
+	function batch($which = 0)
+	{
+		$this->set('which', $which);
+		$feilds = array(
+			array('type' => 'select', 'name' => 'deptSelect', 'label' => 'Select Department', 'values' => $this->getDeptList(), 'error' => 'Bad Department Selection'),
+			array('type' => 'text', 'name' => 'sem', 'label' => 'Semester', 'value' => '2', 'error' => 'Enter 1,2,3,4,5,6,7,8'),
+			array('type' => 'password', 'name' => 'password', 'label' => 'Admin Password', 'error' => 'Invalid Password!')
+			);
+		if($which == 0) {
+			$this->set('feilds', $feilds);
+			//$this->redirect('/students/batch/1');
+			//return;
+		}
+		else
+		if($which == 1) {
+			if($this->data['Student']['password']!= '$mnit-pass$')
+				$this->flash('Wrong Password!', '/students/batch/0', 3);
+			else {
+				echo $this->data['Student']['deptSelect'];
+				$sortBy = array('fName', 'lName');
+				$stdlst = $this->Student->findAll(array('department_id' => $this->data['Student']['deptSelect'], 'semester' => $this->data['Student']['sem']), null, $sortBy);
+				$this->set('dept', $this->data['Student']['deptSelect']);
+				$feilds = array();
+				$i = 0;
+				foreach($stdlst as $lst) {
+					$feilds[] = array('type'=>'text', 'name'=>'data[Batch]['.$i.'][batch]', 'label' => $lst['Student']['collegeid'].'&nbsp;&nbsp;&nbsp;'.$lst['Student']['fName'].' '.$lst['Student']['lName'], 'value' => $lst['Student']['batch'], 'error' => 'Format: A-3, B-1, CP-3 etc...');
+					$feilds[] = array('type' => 'hidden', 'name' => 'data[Batch]['.$i.'][id]', 'value'=>$lst['Student']['id'], 'label' => NULL, 'error' => NULL);
+					$i = $i+1;
+				}
+				$this->set('feilds', $feilds);
+			}
+		}
+		else
+		if ($which == 2) {
+			//$this->set('dump', $this->data);
+			foreach( $this->data['Batch'] as $student ) {
+				$this->Student->query('UPDATE students SET batch = "'.$student['batch'].'" WHERE id = '.$student['id']);
+			}
+			$this->flash('Saving Data...','/students/batch/0', 2);
+//			$this->redirect('/students/batch/0');
+			
+		}
+	}
+
 	function update($sid = 0)
 	{
 		/* Check if we have atleast $sid or Student.collegeid
