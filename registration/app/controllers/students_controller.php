@@ -2,11 +2,9 @@
 
 class StudentsController extends AppController
 {
-	var $name 		= 'Students';
-	var $helpers	= array('Html', 'Form', 'Javascript', 'Ajax', 'Pagination');
-	var $components = array('Pagination');
-	var $uses = array('Student', 'Department', 'Account');
-	var $stdFormLock = FALSE;
+	var $name 		 = 'Students';
+	var $uses 		 = array('Student', 'Department', 'Account');
+	var $stdFormLock = true;
 	
 	public $states = array(
             'AN' => 'Andaman and Nicobar Islands',
