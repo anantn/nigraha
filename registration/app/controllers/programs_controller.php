@@ -3,7 +3,6 @@
 class ProgramsController extends AppController
 {
 	var $name 		= 'Programs';
-	var $helpers	= array('Html', 'Javascript', 'Form');
 	var $uses		= array('Department', 'Program');
 
 	public $degree = array(

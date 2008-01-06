@@ -3,7 +3,6 @@
 class AccountsController extends AppController
 {
 	var $name 		= 'Accounts';
-	var $helpers	= array('Html', 'Form', 'Javascript', 'Ajax');
 
 	function checkSession()
 	{
