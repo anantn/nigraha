@@ -206,11 +206,39 @@ class StudentsController extends AppController
 		}
 	}
 
+	function coursemod()
+	{
+		$this->set('state', 1);
+	}
+	
 	function courses()
 	{
-		$sem = $this->data['Student']['semester'];
-		$dep = $this->data['Student']['department_id'];
 		$sid = $this->data['Student']['collegeid'];
+		
+		/* We have multiple entry points for this portion */
+		$mod = false;
+		if (isset($this->data['Student']['modForm']) && $this->data['Student']['modForm'])
+			$mod = true;
+		if (isset($this->data['Student']['password'])) {
+			if ($this->data['Student']['password'] != '$mnit-pass$') {
+				$this->set('state', 2);
+				$this->render('coursemod');
+			}
+			$tInfo = $this->Student->findByCollegeid($sid);
+			if ($tInfo === false) {
+				$this->set('state', 3);
+				$this->render('coursemod');
+			}
+			$sem = $tInfo['Student']['semester'];
+			$dep = $tInfo['Student']['department_id'];
+			$this->data = $tInfo;
+			$mod = true;
+		} else {
+			$sem = $this->data['Student']['semester'];
+			$dep = $this->data['Student']['department_id'];
+		}
+
+		/* Get default/existing list of courses to display */
 		$courseInfo = array();
 		$this->set('sem', $sem);
 		$studentExists = $this->Student->query("SELECT COUNT(*) FROM courses_students WHERE collegeid = '$sid'");
@@ -234,6 +262,8 @@ class StudentsController extends AppController
 		} else {
 			$this->set('courseInfo', array());
 		}
+		
+		/* Store updated courses on form submission */
 		if(isset($this->data['Courses'])) {
 			if ($studentExists[0][0]['COUNT(*)'] != "0") {
 				$this->Student->query("DELETE FROM courses_students WHERE collegeid = '$sid'");
@@ -258,13 +288,18 @@ class StudentsController extends AppController
 				if (isset($course['eca']) and !empty($course['eca'])) {
 					$this->Student->query("INSERT INTO courses_students VALUES('$sid', '$course[eca]', '0','3')");
 				}
-				/*
-				if (isset($course['nnh']) and !empty($course['nnh'])) {
-					$this->Student->query("INSERT INTO courses_students VALUES('$sid', '$course[nnh]', '0','3')");
-				}
-				*/
 			}
-			$this->redirect('/students/done');
+			
+			if ($mod) {
+				$this->data = NULL;
+				$this->set('state', 4);
+				$this->render('coursemod');
+			}
+			else
+				$this->redirect('/students/done');
+		} else {
+			if ($mod)
+				$this->render('coursemod');
 		}
 	}
 
