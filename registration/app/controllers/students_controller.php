@@ -88,6 +88,14 @@ class StudentsController extends AppController
 	
 	function account()
 	{
+		/* Check if we are in service mode */
+		if ($this->stdFormLock) {
+			if (isset($this->data['Student']['password']) && $this->data['Student']['password'] != '$mnit-pass$') {
+				$this->redirect('/students/index/2');
+				return;
+			}
+		}
+		
 		$fields = array(
 					array('type' => 'text', 'name' => 'collegeid', 'label' => 'Student ID', 'value' => $this->data['Student']['collegeid']),
 					array('type' => 'select', 'name' => 'category', 'label' => 'Category', 'values' => array('genh' => 'General Hosteler', 'gend' => 'General Day Scholar', 'sch' => 'SC Hosteler', 'scd' => 'SC Day Scholar', 'sth' => 'ST Hosteler', 'std' => 'ST Day Scholar', 'obch' => 'OBC Hosteler', 'obcd' => 'OBC Day Scholar', 'dash' => 'DASA Hosteler', 'dasd' => 'DASA Day Scholar')),
@@ -225,25 +233,17 @@ class StudentsController extends AppController
 			}
 
 		} else {
-			/* Check if we are in service mode */
-			if ($this->stdFormLock) {
-				if ($this->data['Student']['password'] != '$mnit-pass$') {
-					$this->redirect('/student/index/2');
-					return;
+			if (preg_match('/^[A-Z0-9]{6,10}$/', $sid)) {
+				$this->set('mFields', $mainFields);
+				$this->set('aFields', $addFields);
+				$this->set('eFields', $extraFields);
+				$this->set('gFields', $guardianFields);
+				if (($this->Student->findCount(array("Student.collegeid" => $sid))) != 0) {
+					$res = $this->Student->find(array('collegeid' => $sid));
+					$this->data = $this->Student->read(NULL, $res['Student']['id']);
 				}
 			} else {
-				if (preg_match('/^[A-Z0-9]{6,10}$/', $sid)) {
-					$this->set('mFields', $mainFields);
-					$this->set('aFields', $addFields);
-					$this->set('eFields', $extraFields);
-					$this->set('gFields', $guardianFields);
-					if (($this->Student->findCount(array("Student.collegeid" => $sid))) != 0) {
-						$res = $this->Student->find(array('collegeid' => $sid));
-						$this->data = $this->Student->read(NULL, $res['Student']['id']);
-					}
-				} else {
-					$this->redirect('/students/index/0');
-				}
+				$this->redirect('/students/index/0');
 			} 
 		}
 	}
