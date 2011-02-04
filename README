@@ -1,0 +1,14 @@
+Nigraha is content management framework that aims at automating several
+routines that take place in a university, with a specific emphasis on
+Indian Colleges. The system is currently in place and functioning at
+the Malaviya National Institute of Technology, Jaipur.
+
+Nigraha was under active development from 2005-2008, primarily under
+the umbrella of the MNIT FOSS Labs. We have found that existing generic
+frameworks for university automation do not fit the needs of Indian
+Universities very well, and extensive customization is almost always
+required. Hence, Nigraha was built from ground-up on the basis of a loose
+coupling between data sources and the actions that can be performed on them.
+
+The code is licensed under the GNU General Public License (version 3).
+
